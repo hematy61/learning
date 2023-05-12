@@ -144,3 +144,5 @@ pubsub.subscribe('userLoggedIn', handle_event)
 # Publish an event
 pubsub.publish('userLoggedIn', {'name': 'John Doe'})
 ```
+
+test
