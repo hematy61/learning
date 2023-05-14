@@ -1,0 +1,13 @@
+# adds intellisense to markdownlint
+# https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint
+
+# Default state for all rules
+default: true
+
+MD038: false
+
+MD046: false
+
+# line length can be unlimited
+MD013:
+  line_length: unlimited
