@@ -1,7 +1,7 @@
 # Iterables
 
 In Python, an iterable is an object capable of returning its elements one at a time. An iterable is a sequence of data that can be iterated upon using a loop. Examples of iterables in Python include lists, tuples, sets, and dictionaries.
-Iterables can be looped over with a for loop. The loop repeatedly calls the next() method of the iterable until the StopIteration exception is raised, indicating that there are no more elements to iterate.
+Iterables can be looped over with a for loop. The loop repeatedly calls the `next()` method of the iterable until the `StopIteration` exception is raised, indicating that there are no more elements to iterate.
 
 Here's an example of iterating over a list:
 
@@ -11,9 +11,7 @@ for element in my_list:
     print(element)
 ```
 
-In this example, `my_list` is an iterable, and the loop iterates over each element in the list and prints it to the console.
-
-Examples of iterables in Python include lists, tuples, sets, and dictionaries. Strings are also iterables, and iterating over a string will return each character in the string.
+In this example, `my_list` is an iterable, and the loop iterates over each element in the list and prints it to the console. Strings are also iterables, and iterating over a string will return each character in the string.
 
 It's worth noting that not all Python objects are iterable. For example, integers, floats, and booleans are not iterable. However, you can iterate over a range of numbers using the `range()` function, like this:
 
@@ -24,9 +22,9 @@ for i in range(5):
 
 In this example, the `range()` function returns an iterable that can be looped over. The loop iterates over the range of numbers from 0 to 4 and prints each number to the console.
 
-## define iterables
+## Define iterables
 
-In Python, an iterable is an object that can return an iterator. An iterator is an object that can iterate (loop) over the elements of an iterable, one at a time. To create an iterable in Python, you can define a class with an `__iter__()` method that returns an iterator object. Here's an example:
+In Python, an iterable is an object that can return an iterator. An iterator is an object that can iterate (loop) over the elements of an iterable, one at a time. To create an iterable in Python, you can define a class with an `__iter__()` and `__next__` methods that returns an iterator object. Here's an example:
 
 ```python {cmd}
 class MyIterable:
@@ -78,21 +76,60 @@ We then use a for loop to iterate over the generator and process each customer r
 
 There are many real-world uses for iterables in Python. Here are a few examples:
 
-- Streaming data processing: In situations where data is generated or collected continuously, an iterable can be used to process the data in a streaming fashion. This can be useful for real-time data analysis, log processing, and other applications.
+- **Streaming data processing:** In situations where data is generated or collected continuously, an iterable can be used to process the data in a streaming fashion. This can be useful for real-time data analysis, log processing, and other applications.
 
-- Batch processing: In cases where data is generated in batches, an iterable can be used to process each batch of data individually. This can be useful for batch processing of large datasets, such as those used in machine learning or data mining.
+- **Batch processing:** In cases where data is generated in batches, an iterable can be used to process each batch of data individually. This can be useful for batch processing of large datasets, such as those used in machine learning or data mining.
 
-- Custom data structures: Iterables can be used to define custom data structures that can be iterated over. This can be useful for implementing complex algorithms or data manipulation operations.
+- **Custom data structures:** Iterables can be used to define custom data structures that can be iterated over. This can be useful for implementing complex algorithms or data manipulation operations.
 
-- Functional programming: Iterables are an important part of functional programming in Python, and can be used to define and process sequences of data using a functional style. This can be useful for tasks such as mapping, filtering, and reducing data.
+- **Functional programming:** Iterables are an important part of functional programming in Python, and can be used to define and process sequences of data using a functional style. This can be useful for tasks such as mapping, filtering, and reducing data.
 
-- Parallel processing: In situations where data processing can be done in parallel, iterables can be used to split the data into smaller chunks that can be processed on different processors or threads. This can be useful for speeding up data processing tasks on multi-core machines.
+- **Parallel processing:** In situations where data processing can be done in parallel, iterables can be used to split the data into smaller chunks that can be processed on different processors or threads. This can be useful for speeding up data processing tasks on multi-core machines.
+
+Here is an example of using an iterable in Python to do parallel processing of a large dataset:
+
+```python
+import multiprocessing
+
+def process_data(data_chunk):
+    # Process the data chunk here
+    return processed_data_chunk
+
+def main():
+    # Load the data into a list
+    data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    # Split the data into chunks
+    chunk_size = 3
+    data_chunks = [data[i:i+chunk_size] for i in range(0, len(data), chunk_size)]
+
+    # Create a pool of worker processes
+    pool = multiprocessing.Pool()
+
+    # Process the data chunks in parallel
+    processed_data = pool.map(process_data, data_chunks)
+
+    # Combine the processed data chunks
+    combined_data = []
+    for chunk in processed_data:
+        combined_data.extend(chunk)
+
+    # Do something with the combined data
+    print(combined_data)
+
+if __name__ == '__main__':
+    main()
+```
+
+In this example, we have a list of data that we want to process in parallel. We first split the data into smaller chunks using a list comprehension. We then create a pool of worker processes using the `multiprocessing.Pool()` function. We use the `map()` method of the pool object to apply the `process_data()` function to each data chunk in parallel. The `map()` method returns a list of the processed data chunks, which we then combine into a single list using the `extend()` method. Finally, we do something with the combined data, such as printing it to the console.
+
+Note that the `process_data()` function is not defined in this example, as it will depend on the specific data processing task you are trying to perform. However, the key idea is to define a function that takes a data chunk as input and returns a processed data chunk as output. This function can then be applied to each data chunk in parallel using the `map()` method of the `multiprocessing.Pool()` object.
 
 ## `map()` function
 
-As part of the functional paradigm, Python provides a built-in function called map() that applies a function to each element of an iterable or multiple iterables. The map() function returns an iterator that yields the results of the function call on each element of the iterable.
+As part of the *functional paradigm*, Python provides a built-in function called `map()` that applies a function to each element of an iterable or multiple iterables. The `map()` function returns an iterator that yields the results of the function call on each element of the iterable.
 
-The syntax of the map() function is as follows:
+The syntax of the `map()` function is as follows:
 
 ```python {cmd}
 map(function, iterable, [iterable2, iterable3,...])
@@ -102,14 +139,14 @@ map(function, iterable, [iterable2, iterable3,...])
 - **iterable:** The iterable object to be mapped.
 - **iterable2/3/...** (optional): Additional iterable objects to be mapped.
 
-The map() function returns a map object which can be converted to other iterable objects such as a list, tuple or set. Here is an example of how to use the map() function in Python:
+The `map()` function returns a map object which can be converted to other iterable objects such as a list, tuple or set. Here is an example of how to use the `map()` function in Python:
 
 ### With Lists
 
 ```python {cmd}
 # Define a function to be used with map()
 def square(x):
-    return x*x
+    return x * x
 
 # Define a list of numbers
 numbers = [1, 2, 3, 4, 5]
@@ -131,7 +168,7 @@ print(squared_numbers_list) # Output: [1, 4, 9, 16, 25]
 celsius_temps = (0, 5, 10, 15, 20)
 
 # Use the map() function to convert each temperature to Fahrenheit
-fahrenheit_temps = tuple(map(lambda x: (9/5)*x + 32, celsius_temps))
+fahrenheit_temps = tuple(map(lambda x: (9/5) * x + 32, celsius_temps))
 
 # Print the Fahrenheit temperatures
 print(fahrenheit_temps) # Output: (32.0, 41.0, 50.0, 59.0, 68.0)
@@ -165,7 +202,7 @@ print(word_lengths) # Output: {5, 6, 7}
 
 ### With lambda functions
 
-Another way to use the map() function is to use an anonymous function (also known as a lambda function) instead of defining a separate function. Here is an example:
+Another way to use the `map()` function is to use an anonymous function (also known as a *lambda* function) instead of defining a separate function. Here is an example:
 
 ```python {cmd}
 # Define a list of strings
@@ -181,7 +218,7 @@ capitalized_words_list = list(capitalized_words)
 print(capitalized_words_list) # Output: ['APPLE', 'BANANA', 'CHERRY']
 ```
 
-One thing to keep in mind when using the map() function is that the original iterable object remains unchanged. The map() function only returns a new iterable object with the transformed values.
+One thing to keep in mind when using the `map()` function is that **the original iterable object remains unchanged**. The `map()` function only returns a new iterable object with the transformed values.
 
 ### With Strings
 
