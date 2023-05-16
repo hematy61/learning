@@ -251,7 +251,7 @@ In this example, we use lambda function to add corresponding numbers in two list
 
 ## `filter()` function
 
-The `filter()` function is another built-in function as part of the functional paradigm in Python. `filter()` is a built-in Python function that allows you to filter an iterable (such as a list or tuple) using a function that returns either True or False for each element of the iterable, thereby creating a new iterable with only the elements that satisfy the condition of the function. The syntax for `filter()` function is as follows:
+The `filter()` function is another built-in function as part of the functional paradigm in Python. `filter()` is a built-in Python function that allows you to filter an iterable (such as a list or tuple) using a function that returns either `True` or `False` for each element of the iterable, thereby creating a new iterable with only the elements that satisfy the condition of the function. The syntax for `filter()` function is as follows:
 
 ```python {cmd}
 filter(function, iterable)
@@ -270,9 +270,15 @@ even_numbers = list(filter(is_even, numbers))
 print(even_numbers) # Output: [2, 4, 6, 8, 10]
 ```
 
-Note that the filter() function returns an iterator by default, which can be converted to a list, tuple or any other iterable using the appropriate function.
+Note that the `filter()` function returns an iterator by default, which can be converted to a list, tuple or any other iterable using the appropriate function.
 
 Filter is an extremely powerful and useful function in Python that simplifies the task of filtering elements from a collection. However, in Python 3.x, using List comprehensions or generator expressions can be the more Pythonic and faster alternative to use.
+
+```python {cmd}
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+odd_numbers = [num for num in numbers if num % 2 == 1]
+print(odd_numbers)  # Output: [1, 3, 5, 7, 9]
+```
 
 ### With lists
 
