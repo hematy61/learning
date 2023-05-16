@@ -272,7 +272,7 @@ print(even_numbers) # Output: [2, 4, 6, 8, 10]
 
 Note that the `filter()` function returns an iterator by default, which can be converted to a list, tuple or any other iterable using the appropriate function.
 
-Filter is an extremely powerful and useful function in Python that simplifies the task of filtering elements from a collection. However, in Python 3.x, using List comprehensions or generator expressions can be the more Pythonic and faster alternative to use.
+Filter is an extremely powerful and useful function in Python that simplifies the task of filtering elements from a collection. However, in Python 3.x, using List comprehensions or generator expressions can be other alternative to use.
 
 ```python {cmd}
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
@@ -337,4 +337,76 @@ filtered_string = ''.join(list(
     filter(lambda char: char.lower() not in vowels, string))
 )
 print(filtered_string)  # Output: 'Hll Wrld'
+```
+
+## `reduce()` function
+
+The reduce() function in Python is a built-in function that is used to apply a particular function to all the elements in a sequence and reduce it to a single value. It is important to note that the `reduce()` function has been moved to the `functools` module in Python 3, so you will need to import it from there.
+The basic syntax of the `reduce()` function is:
+
+```python
+reduce(function, sequence[, initial])
+```
+
+The `function` parameter is a function that takes two arguments and returns a single value, which will be used to reduce the sequence. The sequence parameter is an iterable sequence of elements that will be reduced by the function. The optional initial parameter is an initial value that can be used as the first argument to the function.
+Here's an example of using the reduce() function to find the sum of a list of numbers:
+
+```python {cmd}
+from functools import reduce
+
+nums = [1, 2, 3, 4, 5]
+result = reduce(lambda x, y: x + y, nums)
+
+print(result)  # Output: 15
+```
+
+if the `reduce()` function is used with an empty sequence and no initial value is provided, it will raise a `TypeError`. So, it's always a good practice to provide an initial value when using `reduce()` to avoid such errors.
+
+```python {cmd}
+from functools import reduce
+
+nums = []
+result = reduce(lambda x, y: x + y, nums)
+
+print(result)  # Output: TypeError: reduce() of empty sequence with no initial value
+```
+
+Here are more examples:
+
+Find the maximum value from a list of numbers:
+
+```python {cmd}
+from functools import reduce
+
+nums = [23, 45, 12, 67, 89]
+max_num = reduce(lambda x, y: x if x > y else y, nums)
+
+print(max_num)   # Output: 89
+```
+
+Calculate the total cost of items in a shopping cart:
+
+```python {cmd}
+from functools import reduce
+
+cart_items = [
+    {'item': 'book', 'price': 10.99},
+    {'item': 'shirt', 'price': 25.50},
+    {'item': 'shoes', 'price': 89.99},
+    {'item': 'hat', 'price': 15.00}
+]
+total_cost = reduce(lambda x, y: x + y['price'], cart_items, 0)
+
+print(total_cost)   # Output: 141.48
+```
+
+Finding the last longest word in a list of words:
+
+```python {cmd}
+from functools import reduce
+
+words = ['apple', 'banana', 'cherry', 'date']
+longest_word = reduce(lambda x, y: x if len(x) > len(y) else y, words)
+
+print(longest_word)   # Output: 'cherry'
 ```
