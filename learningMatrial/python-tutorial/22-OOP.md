@@ -8,17 +8,20 @@ The four main principles of OOP are:
 
 - **Encapsulation** - This refers to the practice of hiding internal data and methods of an object from the outside world. This is achieved by setting up access modifiers such as private, protected, and public.
 
-- **Inheritance** - This allows a class to inherit properties and methods from another class. The inherited class is called a subclass, while the base class is called the superclass or parent class.
+- **Inheritance** - This allows a class to inherit properties and methods from another class. The inherited class is called a subclass or child class or derived class. The class that is inherited from is called the parent class or base class or superclass.
 
-- **Polymorphism** - This refers to the ability of objects to take on multiple forms. It allows a subclass to implement a method that is already defined in its superclass but with different functionality.
+- **Polymorphism** - This refers to the ability of objects to take on multiple forms. It allows a subclass to implement a method that is already defined in its superclass but with different functionality. For example, in Python, the `+` operator can be used to add two numbers or concatenate two strings. Therefore, the `+` operator is polymorphic because it can be used to perform different operations depending on the type of operands.
 
-- **Abstraction** - This means that a class only shows necessary details to the client and hides complex implementation details.
+- **Abstraction** - This means that a class only shows necessary details to the client and hides complex implementation details. Python does not have built-in support for abstraction, but uses inheritance to achieve it.
 
 Python is a multi-paradigm programming language that supports object-oriented, imperative, and functional programming or procedural programming styles. It is also a dynamically typed language, which means that you don't have to declare the type of a variable when you define it.
 
 ## Modularity
 
 One of the main benefits of OOP is modularity. Modularity means dividing a large system into smaller, more manageable modules or objects. This promotes the separation of concerns and reduces coupling between different parts of the system. Modularity is achieved in OOP through the use of classes and objects.
+
+The four pillars of OOP, inheritance, encapsulation, abstraction, and polymorphism, are fundamental concepts to OOP and are used to create modular, reusable code.
+While modularity is a design principle that can be applied to any programming paradigm, the four pillars of OOP are specific to OOP and are used to create modular, reusable code in an object-oriented way.
 
 In OOP, a class represents a module or object that has its own data and functions. These classes can be used to create objects that interact with each other. Each object can communicate with other objects by calling their methods and exchanging data.
 
@@ -91,4 +94,268 @@ Furthermore, attributes can be created dynamically in instance using the dot not
 ```python
 person1.country = "USA"
 print(person1.country)    # Output: USA
+```
+
+### Behaviors
+
+In OOP, behaviors are the actions that an object can perform. Behaviors are defined as methods in a class, which are functions that are associated with an object. Methods can be used to modify the state of an object, perform calculations, or interact with other objects.
+
+For example, let's consider a simple `class Person`:
+
+```python {cmd}
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def greeting(self):
+        print(f"Hello, my name is {self.name} and I am {self.age} years old.")
+```
+
+The `greeting` method is a behavior of the `Person` class. It takes in the `self` parameter, which refers to the instance of the object. It then prints out a greeting message using the object's properties.
+
+## Objects
+
+An object is an instance of a class that encapsulates data and behavior. An object is created from a class and has a unique identity, state, and behavior that is defined by the class.
+
+Let's take an example of a class Car to understand objects in detail:
+
+```python {cmd}
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+        self.speed = 0
+    
+    def accelerate(self):
+        self.speed += 10
+    
+    def brake(self):
+        self.speed -= 10
+    
+    def get_speed(self):
+        return self.speed
+    
+    def get_make(self):
+        return self.make
+    
+    def get_model(self):
+        return self.model
+    
+    def get_year(self):
+        return self.year
+
+toyota_camry = Car("Toyota", "Camry", 2018)
+honda_accord = Car("Honda", "Accord", 2019)
+```
+
+In this class, we define the properties and methods of a car object. The properties include `make`, `model`, `year`, `speed` which represent a car's make, model, year of manufacture, and current speed respectively. The methods include `accelerate`, `brake`, `get_speed`, `get_make`, `get_model`, and `get_year` which perform actions like increasing or reducing the car's speed, and retrieving the car's details.
+we created two objects `toyota_camry` and `honda_accord`, which are instances of `car` by calling its constructor and passing in values for `make`, `model`, and `year`.
+
+We can then use this object to call its methods and modify its properties. For example:
+
+```python {cmd}
+my_car.accelerate()   # increase speed by 10
+my_car.accelerate()   # increase speed by another 10
+my_car.brake()        # reduce speed by 10
+print(my_car.get_speed())   # output: 10
+print(my_car.get_make())    # output: Honda
+```
+
+## Other OOP Concepts
+
+There are several other concepts that are important to understand when learning about OOP. These include:
+
+- Message Passing
+- Composition
+- Aggregation
+- Association
+- Overloading
+- Overriding
+- Static Binding
+- Dynamic Binding
+- Constructors
+- Destructors
+- Access Modifiers
+- Interfaces
+- Abstract Classes
+- Concrete Classes
+- Method Signatures
+- Inheritance Hierarchies
+
+### Message Passing
+
+Message passing is commonly used in object-oriented programming (OOP) to communicate between different objects. In OOP, objects are instances of classes that represent real-world entities or concepts. These objects interact with each other by sending messages or invoking methods.
+
+For example, let's say we have a 'Person' class that represents a person, and a 'BankAccount' class that represents a bank account. A person can have multiple bank accounts, so we can create a method in the 'Person' class called 'add_bank_account' that takes a 'BankAccount' object as a parameter:
+
+```python {cmd}
+class BankAccount:
+    def __init__(self, account_number, balance):
+        self.account_number = account_number
+        self.balance = balance
+
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+        self.bank_accounts = []
+
+    def add_bank_account(self, bank_account):
+        self.bank_accounts.append(bank_account)
+```
+
+Now, we can create instances of these classes and use message passing to add a bank account to a person:
+
+```python {cmd}
+person1 = Person('John', 30)
+bank_account1 = BankAccount(123456, 1000)
+person1.add_bank_account(bank_account1)
+```
+
+In this example, we created a 'Person' object called 'person1' and a 'BankAccount' object called 'bank_account1'. We then used message passing to add the 'bank_account1' object to the 'person1' object by calling the 'add_bank_account' method and passing in the 'bank_account1' object as a parameter.
+
+### Composition
+
+Composition is a way of combining simple objects or data types into more complex ones. It is a form of aggregation that allows objects to be composed of other objects. For example, a car can be composed of an engine, wheels, and a chassis.
+It involves creating a new object by embedding other objects within it, forming a hierarchy of objects. The objects are linked together by an association, which specifies how they interact with each other.
+
+It is common to represent real-world objects as classes. For example, a car can be represented as a class `Car`. Now, a car has several components, such as an engine, wheels, seats, etc. We can represent each of these components as separate classes, such as `Engine`, `Wheel`, `Seat`, etc.
+
+Now, when we say a car "has an engine", it means that the engine is a part of the car. In OOP terms, this relationship is called a **"has-a"** relationship, and it can be modeled using composition.
+
+So, the `Car` class can have an attribute called `engine`, which is an object of the `Engine` class. Similarly, the `House` class can have an attribute called `rooms`, which is a list of objects of the `Room` class. The `Computer` class can have an attribute called `keyboard`, which is an object of the `Keyboard` class.
+
+In this way, composition allows us to model complex relationships between objects by combining simpler objects. It enables us to reuse existing classes and promote modular design.
+
+Let's take an example of a car and an engine. The car class will have an object of the engine class as an attribute. Here's how it would look in Python code:
+
+```python {cmd}
+class Engine:
+    def __init__(self, fuel_type):
+        self.fuel_type = fuel_type
+
+class Car:
+    def __init__(self, engine_type):
+        self.engine = Engine(engine_type)
+```
+
+In the above code, the Engine class has an attribute fuel_type. The Car class has an attribute engine, which is an object of the Engine class. The engine object is created by passing the engine_type argument to the Engine constructor.
+
+Now let's say we want to add a new attribute to the Car class, such as the number of wheels. We can do this without affecting the Engine class or any other class that uses it. Here's how:
+
+```python {cmd}
+class Car:
+    def __init__(self, engine_type, num_wheels):
+        self.engine = Engine(engine_type)
+        self.num_wheels = num_wheels
+```
+
+Composition is a powerful technique that allows for the creation of complex objects with ease. It enables the reuse of existing classes and promotes modular design.
+
+### Aggregation
+
+Aggregation is a type of association relationship in Object-Oriented Programming (OOP) where one object is composed of or contains other objects. It is a **"HAS-A"** relationship and can be thought of as a part-whole relationship.
+
+In aggregation, the contained objects can exist independently of the container object, meaning they can be shared between multiple container objects or can exist on their own. This is different from composition, where the contained objects are exclusive to the container object and cannot exist without it.
+
+Let's take an example of a Library class that contains multiple Book objects:
+
+```python {cmd}
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+class Library:
+    def __init__(self, books=[]):
+        self.books = books
+```
+
+In this example, the Library class contains a list of Book objects. The Book objects can exist outside of the Library and can be shared between multiple Library objects. Therefore, this is an example of aggregation.
+
+Let’s take an example of a car object that contains multiple wheel objects:
+
+```python {cmd}
+class Wheel:
+    def __init__(self, size):
+        self.size = size
+
+class Car:
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+        self.wheel1 = Wheel(15)
+        self.wheel2 = Wheel(15)
+        self.wheel3 = Wheel(15)
+        self.wheel4 = Wheel(15)
+```
+
+In this example, the `Car` class is composed of four `Wheel` objects. These `Wheel` objects cannot exist without the `Car` object and are exclusive to it. Therefore, this is an example of composition.
+
+### Association
+
+In Object-Oriented Programming (OOP), association is a relationship between two or more objects that describes how they are related to each other. It is a way for objects to communicate with each other, sharing information and resources.
+
+Association is a crucial concept in OOP as it allows developers to create complex and dynamic systems by breaking them down into smaller, more manageable components. In this relationship, the associated objects can interact with each other, exchanging information and carrying out tasks.
+
+Note that, aggregation is a type of association in which one object is the owner of another object, but the subordinate object continues to exist even if the owner object is destroyed. It is a "part-of" relationship, where the subordinate object is a part of the owning object, but it can exist independently.
+
+There are different types of association, including:
+
+One-to-One: This type of association occurs when one object has a single relationship with another object. For example, a Person object can have a Passport object, which is associated with only one person.
+
+One-to-Many: In this type of association, one object is associated with many other objects. For example, a Teacher object can be associated with multiple Student objects.
+
+Many-to-Many: In this type of association, many objects are associated with many other objects. For example, a Student object can be associated with multiple Course objects, and a Course object can be associated with many Student objects.
+
+Below are some examples to illustrate association in OOP:
+
+Example 1: One-to-One Association
+
+Let's consider the example of a `Person` and a `Passport` object. Every person has only one passport, and every passport belongs to only one person. Therefore, there is a one-to-one association between the `Person` and `Passport` objects.
+
+```python {cmd}
+class Person:
+    def __init__(self, name, passport):
+        self.name = name
+        self.passport = passport
+        
+class Passport:
+    def __init__(self, number, expiry_date):
+        self.number = number
+        self.expiry_date = expiry_date
+        
+person_1 = Person("John", Passport("123456789", "01/01/2025"))
+print(person_1.name)
+print(person_1.passport.number)
+```
+
+Example 2: One-to-Many Association
+
+Consider the relationship between a university and its departments. A university can have many departments, but each department is associated with only one university. Therefore, there is a one-to-many association between the University and Department objects.
+
+```python {cmd}
+class University:
+    def __init__(self, name):
+        self.name = name
+        self.departments = []
+        
+    def add_department(self, department):
+        self.departments.append(department)
+        
+class Department:
+    def __init__(self, name, university):
+        self.name = name
+        self.university = university
+        university.add_department(self)
+
+university_1 = University("Harvard University")
+department_1 = Department("Computer Science", university_1)
+department_2 = Department("Biology", university_1)
+
+print(university_1.name)
+for department in university_1.departments:
+    print(department.name)
 ```
