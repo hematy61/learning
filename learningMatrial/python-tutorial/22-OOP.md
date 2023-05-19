@@ -2,7 +2,9 @@
 
 OOP or Object-Oriented Programming is a programming paradigm based on the concept of objects, which can contain data and code methods that operate on that data.
 
-In OOP, data and functions that operate on that data are organized into classes and objects. A class is a blueprint or template for creating objects, while an object is an instance of a class. A class defines the properties and methods that an object will have. Properties are the attributes of an object, while methods are the functions that an object can perform.
+In OOP, data and functions that operate on that data are organized into classes and objects. The key components of OOP are classes, objects, attributes, and methods.
+
+A class is a blueprint or template for creating objects, while an object is an instance of a class. A class defines the properties and methods that an object will have. Properties are the attributes of an object, while methods are the functions that an object can perform.
 
 The four main principles of OOP are:
 
@@ -359,3 +361,11 @@ print(university_1.name)
 for department in university_1.departments:
     print(department.name)
 ```
+
+<!--
+TODO: Add Many-to-Many Association example
+TODO: Add Aggregation example
+TODO: Add Composition example
+TODO: Add Dependency example
+... 
+-->
