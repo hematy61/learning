@@ -46,6 +46,20 @@ git stash -m "Feature A in progress"
 git stash -u -m "Feature B in progress"
 ```
 
+### Stash Selected Files or Folders
+
+To stash only selected files or folders, you can specify the files or folders as arguments to the `git stash push` command. This allows you to stash only the files or folders that you want to stash.
+
+```bash
+git stash push file1 file2 folder1
+```
+
+It is possible to combine it with other options, such as `--include-untracked`, `--all` or `-m`.
+
+```bash
+git stash push file1 file2 folder1 -u -m "Feature B in progress"
+```
+
 ### Viewing Stashes
 
 To view the list of stashes, you can use the `git stash list` command. Each stash entry is listed with its name (e.g. `stash@{0}` is the latest entry, `stash@{1}` is the one before, etc.)
