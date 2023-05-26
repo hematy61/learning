@@ -173,6 +173,10 @@ There are several other concepts that are important to understand when learning 
 - Composition
 - Aggregation
 - Association
+- Encapsulation
+- Polymorphism
+- Abstraction
+- Inheritance
 - Overloading
 - Overriding
 - Static Binding
@@ -369,3 +373,128 @@ TODO: Add Composition example
 TODO: Add Dependency example
 ... 
 -->
+
+### Encapsulation
+
+Encapsulation is an Object-Oriented Programming (OOP) concept that involves hiding the implementation details of a class and exposing only the necessary information to the user.
+
+ Encapsulation helps in reducing the complexity of the code, making it more manageable and maintainable.
+
+ Encapsulation is implemented in Python through the use of access modifiers such as public, protected, and private. These access modifiers determine the scope and visibility of the class attributes and methods.
+
+In Python, to make an attribute or method public, we simply define it without any access modifiers. For example, `self.balance` is a public attribute, and `self.deposit()` is a public method.
+
+To make an attribute or method protected, we prefix it with a single underscore (`_`). For example, `self_balance` is a protected attribute, and `self_deposit()` is a protected method.
+
+To make an attribute or method private, we prefix it with two underscores (`__`). For example, `self__balance` is a private attribute, and `self__deposit()` is a private method.
+
+```python {cmd}
+class Employee:
+    def __init__(self, name, salary):
+        self.name = name  # public attribute
+        self._salary = salary  # protected attribute
+        self.__bonus = 1000  # private attribute
+
+    def get_bonus(self):
+        return self.__bonus  # private method
+```
+
+ Let's take an example of a class called `BankAccount` to illustrate how encapsulation can be implemented in Python.
+
+```python {cmd}
+class BankAccount:
+    def __init__(self):
+        self.balance = 0  # public attribute
+
+    def deposit(self, amount):
+        self.balance += amount
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+        else:
+            print("Insufficient balance")
+
+    def get_balance(self):
+        return self.balance
+
+account_1 = BankAccount()
+account_1.deposit(100)
+print(account_1.balance) # 100
+```
+
+In the above code, we have defined a class called `BankAccount` that has three methods: `deposit`, `withdraw`, and `get_balance`. The attribute `balance` is a public attribute, which means it can be accessed and modified from outside the class.
+
+However, if we want to make the `balance` attribute private, we can prefix it with two underscores (`__balance`). This makes the attribute inaccessible from outside the class.
+
+```python {cmd}
+class BankAccount:
+    def __init__(self):
+        self.__balance = 0  # private attribute
+
+    def deposit(self, amount):
+        self.__balance += amount
+
+    def withdraw(self, amount):
+        if self.__balance >= amount:
+            self.__balance -= amount
+        else:
+            print("Insufficient balance")
+
+    def get_balance(self):
+        return self.__balance
+
+account_1 = BankAccount()
+account_1.deposit(100)
+print(account_1.__balance) # AttributeError: 'BankAccount' object has no attribute '__balance'
+```
+
+Now, the `balance` attribute is made private, and it can only be accessed and modified from within the class methods.
+
+#### Name mangling
+
+In Python, name mangling is a mechanism used to modify the names of attributes of a class that start with a double underscore "`__`" but do not end with another double underscore. This is done to avoid naming conflicts and to prevent the accidental overwriting of attributes.
+
+For example, suppose we have a class named `Person` with an attribute named `__age`. Here's what the class definition might look like:
+
+```python {cmd}
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.__age = age
+```
+
+In this case, the `__age` attribute has been "mangled" to `_Person__age` by the Python interpreter. This means that we cannot access the `__age` attribute directly from outside the class using its original name. Instead, we have to use its mangled name:
+
+```python {cmd}
+class Person:
+        def __init__(self, name, email, age):
+            self.name = name
+            self._email = email
+            self.__age = age
+
+p = Person("Alice", "alice_morgan@test.ca", 25)
+print(p._Person__age)  # Output: 25
+```
+
+Note that the mangled name still includes the original name and the name of the class, separated by a single underscore. This is why we need to use the mangled name instead of the original name.
+
+It's worth noting that name mangling is not intended to provide security, as the mangled names can still be accessed if you know what they are. Rather, it is simply a way to ensure that attribute names with double underscores do not clash with names in subclasses or in other parts of the program.
+
+It's also worth noting that name mangling only applies to names with double underscores at the beginning of the name and without double underscores at the end. Names with a single leading underscore or a double leading and trailing underscore are not mangled.
+
+!!!
+    `dir()` function can be used to get the list of all the attributes of an object, including the mangled attributes.
+
+    ```python {cmd}
+    class Person:
+        def __init__(self, name, email, age):
+            self.name = name
+            self._email = email
+            self.__age = age
+
+    p = Person("Alice", "alice_morgan@test.ca", 25)
+    print(dir(p))  # Output: ['_Person__age', '__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__', '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', '__weakref__', 'name']
+
+
+    ```
