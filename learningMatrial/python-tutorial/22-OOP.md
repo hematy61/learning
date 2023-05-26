@@ -498,3 +498,234 @@ It's also worth noting that name mangling only applies to names with double unde
 
 
     ```
+
+### Polymorphism
+
+Polymorphism is the ability of an object to take on many forms. In Python, polymorphism is achieved through method overriding and method overloading. Method overriding is when a subclass provides a different implementation of a method that is already defined in its superclass. Method overloading is when a class has multiple methods with the same name but different parameters.
+
+### Method overriding
+
+Method overriding is a concept in Python (and many Object-Oriented Programming languages) that allows derived classes to define a method with the same name as a method in the base class.
+
+When a method in the derived class has the same name as a method in the base class, the derived class's method will be executed instead of the base class's method. This is called method overriding.
+
+To override a method in Python, you simply define a method in your derived class with the same name as the method in the base class. The method signature (i.e. the method name and parameters) must be the same in both the base and derived classes.
+
+Here's an example:
+
+```python {cmd}
+class Animal:
+    def make_sound(self):
+        print("Generic animal sound")
+
+# Dog class inherits from Animal class
+class Cat(Animal):
+    def make_sound(self):
+        print("Meow")
+
+a = Animal()
+a.make_sound()  # prints "Generic animal sound"
+
+c = Cat()
+c.make_sound()  # prints "Meow"
+```
+
+In this example, we have a base class `Animal` with a method `make_sound`. The `Cat` class inherits from `Animal`, and overrides the `make_sound` method with its own implementation. When we create an instance of `Animal` and call `make_sound`, we get the generic animal sound. But when we create an instance of `Cat` and call `make_sound`, we get `Meow`, because the `make_sound` method in `Cat` overrides the method in `Animal`.
+
+It's important to note that when overriding a method, you can still call the original implementation from the base class using the `super()` function. For example:
+
+```python {cmd}
+class Animal:
+    def make_sound(self):
+        print("Generic animal sound")
+
+class Dog(Animal):
+    def make_sound(self):
+        super().make_sound()
+        print("Woof")
+
+d = Dog()
+d.make_sound()  # prints "Generic animal sound\nWoof"
+```
+
+In this example, the `Dog` class overrides `make_sound`, but first calls the `make_sound` method from the base `Animal` class using `super().make_sound()`. Then it adds `Woof` to the end of the output, so the final output is `Generic animal sound\nWoof`. This is a useful technique for extending the functionality of a method in the base class while still preserving its original behavior.
+
+### Method overloading
+
+Method overloading is a feature in Object-Oriented Programming (OOP) where multiple functions can have the same name but different parameters. The proper function to execute is determined by the number, type, and order of the parameters passed during the function call.
+
+In Python, method overloading is not possible because Python does not support method overloading natively. In Python, if we define multiple functions with the same name, only the last defined function with that name will be considered and the other functions will be overridden. The primary reason for this is Python's dynamic nature, where a function's parameters and return types can be changed during runtime.
+
+For example:
+
+```python {cmd}
+class Calculator:
+    def add(self, a, b):
+        return a + b
+
+    def add(self, a, b, c):
+        return a + b + c
+
+c = Calculator()
+print(c.add(1, 2))  # TypeError: add() missing 1 required positional argument: 'c'
+```
+
+In this example, we have a class `Calculator` with two methods named `add`. The first method takes two parameters, `a` and `b`, and returns their sum. The second method takes three parameters, `a`, `b`, and `c`, and returns their sum. When we create an instance of `Calculator` and call the `add` method with two parameters, we get a `TypeError` because the second `add` method with three parameters overrides the first `add` method with two parameters. This is because Python does not support method overloading.
+
+However, there are some workarounds to achieve method overloading in Python. They are as follows:
+
+- Using default arguments
+- Using variable arguments
+- Using singledispatch
+
+#### Using Default Arguments
+
+By giving default values to the function parameters, we can simulate method overloading in Python. We can define a single function with a generic name, and have different default parameters for different function definitions. The appropriate function will be invoked based on the number and types of arguments passed in the function call. Here's an example:
+
+```python {cmd}
+def add(a, b=0, c=0):
+    return a + b + c
+
+print(add(5))          # returns 5
+print(add(5, 10))      # returns 15
+print(add(5, 10, 15))  # returns 30
+```
+
+#### Using Variable Arguments
+
+Python provides the `*args` and `**kwargs` syntax to handle variable arguments in function definitions. We can use these to simulate method overloading by defining a single function with a generic name, and process the arguments differently based on their types. Here's an example:
+
+```python {cmd}
+def add(*args):
+    for arg in args:
+        if isinstance(arg, int):
+            return sum(args)
+        elif isinstance(arg, str):
+            return "".join(args)
+
+print(add(5))          # returns 5
+print(add(5, 10))      # returns 15
+print(add(5, 10, 15))  # returns 30
+print(add("Hello", " ", "World"))  # returns "Hello World"
+print(add("Hello", 12, "World", "!"))  # this will throw an error
+# TypeError: sequence item 1: expected str instance, int found
+```
+
+#### Using `singledispatch`
+
+`@singledispatch` is a decorator provided in the Python standard library functools module for Generic Function. It's an extremely helpful feature for dynamically overloading function behavior based on the type of input argument supplied.
+
+A Generic Function is a function that behaves differently based on the type of input it receives. That means, we can write a single function that can take different types of arguments and processes them accordingly.
+
+Here's an example:
+
+```python {cmd}
+from functools import singledispatch
+
+@singledispatch
+def add_numbers(value):
+    raise NotImplementedError('Unsupported type')
+
+@add_numbers.register(int)
+def _(value):
+    print(f"Adding integer numbers: {value+value}")
+
+@add_numbers.register(float)
+def _(value):
+    print(f"Adding float numbers: {value+value}")
+
+@add_numbers.register(str)
+def _(value):
+    print(f"Joining two strings: {value + '_' + value}")
+
+add_numbers(10)  # Adding integer numbers: 20
+add_numbers(10.5)  # Adding float numbers: 21.0
+add_numbers("Hello")  # Joining two strings: Hello_Hello
+add_numbers([1, 2, 3])  # NotImplementedError: Unsupported type
+```
+
+In the above example, we have defined three implementations of the add_numbers function, one for each parameter type: `int`, `float`, and `str`.
+
+The `@singledispatch` decorator is used to register the base function. The `@add_numbers.register` decorator is used to register the implementations of the base function for different parameter types.
+
+When we call the `add_numbers` function with an integer, the implementation for `int` is called. When we call the `add_numbers` function with a float, the implementation for `float` is called. When we call the `add_numbers` function with a string, the implementation for `str` is called. When we call the `add_numbers` function with a list, we get a `NotImplementedError` because there is no implementation for `list`.
+
+For classes, we can use the `@singledispatchmethod` decorator instead of the `@singledispatch` decorator.
+
+`@singledispatchmethod` is a decorator available in Python 3.8 onwards. It is a method decorator, similar to `@staticmethod` or `@classmethod`, that allows you to create generic functions, which can have different implementations based on the type of the first argument passed.
+
+The decorator turns a method into a `singledispatch` method, which then provides a mechanism to register specialized implementations depending on the type of the first argument to the method.
+
+Here is an example of how to use @singledispatchmethod decorator in a more realistic scenario. Consider a scenario where a company wants to calculate the payroll of its employees. Each employee has a different position and receives a different compensation, so the payroll calculation varies based on the employee's position. We can use` @singledispatchmethod` to calculate the payroll based on the position.
+
+```python {cmd}
+from functools import singledispatchmethod
+
+class Employee:
+    def __init__(self, name, position):
+        self.name = name
+        self.position = position
+    
+    def calculate_payroll(self):
+        pass
+    
+class HourlyEmployee(Employee):
+    def __init__(self, name, position, hourly_rate, hours_worked):
+        super().__init__(name, position)
+        self.hourly_rate = hourly_rate
+        self.hours_worked = hours_worked
+        
+    def calculate_payroll(self):
+        return self.hourly_rate * self.hours_worked
+        
+class SalariedEmployee(Employee):
+    def __init__(self, name, position, salary):
+        super().__init__(name, position)
+        self.salary = salary
+        
+    def calculate_payroll(self):
+        return self.salary
+        
+class CommissionEmployee(Employee):
+    def __init__(self, name, position, sales, commission_rate):
+        super().__init__(name, position)
+        self.sales = sales
+        self.commission_rate = commission_rate
+        
+    def calculate_payroll(self):
+        return self.sales * self.commission_rate
+
+class PayrollSystem:
+    @singledispatchmethod
+    def calculate_payroll(self, employee):
+        raise ValueError("Invalid Employee Type") 
+    
+    @calculate_payroll.register
+    def _(self, employee: HourlyEmployee):
+        return employee.calculate_payroll()
+    
+    @calculate_payroll.register
+    def _(self, employee: SalariedEmployee):
+        return employee.calculate_payroll()
+    
+    @calculate_payroll.register
+    def _(self, employee: CommissionEmployee):
+        return employee.calculate_payroll()
+
+
+emp1 = HourlyEmployee("John", "Developer", 50, 160)
+emp2 = SalariedEmployee("Jane", "Manager", 90000)
+emp3 = CommissionEmployee("Mike", "Salesman", 100000, 0.2)
+
+payroll_system = PayrollSystem()
+
+print("Payroll of John - Hourly Employee:", payroll_system.calculate_payroll(emp1))
+print("Payroll of Jane - Salaried Employee:", payroll_system.calculate_payroll(emp2))
+print("Payroll of Mike - Commission Employee:", payroll_system.calculate_payroll(emp3))
+```
+
+In the above code, we define a Employee base class and several different types of employees, such as HourlyEmployee, SalariedEmployee, and CommissionEmployee. Each employee type has its own implementation of calculate_payroll() method.
+
+The PayrollSystem class defines a calculate_payroll() method which uses @singledispatchmethod. The default implementation, decorated by @singledispatchmethod, raises a ValueError exception, which is thrown when an unknown type of employee is given as an argument.
+
+Then, we register specialized implementations of the calculate_payroll() method for each type of employee, using the @calculate_payroll.register decorator. This way, we can calculate the payroll of each employee type based on its specialization.

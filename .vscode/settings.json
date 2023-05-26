@@ -1,3 +1,10 @@
 {
-  "cSpell.words": ["functools"]
+  "cSpell.words": [
+    "classmethod",
+    "elif",
+    "functools",
+    "isinstance",
+    "singledispatchmethod",
+    "staticmethod"
+  ]
 }
