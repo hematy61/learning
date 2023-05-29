@@ -137,3 +137,28 @@ To clear stashes, you can use the `git stash clear` command. This command remove
 ```bash
 git stash clear
 ```
+
+## Dropping Stashes
+
+`git stash drop` is a command in Git that is used to remove a specific stash from the stash stack. When you run `git stash` command, it saves your current changes into a stash, allowing you to switch to another branch without committing your changes. You can run `git stash list` to see all the stashes you have saved.
+
+To remove a specific stash, you can use git stash drop followed by the name of the stash. By default, git stash drop removes the latest stash, which is equivalent to running `git stash drop stash@{0}`.
+
+```bash
+# let's say we have a few named and unnamed stashes
+git stash list
+stash@{0}: On branch-name: Feature A in progress
+stash@{1}: On branch-name: Bug fix for issue #456
+stash@{2}: On branch-name: Experiment changes
+stash@{3}: WIP on submit: 6ebd0e2... second commit
+stash@{4}: On master: 9cc0589... initial commit
+
+# to drop the stash at stash@{2}
+git stash drop stash@{2}
+# or just the index
+git stash drop 2
+# or just the name
+git stash drop "Experiment changes"
+```
+
+If you want to remove all stashes in the stack, you can use the git stash clear command.
