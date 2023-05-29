@@ -503,7 +503,7 @@ It's also worth noting that name mangling only applies to names with double unde
 
 Polymorphism is the ability of an object to take on many forms. In Python, polymorphism is achieved through method overriding and method overloading. Method overriding is when a subclass provides a different implementation of a method that is already defined in its superclass. Method overloading is when a class has multiple methods with the same name but different parameters.
 
-### Method overriding
+#### Method overriding
 
 Method overriding is a concept in Python (and many Object-Oriented Programming languages) that allows derived classes to define a method with the same name as a method in the base class.
 
@@ -550,7 +550,7 @@ d.make_sound()  # prints "Generic animal sound\nWoof"
 
 In this example, the `Dog` class overrides `make_sound`, but first calls the `make_sound` method from the base `Animal` class using `super().make_sound()`. Then it adds `Woof` to the end of the output, so the final output is `Generic animal sound\nWoof`. This is a useful technique for extending the functionality of a method in the base class while still preserving its original behavior.
 
-### Method overloading
+#### Method overloading
 
 Method overloading is a feature in Object-Oriented Programming (OOP) where multiple functions can have the same name but different parameters. The proper function to execute is determined by the number, type, and order of the parameters passed during the function call.
 
@@ -578,7 +578,7 @@ However, there are some workarounds to achieve method overloading in Python. The
 - Using variable arguments
 - Using singledispatch
 
-#### Using Default Arguments
+##### Using Default Arguments
 
 By giving default values to the function parameters, we can simulate method overloading in Python. We can define a single function with a generic name, and have different default parameters for different function definitions. The appropriate function will be invoked based on the number and types of arguments passed in the function call. Here's an example:
 
@@ -591,7 +591,7 @@ print(add(5, 10))      # returns 15
 print(add(5, 10, 15))  # returns 30
 ```
 
-#### Using Variable Arguments
+##### Using Variable Arguments
 
 Python provides the `*args` and `**kwargs` syntax to handle variable arguments in function definitions. We can use these to simulate method overloading by defining a single function with a generic name, and process the arguments differently based on their types. Here's an example:
 
@@ -611,7 +611,7 @@ print(add("Hello", 12, "World", "!"))  # this will throw an error
 # TypeError: sequence item 1: expected str instance, int found
 ```
 
-#### Using `singledispatch`
+##### Using `singledispatch`
 
 `@singledispatch` is a decorator provided in the Python standard library functools module for Generic Function. It's an extremely helpful feature for dynamically overloading function behavior based on the type of input argument supplied.
 
@@ -724,8 +724,134 @@ print("Payroll of Jane - Salaried Employee:", payroll_system.calculate_payroll(e
 print("Payroll of Mike - Commission Employee:", payroll_system.calculate_payroll(emp3))
 ```
 
-In the above code, we define a Employee base class and several different types of employees, such as HourlyEmployee, SalariedEmployee, and CommissionEmployee. Each employee type has its own implementation of calculate_payroll() method.
+In the above code, we define a `Employee` base class and several different types of employees, such as `HourlyEmployee`, `SalariedEmployee`, and `CommissionEmployee`. Each employee type has its own implementation of `calculate_payroll()` method.
 
-The PayrollSystem class defines a calculate_payroll() method which uses @singledispatchmethod. The default implementation, decorated by @singledispatchmethod, raises a ValueError exception, which is thrown when an unknown type of employee is given as an argument.
+The `PayrollSystem` class defines a `calculate_payroll()` method which uses `@singledispatchmethod`. The default implementation, decorated by `@singledispatchmethod`, raises a `ValueError` exception, which is thrown when an unknown type of employee is given as an argument.
 
-Then, we register specialized implementations of the calculate_payroll() method for each type of employee, using the @calculate_payroll.register decorator. This way, we can calculate the payroll of each employee type based on its specialization.
+Then, we register specialized implementations of the `calculate_payroll()` method for each type of employee, using the `@calculate_payroll.register` decorator. This way, we can calculate the payroll of each employee type based on its specialization.
+
+### Inheritance
+
+In object-oriented programming, inheritance is a way to create a new class from an existing class, inheriting its attributes and methods. The existing class is called the superclass, and the new class is called the subclass. The subclass can add new attributes and methods, and it can also override or extend the methods of the superclass. The basic template for inheritance in Python is as follows:
+
+```python
+class Parent:
+    Members of the parent class
+
+class Child(Parent):
+    Inherited members from parent class
+    Additional members of the child class
+```
+
+Here is an example in Python:
+
+```python {cmd}
+class Animal:
+    def __init__(self, name, sound):
+        self.name = name
+        self.sound = sound
+    
+    def make_sound(self):
+        print(f"{self.name} says {self.sound}")
+        
+class Cat(Animal):
+    def __init__(self, name):
+        super().__init__(name, "meow")
+        
+class Dog(Animal):
+    def __init__(self, name):
+        super().__init__(name, "woof")
+
+cat = Cat("Kitty")
+cat.make_sound()  # Output: Kitty says meow
+
+dog = Dog("Buddy")
+dog.make_sound()  # Output: Buddy says woof
+```
+
+In this example, `Animal` is the superclass, and `Cat` and `Dog` are the subclasses. The `Cat` and `Dog` classes inherit the name and sound attributes and the `make_sound` method from the `Animal` class. The `Cat` class overrides the sound attribute with "meow", and the `Dog` class overrides it with "woof".
+
+When we create an instance of Cat or Dog and call the make_sound method, it will print the name and sound of the animal.
+
+#### Method Resolution Order (MRO)
+
+Method Resolution Order (MRO) is the order in which Python looks for methods in a hierarchy of classes when there are multiple inheritance. In simple terms, it is the order in which the interpreter searches for the method implementation to execute when a method is called on an object.
+
+Python uses the C3 linearization algorithm to calculate the MRO of a class. The algorithm guarantees that all parent classes are visited before their children and that a class is visited only once. It also preserves the order of method definitions in each class.
+
+Here is an example to illustrate how MRO works in Python:
+
+```python {cmd}
+class A:
+    def foo(self):
+        print("A")
+
+class B(A):
+    def foo(self):
+        print("B")
+
+class C(A):
+    def foo(self):
+        print("C")
+
+class D(B, C):
+    pass
+
+d = D()
+d.foo() # Output: B
+```
+
+In this example, we have four classes: `A`, `B`, `C`, and `D`. Class `D` inherits from both `B` and `C`, which in turn inherit from `A`.
+
+When we call d.foo(), Python looks for the foo method starting with `D`, then `B`, then `C`, and finally `A`. The order of the search falls within the MRO, which in this case is [`D`, `B`, `C`, `A`] according to the C3 algorithm. Therefore, the output will be `B`.
+
+We can also see the MRO of a class using the built-in `mro()` method:
+
+```python {cmd}
+print(D.mro()) # Output: [<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>]
+```
+
+### Abstraction
+
+Abstraction is the process of hiding the complex implementation details of a system and only exposing the essential features to the user or other parts of the system. In object-oriented programming, abstraction can be achieved through abstract classes and interfaces.
+
+An abstract class is a class that cannot be instantiated and is meant to be inherited by subclasses. The abstract class may contain both abstract and concrete methods, but any subclass that inherits from it must implement the abstract methods. This ensures that the subclass provides its own implementation of the abstract methods.
+
+In Python, abstraction can be implemented through abstract classes and abstract methods. The abc module provides the `ABC` and `abstractmethod` decorators that can be used to define abstract classes and abstract methods.
+
+The `ABC` decorator is used to define an abstract class. It is a class decorator that can be applied to a class to make it an abstract class. An abstract class is a class that cannot be instantiated and is meant to be subclassed. An abstract class may contain both abstract and concrete methods, but any subclass that inherits from it must implement the abstract methods. This ensures that the subclass provides its own implementation of the abstract methods.
+
+The `abstractmethod` decorator is used to define an abstract method. It is a method decorator that can be applied to a method to make it an abstract method. An abstract method is a method that does not have an implementation and is meant to be implemented by a subclass. An abstract method is marked with the `@abstractmethod` decorator, and any subclass that inherits from the class that defines the abstract method must provide its own implementation of the method.
+
+Here's an example of an abstract class in Python:
+
+```python
+from abc import ABC, abstractmethod
+
+class Shape(ABC):
+    @abstractmethod
+    def area(self):
+        pass
+    
+    @abstractmethod
+    def perimeter(self):
+        pass
+```
+
+In this example, the `Shape` class is an abstract class with two abstract methods: `area` and `perimeter`. Any class that inherits from `Shape` must implement these methods, as they are essential features of any shape.
+
+```python
+class Rectangle(Shape):
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+    
+    def area(self):
+        return self.length * self.width
+    
+    def perimeter(self):
+        return 2 * (self.length + self.width)
+```
+
+In this example, the `Rectangle` class inherits from `Shape` and implements the `area` and `perimeter` methods. These methods provide the essential features of a rectangle, and the implementation details are hidden from the user.
+
