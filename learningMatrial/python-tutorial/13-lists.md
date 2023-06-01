@@ -102,7 +102,6 @@ fruits = " ".join(fruits)
 print(fruits) # apple banana cherry
 ```
 
-
 ## Iterate through a list
 
 To iterate through a list, we can use a `for` loop.

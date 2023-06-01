@@ -1038,4 +1038,3 @@ class Rectangle(Shape):
 ```
 
 In this example, the `Rectangle` class inherits from `Shape` and implements the `area` and `perimeter` methods. These methods provide the essential features of a rectangle, and the implementation details are hidden from the user.
-
