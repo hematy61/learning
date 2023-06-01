@@ -773,6 +773,88 @@ In this example, `Animal` is the superclass, and `Cat` and `Dog` are the subclas
 
 When we create an instance of Cat or Dog and call the make_sound method, it will print the name and sound of the animal.
 
+#### Multiple Inheritance
+
+Multiple Inheritance is a feature in object-oriented programming (OOP) languages, that allows a class to inherit properties and methods from multiple parent classes. In Python, we can implement Multiple Inheritance by defining a class that inherits from more than one base class.
+
+syntax for multiple inheritance in Python is as follows:
+
+```python
+class Child(Parent1, Parent2, ...):
+    Inherited members from parent classes
+    Additional members of the child class
+```
+
+Where `Child` is the class that inherits from multiple parent classes, `Parent1`, `Parent2`, etc.
+
+Here is an example in Python:
+
+```python {cmd}
+class Bird:
+    def move(self):
+        print("Flying...")
+
+
+class Mammal:
+    def move(self):
+        print("Walking...")
+
+
+class Bat(Bird, Mammal):
+    pass
+
+
+b = Bat()
+b.move() # Output: Flying...
+```
+
+In the above code, we have defined two parent classes Bird and Mammal with a common method move(). We then created a child class Bat that inherits from both Bird and Mammal classes. Since Bat class has not defined its own implementation of move(), it uses the implementation defined in Bird class, which is to fly.
+
+!!! note
+    It's important to keep in mind that Multiple Inheritance can lead to the **diamond problem** where there are conflicts between methods or attributes inherited from multiple parent classes with the same name. In Python, the method resolution order (MRO) is used to resolve such conflicts. It can be accessed using the mro() method on a child class.
+
+#### Multi-level inheritance
+
+Multi-level inheritance is a type of inheritance where a child class inherits properties from a parent class, and the child class itself becomes the parent class for another child class. This way, the properties of the parent class are passed down to the next generation of child classes, creating a hierarchical structure.
+
+Here's an example of multi-level inheritance in Python:
+
+```python {cmd}
+class Animal:
+    def __init__(self, name, species):
+        self.name = name
+        self.species = species
+
+    def speak(self):
+        print("I am an animal.")
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name, species="Dog")
+        self.breed = breed
+
+    def speak(self):
+        print("Woof!")
+
+class Labrador(Dog):
+    def __init__(self, name):
+        super().__init__(name, breed="Labrador")
+
+    def fetch(self):
+        print(f"{self.name} is fetching.")
+
+my_dog = Labrador("Buddy")
+print(my_dog.name)  # Output: "Buddy"
+print(my_dog.species)  # Output: "Dog"
+print(my_dog.breed)  # Output: "Labrador"
+my_dog.speak()  # Output: "Woof!"
+my_dog.fetch()  # Output: "Buddy is fetching."
+```
+
+In this example, we have a parent class called `Animal`, which has two properties: `name` and `species`, and a method `speak`. The `Dog` class inherits from `Animal` and adds a `breed` property and overrides the `speak` method with its own implementation. The `Labrador` class then inherits from `Dog` and has its own method `fetch`.
+
+As you can see, we can access the `name` property from the `Animal` class, the `species` property from the `Dog` class, and the `breed` property from the `Labrador` class. We can also call the `speak` method, which is overridden by the `Dog` class, and the `fetch` method from the `Labrador` class.
+
 #### Method Resolution Order (MRO)
 
 Method Resolution Order (MRO) is the order in which Python looks for methods in a hierarchy of classes when there are multiple inheritance. In simple terms, it is the order in which the interpreter searches for the method implementation to execute when a method is called on an object.
@@ -809,6 +891,108 @@ We can also see the MRO of a class using the built-in `mro()` method:
 
 ```python {cmd}
 print(D.mro()) # Output: [<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>]
+```
+
+#### Built-in functions for inheritance
+
+Python provides a number of built-in functions that can be used to check if a class inherits from another class, or to check if a class is a subclass of another class. These functions are:
+
+- `isinstance()`
+- `issubclass()`
+- `super()`
+- `getattr()`
+- `setattr()`
+- `delattr()`
+- `hasattr()`
+
+##### `issubclass()`
+
+This function returns True if the specified class is a subclass of the specified class or a subclass of it, otherwise it returns False.
+  
+The syntax is:
+  
+```python
+issubclass(class, class_info)
+```
+
+Where `class` is the class to be checked, and `class_info` is the class or tuple of classes to be checked against. You can read the syntax as "is `class` a subclass of `class_info`?"
+
+Here is an example:
+
+```python {cmd}
+class Animal:
+    pass
+
+class Dog(Animal):
+    pass
+
+print(issubclass(Dog, Animal)) # True
+```
+
+##### `isinstance()`
+
+This function returns True if the specified object is an instance of the specified class or a subclass of it, otherwise it returns False.
+
+The syntax is:
+
+```python
+isinstance(object, classinfo)
+```
+
+Where `object` is the object to be checked, and `classinfo` is the class or tuple of classes to be checked against. You can read the syntax as "is `object` an instance of `classinfo`?"
+
+Here is an example:
+
+```python {cmd}
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    pass
+
+my_dog = Dog("Rufus")
+print(isinstance(my_dog, Animal)) # True
+```
+
+##### `super()`
+
+This function returns a temporary object of the superclass, which allows you to call its methods.
+
+Here is an example:
+
+```python {cmd}
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+class Dog(Animal):
+    def __init__(self, name, breed):
+        super().__init__(name)
+        self.breed = breed
+
+my_dog = Dog("Rufus", "Golden Retriever")
+print(my_dog.name) # Rufus
+print(my_dog.breed) # Golden Retriever
+```
+
+##### `getattr(object, name[, default])`
+
+This function returns the value of the named attribute of the specified object. If the named attribute does not exist, the function returns the specified default value.
+
+Example:
+
+```python {cmd}
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+my_person = Person("John", 30)
+print(getattr(my_person, "name")) # John
+print(getattr(my_person, "age")) # 30
+# An example of using the default value when the attribute does not exist
+print(getattr(my_person, "address", "No address found")) # No address found
 ```
 
 ### Abstraction
