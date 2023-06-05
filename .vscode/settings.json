@@ -4,6 +4,7 @@
     "classmethod",
     "elif",
     "functools",
+    "importlib",
     "isinstance",
     "singledispatchmethod",
     "staticmethod"
