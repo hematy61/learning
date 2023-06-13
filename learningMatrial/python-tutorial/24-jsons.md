@@ -2,6 +2,43 @@
 
 JSON stands for **JavaScript Object Notation** and it is a lightweight data interchange format that is easy for humans to read and write and easy for machines to parse and generate. JSON is based on a subset of JavaScript syntax, specifically objects and arrays, and is often used to transmit data between a server and web application, as an alternative to XML. In Python, JSON data can be encoded and decoded using the built-in `json` module.
 
+## Encoding JSON Data
+
+Here is an example of encoding a Python object as JSON:
+
+```python {cmd}
+import json
+
+data = {"name": "John", "age": 30, "city": "New York", "is_admin": True}
+
+# encode Python object to JSON
+json_data = json.dumps(data)
+
+print(json_data)
+```
+
+In this example, the `json.dumps()` method is used to convert a Python dictionary data to a JSON string `json_data`.
+
+## Decoding JSON Data
+
+Here is an example of decoding JSON data into a Python object:
+
+```python {cmd}
+import json
+
+json_data = '{"name": "John", "age": 30, "city": "New York", "is_admin": true}'
+
+# decode JSON string to Python object
+data = json.loads(json_data)
+
+print(data)
+```
+
+In this example, the `json.loads()` method is used to convert a JSON string `json_data` to a Python dictionary data.
+
+!!! note
+    Note that JSON only supports a limited set of data types, such as strings, numbers, booleans, arrays, and objects. Therefore, certain Python data types, such as tuples and sets, cannot be directly encoded as JSON. Additionally, JSON does not support custom Python classes or functions. If you need to encode more complex data structures, you may need to define your own serialization and deserialization methods.
+
 ## JSON vs XML
 
 JSON (JavaScript Object Notation) and XML (Extensible Markup Language) are both popular data interchange formats used for transmitting data between servers and clients. Each format has advantages and disadvantages depending on the requirements of the application.
