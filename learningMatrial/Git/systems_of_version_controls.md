@@ -24,4 +24,3 @@ In this model, developers need a constant connection to the server to perform ve
 DVCS systems provide a distributed approach, where each developer has a complete copy of the repository, including the entire version history. Examples of DVCS include Git, Mercurial, and Bazaar.
 
 With DVCS, developers can work offline, commit changes to their local repository, and synchronize with other repositories when a connection is available. This decentralization enhances collaboration, allows for more flexible branching and merging, and reduces the risk of losing work due to server failures.
-
