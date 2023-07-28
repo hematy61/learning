@@ -10,5 +10,6 @@
     "isinstance",
     "singledispatchmethod",
     "staticmethod"
-  ]
+  ],
+  "dotnet.defaultSolution": "playgrounds/dotnet/dotnet.sln"
 }
