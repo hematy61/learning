@@ -79,3 +79,96 @@ When you write a program in C#, it goes through several steps before it is execu
 **Runtime:** As the program runs, the CLR provides services such as automatic memory management, security boundaries, type checking, exception handling, and more.
 
 This process allows C# and other .NET languages to obtain the benefits of both compiled languages (like C++) and interpreted languages (like Python). The initial compilation to IL allows the code to be thoroughly optimized and checked for errors, while the JIT compilation allows the code to take full advantage of the specific hardware and OS it's running on.
+
+## Structure of a C\# Program
+
+A C# program consists of one or more files. Each file can contain zero or more namespaces. A namespace contains types such as classes, structs, interfaces, enumerations, and delegates, or other namespaces.
+
+Here is the skeleton of a C# program that contains all of these elements:
+
+```csharp
+// A skeleton of a C# program
+using System;
+
+// Your program starts here:
+Console.WriteLine("Hello world!");
+
+namespace YourNamespace
+{
+    class YourClass
+    {
+    }
+
+    struct YourStruct
+    {
+    }
+
+    interface IYourInterface
+    {
+    }
+
+    delegate int YourDelegate();
+
+    enum YourEnum
+    {
+    }
+
+    namespace YourNestedNamespace
+    {
+        struct YourStruct
+        {
+        }
+    }
+}
+```
+
+In the above example, the program starts with a `using` directive, which is used to bring system-defined and user-defined namespaces into scope. The `Console.WriteLine("Hello world!");` statement is the entry point of the program.
+
+The `namespace` keyword is used to define a namespace named `YourNamespace`. Inside this namespace, a class (`YourClass`), a struct (`YourStruct`), an interface (`IYourInterface`), a delegate (`YourDelegate`), and an enum (`YourEnum`) are defined.
+
+There is also a nested namespace `YourNestedNamespace` inside `YourNamespace`, which contains another struct `YourStruct`.
+
+This structure was introduced in C# 9. Prior to C# 9, the entry point was a static method named `Main`, as shown in the following example:
+
+```csharp
+// A skeleton of a C# program
+using System;
+namespace YourNamespace
+{
+    class YourClass
+    {
+    }
+
+    struct YourStruct
+    {
+    }
+
+    interface IYourInterface
+    {
+    }
+
+    delegate int YourDelegate();
+
+    enum YourEnum
+    {
+    }
+
+    namespace YourNestedNamespace
+    {
+        struct YourStruct
+        {
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Your program starts here...
+            Console.WriteLine("Hello world!");
+        }
+    }
+}
+```
+
+In this version, the `Main` method inside the `Program` class is the entry point of the program. The `Main` method is where the program starts execution.

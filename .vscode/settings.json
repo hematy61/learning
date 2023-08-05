@@ -8,8 +8,13 @@
     "functools",
     "importlib",
     "isinstance",
+    "sbyte",
     "singledispatchmethod",
-    "staticmethod"
+    "staticmethod",
+    "struct",
+    "structs",
+    "ulong",
+    "ushort"
   ],
   "dotnet.defaultSolution": "playgrounds/dotnet/dotnet.sln"
 }
