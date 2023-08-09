@@ -191,14 +191,14 @@ print(hourglassSum(arr))  # Expected Output: 19
 **Time Complexity:**
 The solution involves two nested loops that iterate over the 2D array. Since the array is of fixed size 6x6, and the loops iterate up to 4x4 (to ensure that a complete hourglass can be formed), the time complexity is:
 
-O(4 * 4) = O(16) = O(1)
+\[ O(4 \times 4) = O(16) = O(1) \]
 
 This is a constant time complexity because no matter the input, the number of operations remains the same due to the fixed size of the array.
 
 **Space Complexity:**
 The solution uses a constant amount of extra space to store variables like maxSum and currentSum. No additional data structures that grow with the input size are used. Therefore, the space complexity is:
 
-O(1)
+\[O(1)\]
 
 In summary, both the time and space complexities of the solution are **O(1)**.
 
