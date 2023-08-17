@@ -38,7 +38,7 @@ for (int i = 0; i < 10; i++) {
 
 An **expression** is a combination of variables, values, operators, and method calls that the Java runtime evaluates to produce a single value. Expressions can be part of statements, and they don't change the state of the program but instead compute a value.
 
-### Examples of Expressions in Java:
+Examples of Expressions in Java
 
 **Arithmetic Expression**:
 
