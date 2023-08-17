@@ -14,6 +14,7 @@
     "jlink",
     "jshell",
     "jstat",
+    "println",
     "sbyte",
     "singledispatchmethod",
     "staticmethod",
