@@ -22,6 +22,7 @@
     "struct",
     "structs",
     "ulong",
+    "Underflowed",
     "ushort"
   ],
   "dotnet.defaultSolution": "playgrounds/dotnet/dotnet.sln"
