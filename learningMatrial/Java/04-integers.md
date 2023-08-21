@@ -24,44 +24,56 @@ Java provides four integer primitive data types:
   - Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
   - When assigning a value to a `long` variable, you can use the `L` suffix, for example:
 
-```java
-long myLong = 123456789012345L;
+```java {cmd run_on_save}
+class Main {
+    public static void main(String[] args) {
+        // byte 
+        byte myByte = 100;
+        System.out.println(myByte);
+
+        // short
+        short myShort = 5000;
+        System.out.println(myShort);
+
+        // int
+        int myInt = 1000000;
+        System.out.println(myInt);
+
+        // long
+        long myLong = 15000000000L;
+        System.out.println(myLong);
+    }
+}
+
 ```
 
 The `L` suffix is not always required when assigning a value to a `long` variable. However, it's necessary in situations where the value exceeds the range of an `int` or when you want to explicitly indicate that the literal is of type `long`.
 
 By default, any whole number without a decimal point is treated as an `int` in Java. If the number is within the range of `int` (-2,147,483,648 to 2,147,483,647), you can assign it to a `long` variable without the `L` suffix:
 
-```java {cmd}
-long smallValue = 100;  // This is fine because 100 is within the range of int
+```java {cmd run_on_save}
+class Main {
+    public static void main(String[] args) {
+        long smallValue = 100;  // This is fine because 100 is within the range of int
+        System.out.println(smallValue);
+    }
+}
 ```
 
 However, if the number exceeds the range of `int`, you must use the `L` suffix:
 
-```java {cmd}
-long largeValue = 2147483648L;  // Using L because the value exceeds int range
+```java {cmd run_on_save}
+class Main {
+    public static void main(String[] args) {
+        long largeValue = 2147483648L;  // Using L because the value exceeds int range
+        System.out.println(largeValue);
+    }
+}
 ```
 
 Without the `L` suffix in the above example, you'd get a compilation error because the number would be treated as an `int`, and it's out of the `int` range.
 
 It's a good practice to use the `L` suffix for `long` literals to make the code more readable and to avoid potential errors, especially when dealing with numbers close to the boundaries of the `int` range.
-
-Examples:
-
-```java {cmd}
-public class Main {
-    public static void main(String[] args) {
-        byte myByte = 100;
-        short myShort = 5000;
-        int myInt = 1000000;
-        long myLong = 15000000000L;
-        System.out.println(myByte);
-        System.out.println(myShort);
-        System.out.println(myInt);
-        System.out.println(myLong);
-    }
-}
-```
 
 ## Literals in Different Bases
 
