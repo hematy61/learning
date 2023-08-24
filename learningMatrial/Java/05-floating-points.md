@@ -186,6 +186,49 @@ class Main {
 
 For most applications, using `double` is recommended because of its higher precision. However, if memory is a concern, or if you're certain that the added precision of `double` isn't necessary, then `float` might be more appropriate.
 
+## Underscores in floating point Literals
+
+In Java, you can use underscores in numeric literals (both integer and floating-point) to make them more readable, especially for long numbers. This feature was introduced in Java 7.
+
+For floating-point literals, underscores can be placed anywhere between digits, including between the integral and fractional parts of the number. However, there are some rules to follow:
+
+1. You cannot place underscores at the beginning or end of a number.
+2. You cannot place underscores adjacent to a decimal point.
+3. You cannot place underscores prior to an `F`, `f`, `D`, or `d` suffix for `float` and `double` literals, respectively.
+4. You cannot place underscores in positions where a string of digits is expected.
+
+| Data Type | Example with Underscores | Value              |
+| --------- | ------------------------ | ------------------ |
+| `float`   | `3.141_5F`               | 3.1415             |
+| `double`  | `6.022_140_76e23`        | 6.02214076 × 10^23 |
+
+Here are some valid examples of using underscores in floating-point literals:
+
+```java {cmd run_on_save}
+class Main{
+    public static void main(String[] args) {
+        float piApproximation = 3.141_592_653_589_793F;
+        double largeDouble = 123_456.789_012_345D;
+        double anotherDouble = 1_2_3_4_5.6_7_8_9;
+
+        System.out.println(piApproximation);  // Outputs: 3.1415927
+        System.out.println(largeDouble);  // Outputs: 123456.789012345
+        System.out.println(anotherDouble);  // Outputs: 12345.6789
+
+    }
+}
+```
+
+And here are some invalid usages:
+
+```java
+float invalid1 = _3.14F;  // Invalid: underscore at the beginning
+float invalid2 = 3.14_F;  // Invalid: underscore before the suffix
+double invalid3 = 123_.456;  // Invalid: underscore adjacent to the decimal point
+double invalid4 = 123._456;  // Invalid: underscore adjacent to the decimal point
+double invalid5 = 0b_1010; // Invalid: underscore in the binary prefix
+```
+
 ## Operations on Floating-Point Numbers
 
 Certainly! Floating-point operations are the arithmetic and mathematical operations you can perform on floating-point numbers. Here's an overview of these operations:
