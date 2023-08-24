@@ -84,26 +84,28 @@ In Java, you can represent integer literals in different bases:
 - **Octal**: `int octVal = 032;` (prefix `0`)
 - **Hexadecimal**: `int hexVal = 0x1A;` (prefix `0x` or `0X`)
 
-## Underscores in Numeric Literals
-
-From Java 7 onwards, you can use underscores in numeric literals to make them more readable:
+For `byte`, `short`, and `long`, the representation is the same, but you need to ensure the value fits within the range of the type. For long literals, you can also append an `L` or `l` at the end, regardless of the base.
 
 ```java {cmd run_on_save}
 class Main {
     public static void main(String[] args) {
-        float oneMillion = 1000.109f;
-        System.out.println(oneMillion);
+
+        long longBinary = 0b1010101010101010101010101010101010101010101010101010101010101010L;
+        System.out.println(longBinary);
     }
 }
+
 ```
+
+## Underscores in Numeric Literals
+
+From Java 7 onwards, you can use underscores in numeric literals to make them more readable:
 
 | Data Type | Example with Underscores | Value              |
 | --------- | ------------------------ | ------------------ |
 | `short`   | `32_767`                 | 32,767             |
 | `int`     | `1_000_000`              | 1,000,000          |
 | `long`    | `1234_5678_9012_3456L`   | 1234567890123456   |
-| `float`   | `3.141_5F`               | 3.1415             |
-| `double`  | `6.022_140_76e23`        | 6.02214076 × 10^23 |
 
 The use of underscores in numeric literals in Java is purely for improving readability, and there's no strict rule on where they should be placed. You can use them wherever you think they make the number more readable, however, there are a few rules that you should be aware of.
 
@@ -114,114 +116,128 @@ The use of underscores in numeric literals in Java is purely for improving reada
 - You cannot place underscores prior to an L suffix in a long literal.
 - You cannot place underscores in positions where a string of digits is expected.
 
-```java {cmd run_on_save}
-class Main {
-    public static void main(String[] args) {
-        // Invalid: cannot place underscores at the beginning or end of a number
-        // float pi1 = _3.1415F;
-        // float pi2 = 3.1415F_;
+```java
 
-        // Invalid: cannot place underscores adjacent to a decimal point in a floating-point literal
-        // float pi3 = 3_.1415F;
-        // float pi4 = 3._1415F;
+// Invalid: cannot place underscores at the beginning or end of a number
+float pi1 = _3.1415F;
+float pi2 = 3.1415F_;
 
-        // Invalid: cannot place underscores prior to an L suffix in a long literal
-        // long creditCardNumber = 1234_5678_9012_3456_L;
+// Invalid: cannot place underscores adjacent to a decimal point in a floating-point literal
+float pi3 = 3_.1415F;
+float pi4 = 3._1415F;
 
-        // Invalid: cannot place underscores in positions where a string of digits is expected
-        // int number = 123_456_;
-    }
-}
+// Invalid: cannot place underscores prior to an L suffix in a long literal
+long creditCardNumber = 1234_5678_9012_3456_L;
+
+// Invalid: cannot place underscores in positions where a string of digits is expected
+int x1 = 0b_1010_1010;
 ```
 
 ## Operations on Integers
 
 Operations on integers in Java can be broadly categorized into arithmetic, bitwise, relational, and assignment operations. Let's delve into each category:
-Of course! Here's a more structured representation with operators and their corresponding examples side by side:
 
 ### 1. Arithmetic Operations
 
-| Operator | Example             |
-| -------- | ------------------- |
-| `+`      | `int sum = a + b;`  |
-| `-`      | `int diff = a - b;` |
-| `*`      | `int prod = a * b;` |
-| `/`      | `int quot = a / b;` |
-| `%`      | `int rem = a % b;`  |
-| `++`     | `a++;` `++a;`       |
-| `--`     | `b--;` `--b;`       |
+| Operator | Name           | Example             |
+|----------|----------------|---------------------|
+| `+`      | Addition       | `a + b`             |
+| `-`      | Subtraction    | `a - b`             |
+| `*`      | Multiplication | `a * b`             |
+| `/`      | Division       | `a / b`             |
+| `%`      | Modulus        | `a % b`             |
+| `++`     | Increment      | `a++` or `++a`      |
+| `--`     | Decrement      | `a--` or `--a`      |
 
-### 2. Bitwise Operations
+The `++` and `--` operators can be used in both postfix (e.g., `a++`) and prefix (e.g., `++a`) forms, and their behavior can differ based on their usage in expressions. The difference between these two forms lies in the order of operations when they are used within larger expressions.
 
-| Name                 | Operator | Example               |
-| -------------------- | -------- | --------------------- |
-| Bitwise AND          | `&`      | `int result = a & b;` |
-| Bitwise OR           | `|`      | `result = a | b;`     |
-| Bitwise XOR          | `^`      | `result = a ^ b;`     |
-| Bitwise complement   | `~`      | `result = ~a;`        |
-| Left shift           | `<<`     | `result = a << 1;`    |
-| Right shift          | `>>`     | `result = a >> 1;`    |
-| Unsigned right shift | `>>>`    | `result = a >>> 1;`   |
+**Prefix Form (`++a` and `--a`)**
 
-### 3. Relational Operations
-
-| Operator | Example                          |
-| -------- | -------------------------------- |
-| `==`     | `boolean isEqual = (a == b);`    |
-| `!=`     | `boolean isNotEqual = (a != b);` |
-| `>`      | `boolean isGreater = (a > b);`   |
-| `<`      | `boolean isLess = (a < b);`      |
-| `>=`     | `boolean isGE = (a >= b);`       |
-| `<=`     | `boolean isLE = (a <= b);`       |
-
-### 4. Assignment Operations
-
-| Operator | Example      |
-| -------- | ------------ |
-| `=`      | `int c = a;` |
-| `+=`     | `c += a;`    |
-| `-=`     | `c -= a;`    |
-| `*=`     | `c *= a;`    |
-| `/=`     | `c /= a;`    |
-| `%=`     | `c %= a;`    |
-| `<<=`    | `c <<= 2;`   |
-| `>>=`    | `c >>= 2;`   |
-| `&=`     | `c &= a;`    |
-| `|=`     | `c |= a;`    |
-| `^=`     | `c ^= a;`    |
-
-## Pitfalls
-
-### Arithmetic Operations
-
-When working with arithmetic operations in Java (or most programming languages), there are several "gotchas" or pitfalls that developers should be aware of:
-
-### 1. Integer Overflow and Underflow
-
-When performing arithmetic operations on integers, the result can exceed the maximum or minimum value that the data type can hold, leading to overflow or underflow. For instance, adding 1 to `Integer.MAX_VALUE` will result in `Integer.MIN_VALUE` due to overflow.
-  
-### 2. Division by Zero
-
-Dividing an integer by zero will throw an `ArithmeticException`.
-
-### 3. Loss of Precision
-
-When dividing two integers, the result is also an integer. This means that any fractional part is discarded, leading to a loss of precision. For example, `5 / 2` will result in `2`, not `2.5`.
-
-### 4. Floating Point Arithmetic
-
-Floating-point numbers (like `float` and `double`) have precision limitations. This can lead to unexpected results in calculations. For instance, `0.1 + 0.2` might not exactly equal `0.3` due to rounding errors.
+In the prefix form, the variable is incremented or decremented **before** its value is used in the expression.
 
 ```java {cmd run_on_save}
-class Main {
+public class Main {
     public static void main(String[] args) {
-        double doubleVal = 0.1 + 0.2;
-        System.out.println(doubleVal);  // Outputs: 0.30000000000000004
+        int a = 5;
+        int b = ++a;  // First, 'a' is incremented to 6. Then, this new value is assigned to 'b'.
+        System.out.println(a);  // Outputs: 6
+        System.out.println(b);  // Outputs: 6
     }
 }
 ```
 
-### 5. Implicit Type Conversion
+### 2. **Postfix Form (`a++` and `a--`)**
+
+In the postfix form, the variable's current value is used in the expression **before** it is incremented or decremented.
+
+```java {cmd run_on_save}
+public class Main {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = a++;  // First, the current value of 'a' (which is 5) is assigned to 'b'. Then, 'a' is incremented to 6.
+        System.out.println(a);  // Outputs: 6
+        System.out.println(b);  // Outputs: 5
+    }
+}
+```
+
+### 2. Bitwise Operations
+
+| Operator | Name                 | Example               |
+| -------- | -------------------- | --------------------- |
+| `&`      | Bitwise AND          | `int result = a & b;` |
+| `|`      | Bitwise OR           | `result = a | b;`     |
+| `^`      | Bitwise XOR          | `result = a ^ b;`     |
+| `~`      | Bitwise complement   | `result = ~a;`        |
+| `<<`     | Left shift           | `result = a << 1;`    |
+| `>>`     | Right shift          | `result = a >> 1;`    |
+| `>>>`    | Unsigned right shift | `result = a >>> 1;`   |
+
+### 3. Relational Operations
+
+| Operator | Name                           | Example                          |
+| -------- | ------------------------------ | -------------------------------- |
+| `==`     | Equal to                       | `boolean isEqual = (a == b);`    |
+| `!=`     | Not equal to                   | `boolean isNotEqual = (a != b);` |
+| `>`      | Greater than                   | `boolean isGreater = (a > b);`   |
+| `<`      | Less than                      | `boolean isLess = (a < b);`      |
+| `>=`     | Greater than or equal to       | `boolean isGE = (a >= b);`       |
+| `<=`     | Less than or equal to          | `boolean isLE = (a <= b);`       |
+
+### 4. Assignment Operations
+
+| Operator | Name                           | Example      |
+| -------- | ------------------------------ | ------------ |
+| `=`      | Assignment                     | `int c = a;` |
+| `+=`     | Addition assignment            | `c += a;`    |
+| `-=`     | Subtraction assignment         | `c -= a;`    |
+| `*=`     | Multiplication assignment      | `c *= a;`    |
+| `/=`     | Division assignment            | `c /= a;`    |
+| `%=`     | Modulus assignment             | `c %= a;`    |
+| `<<=`    | Left shift assignment          | `c <<= 2;`   |
+| `>>=`    | Right shift assignment         | `c >>= 2;`   |
+| `>>>=`   | Unsigned right shift assignment| `c >>>= 2;`  |
+| `&=`     | Bitwise AND assignment         | `c &= a;`    |
+| `|=`     | Bitwise OR assignment          | `c |= a;`    |
+| `^=`     | Bitwise XOR assignment         | `c ^= a;`    |
+
+## Pitfalls
+
+When working with arithmetic operations in Java (or most programming languages), there are several "gotchas" or pitfalls that developers should be aware of:
+
+### Integer Overflow and Underflow
+
+When performing arithmetic operations on integers, the result can exceed the maximum or minimum value that the data type can hold, leading to overflow or underflow. For instance, adding 1 to `Integer.MAX_VALUE` will result in `Integer.MIN_VALUE` due to overflow.
+  
+### Division by Zero
+
+Dividing an integer by zero will throw an `ArithmeticException`. Remember that in floating-point arithmetic, dividing a non-zero number by zero results in infinity or negative infinity, depending on the sign of the dividend.
+
+### Loss of Precision
+
+When dividing two integers, the result is also an integer. This means that any fractional part is discarded, leading to a loss of precision. For example, `5 / 2` will result in `2`, not `2.5`.
+
+### Implicit or Explicit Type Conversion
 
 When performing operations between different data types, Java might implicitly convert one type to another, which can lead to unexpected results. For instance, when multiplying an `int` with a `float`, the `int` is implicitly converted to a `float` before the operation.
 
@@ -234,6 +250,7 @@ When a smaller data type is implicitly converted to a larger data type, especial
 class Main {
     public static void main(String[] args) {
         int intVal = 7;
+        // An Implicit conversion from int to double occurs here
         double doubleVal = intVal / 4;  // Expected 1.75, but result is 1.0
         System.out.println(doubleVal);
     }
@@ -256,8 +273,12 @@ class Main {
 }
 ```
 
+When you use `(int) floatVal`, you are performing an explicit type cast from `float` to `int`. This means you are specifically instructing the compiler to convert the `float` value to an `int`, even if this might result in loss of precision.
+
+In contrast, an implicit cast is when the compiler automatically converts one data type to another without you having to specify it. For example, assigning an `int` value to a `float` variable is an implicit cast because the `int` is automatically converted to `float` without any additional syntax.
+
 **Overflow:**
-If a larger value is implicitly converted to a smaller data type, it can cause overflow. For example:
+If a larger value is converted to a smaller data type, it can cause overflow. For example:
 
 ```java {cmd run_on_save}
 class Main {
@@ -265,7 +286,7 @@ class Main {
         long largeLong = 2147483648L;  // This value is 1 more than Integer.MAX_VALUE
         System.out.println("LargeLong: " + largeLong);
         
-        int intVal = (int) largeLong;  // Implicitly cast the long to an int
+        int intVal = (int) largeLong;  // Explicitly cast the long to an int
         System.out.println("IntVal: " + intVal);  // This will print -2147483648 due to overflow
     }
 }
@@ -273,7 +294,7 @@ class Main {
 
 In this example, we have a `long` value `largeLong` that is set to `2147483648L`, which is just one more than the maximum value an `int` can hold (`Integer.MAX_VALUE` is `2147483647`). When we try to cast this `long` value to an `int` with `(int) largeLong`, it causes an overflow because the value is too large for an `int` to hold. As a result, `intVal` wraps around to the minimum value an `int` can hold, which is `-2147483648`.
 
-### 6. Assignment Operators
+### Assignment Operators
 
 Operators like `+=`, `-=`, `*=`, etc., modify the variable in place. It's essential to be aware that the variable's value is being changed. When using assignment operators with operands of different data types, implicit type conversion can occur, potentially leading to precision loss or unexpected results. For example:
 
@@ -288,7 +309,7 @@ class Main {
 }
 ```
 
-### 7. Increment and Decrement Operators
+### Increment and Decrement Operators
 
 The prefix (`++a`) and postfix (`a++`) forms of the increment and decrement operators can lead to confusion, especially when used in expressions. The prefix form modifies the variable before its current value is used in the expression, while the postfix form modifies it after. Here's an example that demonstrates the difference between prefix and postfix forms of the increment and decrement operators:
 
@@ -319,7 +340,7 @@ In this example:
 
 This example clearly demonstrates the difference in behavior between prefix and postfix forms of the increment operator. The same logic applies to the decrement operators (`--a` and `a--`).
 
-### 8. Rounding Errors with Large Numbers
+### Rounding Errors with Large Numbers
 
 When working with very large numbers, rounding errors can accumulate, leading to inaccurate results. Here's an example that demonstrates rounding errors when working with large numbers:
 
@@ -351,42 +372,3 @@ In this example:
 2. We add this small increment to the large number ten times.
 3. We then subtract the original large number to see the accumulated result of the ten increments.
 4. Ideally, the result should be `1.0` (since `0.1` added ten times is `1.0`). However, due to rounding errors when working with such large numbers, the actual result might be slightly different from the expected `1.0`.
-
-### 9. NaN and Infinity
-
-In floating-point arithmetic, certain operations can result in `NaN` (Not a Number) or `Infinity`, especially when dividing by zero or performing operations that don't have a meaningful result.
-
-Here's an example that demonstrates the occurrence of `NaN` and `Infinity` in floating-point arithmetic:
-
-```java {cmd run_on_save}
-class Main {
-    public static void main(String[] args) {
-        double positiveInfinity = Double.POSITIVE_INFINITY;
-        double negativeInfinity = Double.NEGATIVE_INFINITY;
-        double nanValue = Double.NaN;
-
-        // Division by zero
-        double result1 = 5.0 / 0.0;
-        System.out.println("5.0 divided by 0.0: " + result1);  // Outputs: Infinity
-
-        // 0.0 divided by 0.0
-        double result2 = 0.0 / 0.0;
-        System.out.println("0.0 divided by 0.0: " + result2);  // Outputs: NaN
-
-        // Multiplying infinity by 0
-        double result3 = positiveInfinity * 0;
-        System.out.println("Infinity multiplied by 0: " + result3);  // Outputs: NaN
-
-        // Adding positive infinity to negative infinity
-        double result4 = positiveInfinity + negativeInfinity;
-        System.out.println("Positive Infinity + Negative Infinity: " + result4);  // Outputs: NaN
-    }
-}
-```
-
-In this example:
-
-1. We demonstrate division by zero, which results in `Infinity`.
-2. Dividing `0.0` by `0.0` results in `NaN` because this operation doesn't have a meaningful result.
-3. Multiplying `Infinity` by `0` is undefined and results in `NaN`.
-4. Adding `Positive Infinity` to `Negative Infinity` is also undefined and results in `NaN`.
