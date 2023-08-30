@@ -137,7 +137,7 @@ int x1 = 0b_1010_1010;
 
 Operations on integers in Java can be broadly categorized into arithmetic, bitwise, relational, and assignment operations. Let's delve into each category:
 
-### 1. Arithmetic Operations
+### Arithmetic Operations
 
 | Operator | Name           | Example             |
 |----------|----------------|---------------------|
@@ -166,7 +166,7 @@ public class Main {
 }
 ```
 
-### 2. **Postfix Form (`a++` and `a--`)**
+**Postfix Form (`a++` and `a--`)**
 
 In the postfix form, the variable's current value is used in the expression **before** it is incremented or decremented.
 
@@ -181,7 +181,7 @@ public class Main {
 }
 ```
 
-### 2. Bitwise Operations
+### Bitwise Operations
 
 | Operator | Name                 | Example               |
 | -------- | -------------------- | --------------------- |
@@ -193,7 +193,7 @@ public class Main {
 | `>>`     | Right shift          | `result = a >> 1;`    |
 | `>>>`    | Unsigned right shift | `result = a >>> 1;`   |
 
-### 3. Relational Operations
+### Relational Operations
 
 | Operator | Name                           | Example                          |
 | -------- | ------------------------------ | -------------------------------- |
@@ -204,7 +204,7 @@ public class Main {
 | `>=`     | Greater than or equal to       | `boolean isGE = (a >= b);`       |
 | `<=`     | Less than or equal to          | `boolean isLE = (a <= b);`       |
 
-### 4. Assignment Operations
+### Assignment Operations
 
 | Operator | Name                           | Example      |
 | -------- | ------------------------------ | ------------ |
@@ -237,11 +237,22 @@ Dividing an integer by zero will throw an `ArithmeticException`. Remember that i
 
 When dividing two integers, the result is also an integer. This means that any fractional part is discarded, leading to a loss of precision. For example, `5 / 2` will result in `2`, not `2.5`.
 
+```java {cmd run_on_save}
+class Main {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = 2;
+        int result = a / b;  // Result is 2, not 2.5
+        System.out.println(result);
+    }
+}
+```
+
 ### Implicit or Explicit Type Conversion
 
 When performing operations between different data types, Java might implicitly convert one type to another, which can lead to unexpected results. For instance, when multiplying an `int` with a `float`, the `int` is implicitly converted to a `float` before the operation.
 
-Implicit type conversion, also known as type coercion or type promotion, can lead to several issues if not handled with care:
+Implicit type conversion, also known as **type coercion** or **type promotion**, can lead to several issues if not handled with care:
 
 **Loss of Precision:**
 When a smaller data type is implicitly converted to a larger data type, especially from an integer to a floating-point, there might be a loss of precision. For example:
@@ -268,16 +279,16 @@ class Main {
         System.out.println("FloatVal: " + floatVal);
         int intVal = (int) floatVal;  // Explicitly cast back to int
         System.out.println("IntVal: " + intVal);
-
     }
 }
 ```
 
-When you use `(int) floatVal`, you are performing an explicit type cast from `float` to `int`. This means you are specifically instructing the compiler to convert the `float` value to an `int`, even if this might result in loss of precision.
+Here, the integer `largeInt` is implicitly converted to a floating-point number and assigned to the `float` variable `floatVal`. Since the `float` type can represent a wider range of values than `int`, this conversion is allowed. However, there might be a loss of precision because the `float` type has limited precision when representing large integers.
 
-In contrast, an implicit cast is when the compiler automatically converts one data type to another without you having to specify it. For example, assigning an `int` value to a `float` variable is an implicit cast because the `int` is automatically converted to `float` without any additional syntax.
+In the next assignment, the `floatVal` is explicitly cast back to an integer and assigned to the `int` variable `intVal`. Since the `int` type has a narrower range than `float`, this requires an explicit cast. The fractional part of the `float` value will be truncated.
 
-**Overflow:**
+### Overflow
+
 If a larger value is converted to a smaller data type, it can cause overflow. For example:
 
 ```java {cmd run_on_save}
