@@ -285,9 +285,45 @@ class Main {
         System.out.println("Math.log(5.2) = " + Math.log(5.2));  // Outputs: 1.6486586255873816
         System.out.println("Math.min(5.2, 3.1) = " + Math.min(5.2, 3.1));  // Outputs: 3.1
         System.out.println("Math.max(5.2, 3.1) = " + Math.max(5.2, 3.1));  // Outputs: 5.2
-
     }
 }
 ```
 
 Floating-point operations are fundamental in many areas of computing, from basic arithmetic to complex scientific calculations. However, due to the binary representation of floating-point numbers, these operations might not always produce exact results, leading to rounding errors. It's essential to be aware of these potential inaccuracies, especially in precision-critical applications.
+
+## Pitfalls
+
+When working with floating-point numbers, there are a few pitfalls to be aware of. Let's look at some of them.
+
+### Rounding Errors with Large Numbers
+
+When working with very large numbers, rounding errors can accumulate, leading to inaccurate results. Here's an example that demonstrates rounding errors when working with large numbers:
+
+```java {cmd run_on_save}
+class Main {
+    public static void main(String[] args) {
+        double largeNumber = 1e18;  // 1 followed by 18 zeros
+        double increment = 0.1;
+
+        // Adding a small increment to a very large number multiple times
+        for (int i = 0; i < 10; i++) {
+            largeNumber += increment;
+        }
+
+        // Subtracting the original large number to see the accumulated result
+        double result = largeNumber - 1e18;
+
+        System.out.println("Expected result: " + (increment * 10));
+        // Expected result: 1.0
+        System.out.println("Actual result: " + result);
+        // Actual result: 0.0
+    }
+}
+```
+
+In this example:
+
+1. We start with a very large number `1e18` (which is `1` followed by `18` zeros) and a small increment of `0.1`.
+2. We add this small increment to the large number ten times.
+3. We then subtract the original large number to see the accumulated result of the ten increments.
+4. Ideally, the result should be `1.0` (since `0.1` added ten times is `1.0`). However, due to rounding errors when working with such large numbers, the actual result might be slightly different from the expected `1.0`.
