@@ -1,0 +1,17 @@
+{
+  "cSpell.words": [
+    "isize",
+    "namespacing",
+    "println",
+    "ssid",
+    "usize",
+    "wifiscanner"
+  ],
+  "[markdown]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  }
+}
