@@ -16,7 +16,7 @@ Operator | Name | Example
 
 The addition operator (`+`) adds two operands together. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Add two integers together
 print(2 + 2) # 4
 
@@ -31,7 +31,7 @@ print(2 + 2.0) # 4.0
 
 The subtraction operator (`-`) subtracts the second operand from the first. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Subtract two integers
 print(2 - 2) # 0
 
@@ -46,7 +46,7 @@ print(2 - 2.0) # 0.0
 
 The multiplication operator (`*`) multiplies two operands together. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Multiply two integers
 print(2 * 2) # 4
 
@@ -61,7 +61,7 @@ print(2 * 2.0) # 4.0
 
 The division operator (`/`) divides the first operand by the second. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Divide two integers
 print(2 / 2) # 1.0
 
@@ -87,7 +87,7 @@ The modulus operator (`%`) returns the remainder of the division of the first op
 
 For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Divide 5 by 2
 print(5 / 2) # 2.5
 
@@ -99,7 +99,7 @@ print(5 % 2) # 1
 
 The exponent operator (`**`) raises the first operand to the power of the second operand. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Raise 2 to the power of 2
 print(2 ** 2) # 4
 
@@ -114,7 +114,7 @@ print(5 ** 4) # 625
 
 The floor division operator (`//`) divides the first operand by the second and returns the integer part of the quotient. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Divide 5 by 2
 print(5 / 2) # 2.5
 
@@ -133,7 +133,7 @@ The next step is to perform all multiplications and divisions from left to right
 Finally, additions and subtractions are performed from left to right
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 # 2 + 2 * 2 = 6
 print(2 + 2 * 2) # 6
 

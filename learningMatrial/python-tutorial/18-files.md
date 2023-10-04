@@ -29,7 +29,7 @@ open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, clo
 
 To open a file, we use the `open()` function. It returns a file object, also called a handle, as it is used to read or modify the file accordingly.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample.md")
 
 print(file)
@@ -42,7 +42,7 @@ print(file)
 
 After we are done with the file, we need to close it. This is done by calling the `close()` method on the file object.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample.md")
 
 # do something with the file
@@ -56,7 +56,7 @@ file.close()
 
 To read from a file, we use the `read()` method. It reads the entire content of the file in read mode and returns it as a string.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample.md")
 
 content = file.read()
@@ -73,7 +73,7 @@ file.close()
 
 We can also read a specific number of characters from the file by passing the number of characters to the `read()` method.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample.md", "r")
 
 # read first 100 characters from the file
@@ -85,7 +85,7 @@ print(file.read(100))
 
 If we want to read the file line by line, we can use the `readline()` method. It reads a single line from the file and returns it as a string.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample.md", "r")
 
 # read first line from the file
@@ -102,7 +102,7 @@ file.close()
 
 The `file.readlines()` method is a built-in method in Python that reads all the lines of a file and returns them as a list of strings. This method reads each line with its newline character and returns them as a list where each element contains one line from the file.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     with open("assets/sample.md", "r") as file:
         lines = file.readlines()
@@ -132,7 +132,7 @@ except FileNotFoundError as e:
 
 To write into a file, we use the `write()` method. It writes the string passed to it into the file. It returns the number of characters written to the file. If the file does not exist, it creates a new file. Before using the `write()` method, we need to open the file in write mode. If the file already exists, it will be overwritten.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample2.md", "w")
 
 # write into the file
@@ -148,7 +148,7 @@ file.close()
 
 To append to a file, we use the `open()` method in `a` mode. It appends the string passed to the `write` method at the end of the file. It returns the number of characters written to the file. If the file does not exist, it creates a new file.
 
-```python {cmd}
+```python {cmd="python3"}
 file = open("assets/sample2.md", "a")
 
 # append to the file
@@ -165,7 +165,7 @@ file.close()
 
 The `writelines()` method writes a list of strings to a file. It returns `None`. By default it does not add a newline character to the end of each string. Therefore, we need to add a newline character to each string in the list before passing it to the `writelines()` method.
 
-```python {cmd}
+```python {cmd="python3"}
 # open the file in write mode to overwrite the existing file
 file = open("assets/sample2.md", "w")
 
@@ -180,7 +180,7 @@ file.close()
 
 The above example will overwrite the existing file with the new content. If we want to append to the existing file, we need to open the file in append mode.
 
-```python {cmd}
+```python {cmd="python3"}
 # open the file in append mode to append to the existing file
 file = open("assets/sample2.md", "a")
 
@@ -198,7 +198,7 @@ file.close()
 
 To read and write binary files, we need to open the file in binary mode. We can do this by passing `b` as a second argument to the `open()` function.
 
-```python {cmd}
+```python {cmd="python3"}
 image_in = open("assets/tiger.jpeg", "rb")
 image_out = open("assets/image_copy.jpeg", "wb")
 
@@ -226,7 +226,7 @@ os.listdir(path)
 
 It returns a list of all the files and directories in the given directory. Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 import os
 
 try:
@@ -245,7 +245,7 @@ except FileNotFoundError as e:
 
 To delete a file in Python, we use the `os` module which provides a function called `remove()` that takes one argument - filename (with path if necessary) and deletes the file with that name. Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 import os
 
 if os.path.exists("example.txt"):
@@ -582,7 +582,7 @@ If the file cannot be found, opened or read, an exception is raised. For example
 
 We can handle this exception using the `try` and `except` blocks.
 
-```python {cmd}
+```python {cmd="python3"}
 # define file variable
 try:
     file = open("assets/does-not-exist.md")
@@ -610,7 +610,7 @@ except Exception as err:
 
 We can also use the `with` statement as it automatically closes the file after the block of code inside the `with` statement is executed. In case of an exception, the `with` statement will automatically close the file and release any system resources used by it.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     with open("assets/does-not-exist.md") as file:
         print(file.read())

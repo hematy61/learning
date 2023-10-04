@@ -18,7 +18,7 @@ Also, there are user defined data structures, which are created by the user. Lik
 A list is a collection of elements that are ordered and mutable. Each element in the list has an assigned index based on its position. Lists are created by placing elements inside square brackets [], separated by commas.
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 ```
 
@@ -27,7 +27,7 @@ fruits = ["apple", "banana", "cherry"]
 A tuple is similar to a list but it is immutable (cannot be changed once it's created). It is created by placing elements inside parentheses (), separated by commas.
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ("apple", "banana", "cherry")
 ```
 
@@ -36,7 +36,7 @@ fruits = ("apple", "banana", "cherry")
 A set is an unordered collection of unique elements. It is created by placing elements inside curly braces {}, separated by commas. Since sets are unordered, they cannot be indexed like lists or tuples.
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 ```
 
@@ -45,6 +45,6 @@ fruits = {"apple", "banana", "cherry"}
 A dictionary is an unordered collection of key-value pairs. It is created using curly braces {}, with each key-value pair separated by a colon `:`. Dictionaries are useful for storing and retrieving data based on a specific key.
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple": 1, "banana": 2, "cherry": 3}
 ```

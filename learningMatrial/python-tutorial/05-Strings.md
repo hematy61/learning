@@ -6,14 +6,14 @@ Strings are used to store text data. Strings are immutable sequences of Unicode 
 
 Strings are declared using either single or double quotes. The following two lines are equivalent:
 
-```python {cmd} {cmd}
+```python
 x = 'a string with single quotes'
 y = "a string with double quotes"
 ```
 
 another way to declare a string is to use the `str()` function:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = str('a quoted string')
 y = str("a quoted string")
 z = str(1.0)
@@ -27,7 +27,7 @@ print(w)  # True
 
 The `str()` function can be used to convert other data types to strings. The difference between using quotes and the `str()` function is that the `str()` function can be used to convert any data type to a string, while using quotes can only be used to convert strings to strings. The following line will result in an error:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = '1.0'
 y = 1.0
 z = x + y  # TypeError: can only concatenate str (not "float") to str
@@ -35,7 +35,7 @@ z = x + y  # TypeError: can only concatenate str (not "float") to str
 
 But using the `str()` function will work:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = '1.0'
 y = 1.0
 z = str(y)
@@ -47,7 +47,7 @@ print(w)  # 1.01.0
 
 Multiline strings can be declared using triple quotes:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = '''This is a multiline string.
 It can span multiple lines.
 '''
@@ -55,7 +55,7 @@ It can span multiple lines.
 
 another way to declare a multiline string is to use backslashes:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 # with one quote at the beginning and end of the whole string
 x = 'This is a multiline string. \
 It can span multiple lines.'
@@ -67,7 +67,7 @@ y = 'This is a multiline string.' \
 
 when printing multiline strings, with triple quotes, the newlines are preserved, but with backslashes, the newlines are removed:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = '''This is a multiline string with triple quotes.
 The newlines are preserved.
 '''
@@ -84,7 +84,7 @@ print(y)
 
 Characters in a string can be accessed using the square bracket notation:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = 'a string'
 print(x[0])  # a
 print(x[1])  # space
@@ -93,7 +93,7 @@ print(x[2])  # s
 
 negative indices can be used to access characters from the end of the string:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = 'a string'
 print(x[-1])  # g
 print(x[-2])  # n
@@ -104,7 +104,7 @@ print(x[-3])  # i
 
 The length of a string can be found using the `len()` function:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = 'a string'
 print(len(x))  # 8
 ```
@@ -113,7 +113,7 @@ print(len(x))  # 8
 
 Strings can be concatenated using the `+` operator:
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = 'The quick brown fox'
 y = ' jumps over the lazy dog'
 
@@ -124,7 +124,7 @@ print(z)  # The quick brown fox jumps over the lazy dog
 **concatenating with join() method**
 One way to concatenate strings is to use the `join()` method:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'The quick brown fox'
 y = ' jumps over the lazy dog'
 
@@ -135,7 +135,7 @@ print(z)  # The quick brown fox jumps over the lazy dog
 **concatenating with format() method**
 Another way to concatenate strings is to use the `format()` method:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'The quick brown fox'
 y = ' jumps over the lazy dog'
 
@@ -146,7 +146,7 @@ print(z)  # The quick brown fox jumps over the lazy dog
 **concatenating with f-string method**
 The other way to concatenate strings is to use f-strings:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'The quick brown fox'
 y = ' jumps over the lazy dog'
 
@@ -158,7 +158,7 @@ print(z)  # The quick brown fox jumps over the lazy dog
 
 Strings can be compared using comparison operators:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'a string'
 y = 'another string'
 
@@ -174,7 +174,7 @@ The way strings are compared is based on the Unicode code points of the characte
 
 - If the first character of the first string is less than the first character of the second string, then the first string is less than the second string. For example:
   
-  ```python {cmd}
+  ```python {cmd="python3"}
     x = 'apple'
     y = 'banana'
     print(x < y)  # True
@@ -185,7 +185,7 @@ The way strings are compared is based on the Unicode code points of the characte
 
 - If the first character of the first string is equal to the first character of the second string, then the second character of the first string is compared to the second character of the second string, and so on. For example:
   
-  ```python {cmd}
+  ```python {cmd="python3"}
     x = 'apple'
     y = 'apricot'
     print(x < y)  # True
@@ -199,7 +199,7 @@ The way strings are compared is based on the Unicode code points of the characte
 !!!
     To get the Unicode code point of a character, use the `ord()` function. For example:
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     x = 'a'
     print(ord(x))  # 97
     ```
@@ -217,7 +217,7 @@ There are multiple ways to slice strings:
 
 The syntax for slice() is as follows:
 
-```python {cmd}
+```python {cmd="python3"}
 slice(start, stop, step)
 ```
 
@@ -230,26 +230,26 @@ Here's what each parameter means:
 !!!
     You don't have to provide all three parameters -- they're all optional.
     - If you don't provide a start, it will default to 0.
-      ```python {cmd}
+      ```python {cmd="python3"}
       x = 'python'
       y = slice(None, 3) # slice from index 0 (inclusive) to index 3 (exclusive)
       print(x[y])  # pyt
       ```
     - If you don't provide a stop, it will default to the length of the sequence.
-      ```python {cmd}
+      ```python {cmd="python3"}
       x = 'python'
       y = slice(3, None) # slice from index 3 (inclusive) to the end of the string
       # or y = slice(3) # same as above
       print(x[y])  # hon
       ```
     - If you don't provide a step, it will default to 1.
-      ```python {cmd}
+      ```python {cmd="python3"}
       x = 'python'
       y = slice(0, 5) # slice from index 0 (inclusive) to index 5 (exclusive)
       print(x[y])  # pytho
       ```
     - And if you don't provide any parameters, it will default to the entire sequence, which is the same as not using slice() at all.
-      ```python {cmd}
+      ```python {cmd="python3"}
       x = 'python'
       y = slice() # slice from index 0 (inclusive) to the end of the string
       # or y = slice(None) # same as above
@@ -257,7 +257,7 @@ Here's what each parameter means:
       ```
     Here are a few more examples:
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     x = 'a string'
     y = slice(2) # slice from index 2 (inclusive) to the end of the string
     print(x[y])  # ring
@@ -269,7 +269,7 @@ Here's what each parameter means:
 
 The slice() function returns a slice object, which can be used to slice a sequence (such as a string, list, or tuple). For example:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'a string'
 y = slice(2, 5) 
 print(y)  # slice(2, 5, None) -- y is a slice object
@@ -280,7 +280,7 @@ print(x[y])  # str
 
 The `:` operator can be used to slice strings.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'a string'
 y = 2:5  # slice(2, 5, None) -- y is a slice object
 print(x[y])  # str
@@ -292,7 +292,7 @@ It's similar to the `slice()` function, but it's a little easier to use and it's
 
 - If you provide all three parameters, they will be used as the start, stop, and step parameters.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[1:13:2]  # slice from index 1 (inclusive) to index 13 (exclusive) with step size 2 -- y is a string
 print(y)  # yhn s aoe
@@ -300,7 +300,7 @@ print(y)  # yhn s aoe
 
 - If you provide two parameters, they will be used as the start and stop parameters.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[7:13]  # slice from index 7 (inclusive) to index 13 (exclusive) -- y is a string
 print(y)  # is awe
@@ -308,7 +308,7 @@ print(y)  # is awe
 
 - If you provide one parameter, after the colon, it will be used as the stop parameter.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[:6]  # slice from index 0 (inclusive) to index 6 (exclusive) -- y is a string
 print(y)  # Python
@@ -316,7 +316,7 @@ print(y)  # Python
 
 - If you provide one parameter, before the colon, it will be used as the start parameter.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[7:]  # slice from index 7 (inclusive) to the end of the string -- y is a string
 print(y)  # is awesome
@@ -324,7 +324,7 @@ print(y)  # is awesome
 
 - If you don't provide any parameters, it will default to the entire sequence, which is the same as not using the `:` operator at all.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[:]  # slice from index 0 (inclusive) to the end of the string -- y is a string
 # or y = x[::] # same as above
@@ -339,7 +339,7 @@ print(y)  # Python is awesome
 
 To reverse a string in Python, we can use slicing operation as shown below:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = x[::-1]
 print(y)  # emosewa si nohtyP
@@ -351,7 +351,7 @@ In the above code, `[::-1]` is the slicing operation that starts from the end of
 
 The `reversed()` function returns a reversed iterator object. We can use it to reverse a string as shown below:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = ''.join(reversed(x))
 print(y)  # emosewa si nohtyP
@@ -363,7 +363,7 @@ In the above code, we have used the `reversed()` function to reverse the string 
 
 We can also use a for loop to reverse a string as shown below:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = ''
 for i in x:
@@ -377,7 +377,7 @@ In the above code, we have used a for loop to iterate through the string and the
 
 We can also use a while loop to reverse a string as shown below:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'Python is awesome'
 y = ''
 i = len(x) - 1
@@ -391,7 +391,7 @@ print(y)  # emosewa si nohtyP
 
 We can also use recursion to reverse a string as shown below:
 
-```python {cmd}
+```python {cmd="python3"}
 def reverse(s):
     if len(s) == 0:
         return s
@@ -424,7 +424,7 @@ Python has a number of built-in methods that you can use on strings. These metho
 
 returns a string where the first character is upper case.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'python is awesome'
 y = x.capitalize()
 print(y)  # Python is awesome
@@ -434,7 +434,7 @@ print(y)  # Python is awesome
 
 This method returns a copy of the original string converted to lowercase.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'PYTHON IS AWESOME'
 y = x.casefold()
 print(y)  # python is awesome
@@ -446,7 +446,7 @@ This method is useful when you need to compare two strings in a way that ignores
 
 The `lower()` method in Python is a string method that returns a new string with all the characters converted to lowercase equivalent. It does not modify the original string but creates a new string object with lowercase characters.
 
-```python {cmd}
+```python {cmd="python3"}
 sentence = 'PYTHON IS AWESOME'
 lowercase_sentence = sentence.lower()
 print(lowercase_sentence)  # python is awesome
@@ -455,7 +455,7 @@ print(lowercase_sentence)  # python is awesome
 !!! `lower()` vs `casefold()`
     lower() converts a string to lowercase but only for uppercase characters in English alphabet. It means, it does not provide accurate results for non-English strings. For example:
 
-      ```python {cmd}
+      ```python {cmd="python3"}
       string1 = "Straße"
       string2 = "strasse"
       # Using lower()
@@ -466,7 +466,7 @@ print(lowercase_sentence)  # python is awesome
       
       In this example, we have two versions of the same string - one with an 'ß' character ('Straße') and one with an 'ss' character ('strasse'). When we use the lower() method to convert these strings to lowercase, the strings do not match. However, when we use the casefold() method instead, the strings do match. This is because casefold() is more aggressive in its conversion, and also converts the 'ß' character to 'ss'. Here is another example:
 
-      ```python {cmd}
+      ```python {cmd="python3"}
       string1 = "İstanbul"
       string2 = "istanbul"
       # Using lower()
@@ -488,7 +488,7 @@ string.center(width[, fillchar])
 - **width:** This is the total width of the centered string (including any padding characters).
 - **fillchar:** This is an optional parameter that specifies what character to use for padding. It defaults to a space character.
 
-```python {cmd} {cmd}
+```python {cmd="python3"}
 x = 'python'
 y = x.center(20, '*')
 print(y)  # *******python*******
@@ -510,7 +510,7 @@ Where:
 - *list_name* is the name of the list you want to count occurrences from.
 - *element* is the item that you want to count.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 'python is awesome'
 y = x.count('o')
 print(y)  # 2
@@ -530,7 +530,7 @@ Here's what each parameter and the returned value represents:
 
 - *suffix*: This is the string or character to check if it matches the end of the string.
 
-  ```python {cmd}
+  ```python {cmd="python3"}
   x = 'python is awesome'
   y = x.endswith('some')
   print(y)  # True
@@ -538,7 +538,7 @@ Here's what each parameter and the returned value represents:
 
 - *start* (optional): This is the optional starting index position within the string where you want to start checking the substring. If not specified, it takes the default value of 0.
 
-  ```python {cmd}
+  ```python {cmd="python3"}
   x = 'python'
   y = x.endswith('thon', 2)
   print(y)  # True
@@ -548,7 +548,7 @@ Here's what each parameter and the returned value represents:
 
 - *end* (optional): This is the optional ending index position within the string until where you want the substring to be checked. If not specified, it takes the default value of length of the string rounded to an integer.
 
-  ```python {cmd}
+  ```python {cmd="python3"}
   x = 'python'
   y = x.endswith('thon', 0, 6)
   print(y)  # True
@@ -571,7 +571,7 @@ Let's break down what each argument means:
 - *start* (optional): the starting index of where find() should begin its search. By default, start is 0 (the beginning of the string).
 - *end* (optional): the ending index of where find() should end its search. By default, end is len(string) (the end of the string).
 
-```python {cmd}
+```python {cmd="python3"}
 sentence = "The quick brown fox jumps over the lazy dog"
 
 # Find the index of the first occurrence of "fox" in the sentence
@@ -606,7 +606,7 @@ string_name.index(substring, start_index, end_index
 - *end_index*(Optional) - an integer that specifies where the search should end. The search within the string stops at end_index - 1. If it is not provided, searching stops at the end of the string.
 Here's an example to demonstrate the usage of index() method:
 
-```python {cmd}
+```python {cmd="python3"}
 sentence = "The quick brown fox jumps over the lazy dog"
 
 # find the index of the substring within the sentence
@@ -626,7 +626,7 @@ It returns True if all characters of a string are alphabets or numeric value. If
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 string1 = "abcdef123456"  # Only contains alphabets and numbers
 string2 = "hello world!"  # Contains non-alphanumeric characters, space and exclamation mark
 
@@ -640,7 +640,7 @@ It is a Python function that checks whether all the characters in a string are a
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 string1 = "HelloWorld"
 print(string1.isalpha()) #returns True
 
@@ -654,7 +654,7 @@ It is a Python function that checks whether all the characters in a string are n
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 num = "12345"  
 result = num.isnumeric()  
 print(result)  # output: True
@@ -670,7 +670,7 @@ In the second case, it returns `False` because the string "1.2345" contains a de
 
 It is a Python function that checks whether all the characters in a string are lowercase or not. It returns `True` if all the characters in the string are lowercase, otherwise it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 string1 = "hello world"
 print(string1.islower()) # output: True
 
@@ -682,7 +682,7 @@ print(string2.islower()) # output: False
 
 It is a Python function that checks whether all the characters in a string are uppercase or not. It returns `True` if all the characters in the string are uppercase, otherwise it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 string1 = "HELLO WORLD"
 print(string1.isupper()) # output: True
 
@@ -694,7 +694,7 @@ print(string2.isupper()) # output: False
 
 It is a Python function that checks whether all the characters in a string are whitespace characters or not. It returns `True` if all the characters in the string are whitespace characters, otherwise it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 string1 = "     "
 print(string1.isspace()) # output: True
 
@@ -715,7 +715,7 @@ separator.join(iterable)
 
 For example, let's say we have a list of words and we want to join them together with a space separator:
 
-```python {cmd}
+```python {cmd="python3"}
 words = ["Hello", "world", "this", "is", "Python"]
 sentence = " ".join(words)
 print(sentence) # Output: Hello world this is Python
@@ -733,7 +733,7 @@ string.ljust(width, fillchar)
 
 - *width*: Required length of the output string. If the length of the string is greater than the specified width, then the original string is returned.
 
-```python {cmd}
+```python {cmd="python3"}
 example_word = "Hello"
 print(example_word.ljust(10)) # Output: "Hello     "
 print(example_word.ljust(10, "*")) # Output: Hello*****
@@ -755,7 +755,7 @@ string.rjust(width, fillchar)
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 example_word = "Hello"
 print(example_word.rjust(10)) # Output: "Hello     "
 print(example_word.rjust(10, "*")) # Output: Hello*****
@@ -778,7 +778,7 @@ string.split(separator, maxsplit)
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 sentence = "Hello world this is Python"
 words = sentence.split()
 print(words) # Output: ['Hello', 'world', 'this', 'is', 'Python']
@@ -812,7 +812,7 @@ Here,
 
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Replace 'fox' with 'cat'
 original_string = "The quick brown fox jumps over the lazy dog."
 new_string = original_string.replace("fox", "cat")
@@ -836,7 +836,7 @@ print(new_string)
 
 It is used to remove all leading and trailing characters from a string. It returns a copy of the string with both leading and trailing characters removed. The `strip()` method doesn't take any arguments.
 
-```python {cmd}
+```python {cmd="python3"}
 string = "   Hello World   "
 print(string.strip()) # Output: "Hello World"
 ```

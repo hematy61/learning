@@ -18,7 +18,7 @@ Conditional Statements: These statements are used to execute a particular piece 
 
 The `if` statement is used to execute a block of code only if a condition is `True`.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10
 
 if x > 0:
@@ -29,7 +29,7 @@ if x > 0:
 
 The `if..else` statement is used to execute a block of code if a condition is `True`, otherwise execute another block of code.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10
 
 if x > 0:
@@ -42,7 +42,7 @@ else:
 
 The `if..elif..else` statement is used to execute a block of code if a condition is `True`, otherwise execute another block of code if another condition is `True`, and so on. If none of the conditions are `True`, then the `else` block of code is executed.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 5
 
 if x > 0:
@@ -59,7 +59,7 @@ Match statement is a new feature introduced in Python 3.10 that makes it easier 
 
 The syntax of the match statement is as follows:
 
-```python {cmd}
+```python {cmd="python3"}
 match expression:
     case pattern_1:
         block_1
@@ -74,7 +74,7 @@ match expression:
 
 Here is an example of a match statement:
 
-```python {cmd}
+```python {cmd="python3"}
 x = 5
 
 match x:
@@ -101,7 +101,7 @@ Name | Description
 
 The `for` loop is used to execute a block of code repeatedly for a given number of times.
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     print(i) 
 # 0
@@ -113,7 +113,7 @@ for i in range(5):
 
 In for loops there is no index variable to keep track of the current iteration. To keep track of the current iteration, you can use the `enumerate()` function.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 
 for index, fruit in enumerate(fruits):
@@ -129,7 +129,7 @@ The `enumerate()` function is used to obtain both the index position and corresp
 
 The `while` loop is used to execute a block of code repeatedly until a condition is `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 i = 0
 while i < 5:
     print(i)
@@ -155,7 +155,7 @@ Name | Description
 
 The `break` statement is used to terminate the loop.
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     if i == 3:
         break
@@ -169,7 +169,7 @@ for i in range(5):
 
 The `continue` statement is used to skip the current iteration of the loop.
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     if i == 3:
         continue
@@ -184,7 +184,7 @@ for i in range(5):
 
 The `pass` statement is used to do nothing. It is used as a placeholder when a statement is required syntactically but you do not want any command or code to execute.
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     if i == 3:
         pass
@@ -200,7 +200,7 @@ for i in range(5):
 
 Loop statements may have an else clause; it is executed when the loop terminates through exhaustion of the list (with for) or when the condition becomes false (with while), but not when the loop is terminated by a `break` statement.
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     if i == 3:
         break

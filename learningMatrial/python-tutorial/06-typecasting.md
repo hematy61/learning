@@ -13,7 +13,7 @@ A typical example of implicit type conversion in Python is when we perform mathe
 
 For example, if we add an integer and a floating-point number, the integer will be converted to a floating-point number.
 
-```python {cmd}
+```python {cmd="python3"}
 # 10 is an integer and 3.14 is a floating-point number and python automatically converts the integer 10 to a floating-point number.
 x = 10 + 3.14
 print(x) # 13.14
@@ -21,14 +21,14 @@ print(x) # 13.14
 
 Another example is when we perform division between two integers. The result will be a floating-point number.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10 / 3
 print(x) # 3.3333333333333335
 ```
 
 One more example is when we perform division between an integer and a floating-point number. The result will be a floating-point number.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10 / 3.0
 print(x) # 3.3333333333333335
 ```
@@ -41,7 +41,7 @@ Python provides several built-in functions to perform explicit type casting, lik
 
 For example, if you have a floating-point number and you want to print it, the print function will raise an error because it can only print strings. In this case, we can use the `str()` function to convert the floating-point number to a string.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10.5
 # This will raise an error because print() can only print strings
 # TypeError: can only concatenate str (not "float") to str
@@ -87,7 +87,7 @@ Where x is the value that needs to be converted to the integer, and base denotes
 
 - If the argument is a floating-point number, it will be truncated to the integer part and round it down.
 
-```python {cmd}
+```python {cmd="python3"}
 x = int(3.14) 
 print(x) # 3
 
@@ -100,20 +100,20 @@ print(z) # 3
 
 - If the argument is a string, it will be converted to an integer if the string contains only digits.
 
-```python {cmd}
+```python {cmd="python3"}
 x = int('123') 
 print(x) # 123
 ```
 
 - If the string contains any other character, it will raise a `ValueError` exception.
 
-```python {cmd}
+```python {cmd="python3"}
 x = int('123.45')
 print(x)
 # ValueError: invalid literal for int() with base 10: '123.45'
 ```
 
-```python {cmd}
+```python {cmd="python3"}
 y = int('123abc')
 print(y)
 # ValueError: invalid literal for int() with base 10: '123abc'
@@ -121,7 +121,7 @@ print(y)
 
 - If the argument is a boolean, it will return 1 if the argument is `True`, and 0 if the argument is `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 x = int(True)
 print(x) # 1
 
@@ -131,7 +131,7 @@ print(y) # 0
 
 - If the argument is binary, octal, or hexadecimal, it will be converted to an integer. The base is needed to be specified in the second argument, otherwise it will raise a `ValueError` exception. The reason for this is that the base's default value is 10, and binary, octal, and hexadecimal are not in base 10.
 
-```python {cmd}
+```python {cmd="python3"}
 x = int('0b1010', 2) # 0b is used to denote binary
 print(x) # 10
 
@@ -156,14 +156,14 @@ Where x is the value that needs to be converted to the floating-point number.
 
 - If the argument is an integer, it will be converted to a floating-point number.
 
-```python {cmd}
+```python {cmd="python3"}
 x = float(10)
 print(x) # 10.0
 ```
 
 - If the argument is a string, it will be converted to a floating-point number if the string contains only digits.
 
-```python {cmd}
+```python {cmd="python3"}
 x = float('123.45')
 print(x) # 123.45
 
@@ -173,7 +173,7 @@ print(y) # 123.0
 
 - If the string contains any other character, it will raise a `ValueError` exception.
 
-```python {cmd}
+```python {cmd="python3"}
 x = float('123.45abc')
 print(x)
 # ValueError: could not convert string to float: '123.45abc'
@@ -190,7 +190,7 @@ print(z)
 
 - If the argument is a boolean, it will return 1.0 if the argument is `True`, and 0.0 if the argument is `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 x = float(True)
 print(x) # 1.0
 ```
@@ -198,7 +198,7 @@ print(x) # 1.0
 !!! Note Rounding a floating-point number
     To round a floating-point number to a certain number of decimal places, we can use the `round()` function or the `format()` method.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     x = round(3.1415926535, 2)
     print(x) # 3.14
     # or we can use the format() method. The first argument is the number to be rounded, and the second argument is the number of decimal places to round to. `.2f` means 2 decimal places and the f stands for float.
@@ -218,7 +218,7 @@ str(object)
 
 Where object is the value that needs to be converted to the string.
 
-```python {cmd}
+```python {cmd="python3"}
 # integer to string
 x = str(10)
 print(x) # '10'
@@ -272,7 +272,7 @@ bool(object)
 
 Where object is the value that needs to be converted to the Boolean value.
 
-```python {cmd}
+```python {cmd="python3"}
 # integer to boolean - any non-zero integer is True
 a = bool(10)
 print("bool(10) = ", a) # bool(10) =  True
@@ -336,7 +336,7 @@ It allows us to create a list data type. The `list()` function can take an itera
 
 Here's some examples of how we can use the list() function:
 
-```python {cmd}
+```python {cmd="python3"}
 # create an empty list
 x = list()
 print(x) # []
@@ -372,7 +372,7 @@ It creates a tuple object. A tuple is an ordered, immutable collection of values
 
 The tuple() function can also be used to convert other iterable objects into a tuple. When you pass an iterable such as a list or a string to the `tuple()` function, it returns a tuple with the same elements. Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 # create an empty tuple
 x = tuple()
 print(x) # ()
@@ -408,7 +408,7 @@ It creates a new empty set object. A set is an unordered, mutable collection of 
 
 Here's an example of how to use the set() function:
 
-```python {cmd}
+```python {cmd="python3"}
 # create an empty set
 x = set()
 print(x) # set()
@@ -444,7 +444,7 @@ In Python, a dictionary is an unordered collection of key-value pairs where each
 
 Here's an example of how to use the dict() function:
 
-```python {cmd}
+```python {cmd="python3"}
 # create an empty dictionary
 x = dict()
 print(x) # {}
@@ -472,7 +472,7 @@ It returns a complex number. It accepts two arguments real and imaginary where r
 
 Here's how you can use the complex() function:
 
-```python {cmd}
+```python {cmd="python3"}
 # create a complex number
 x = complex(1, 2)
 print(x) # (1+2j)
@@ -488,7 +488,7 @@ It creates a byte object. Bytes are immutable objects that represent a sequence 
 
 For example, we can create a bytes object from a string and specify the encoding format:
 
-```python {cmd}
+```python {cmd="python3"}
 # create a bytes object from a string
 x = bytes('Hello', 'utf-8')
 print(x) # b'Hello'

@@ -5,7 +5,7 @@ Iterables can be looped over with a for loop. The loop repeatedly calls the `nex
 
 Here's an example of iterating over a list:
 
-```python {cmd}
+```python {cmd="python3"}
 my_list = [1, 2, 3]
 for element in my_list:
     print(element)
@@ -15,7 +15,7 @@ In this example, `my_list` is an iterable, and the loop iterates over each eleme
 
 It's worth noting that not all Python objects are iterable. For example, integers, floats, and booleans are not iterable. However, you can iterate over a range of numbers using the `range()` function, like this:
 
-```python {cmd}
+```python {cmd="python3"}
 for i in range(5):
     print(i)
 ```
@@ -26,7 +26,7 @@ In this example, the `range()` function returns an iterable that can be looped o
 
 In Python, an iterable is an object that can return an iterator. An iterator is an object that can iterate (loop) over the elements of an iterable, one at a time. To create an iterable in Python, you can define a class with an `__iter__()` and `__next__` methods that returns an iterator object. Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class MyIterable:
     def __init__(self, data):
         self.data = data
@@ -54,7 +54,7 @@ This can be useful in situations where you cannot load the entire dataset into m
 
 Here is an example of using an iterable in Python to process a large dataset of customer records:
 
-```python {cmd}
+```python {cmd="python3"}
 class CustomerData:
    def __init__(self, file_name):
        self.file_name = file_name
@@ -131,7 +131,7 @@ As part of the *functional paradigm*, Python provides a built-in function called
 
 The syntax of the `map()` function is as follows:
 
-```python {cmd}
+```python {cmd="python3"}
 map(function, iterable, [iterable2, iterable3,...])
 ```
 
@@ -143,7 +143,7 @@ The `map()` function returns a map object which can be converted to other iterab
 
 ### With Lists
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a function to be used with map()
 def square(x):
     return x * x
@@ -163,7 +163,7 @@ print(squared_numbers_list) # Output: [1, 4, 9, 16, 25]
 
 ### With Tuples
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a tuple of temperatures in Celsius
 celsius_temps = (0, 5, 10, 15, 20)
 
@@ -176,7 +176,7 @@ print(fahrenheit_temps) # Output: (32.0, 41.0, 50.0, 59.0, 68.0)
 
 ### With Dictionaries
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a dictionary of names and ages
 ages = {"Alice": 25, "Bob": 30, "Charlie": 35, "Dave": 40}
 
@@ -189,7 +189,7 @@ print(new_ages) # Output: {'Alice': 30, 'Bob': 35, 'Charlie': 40, 'Dave': 45}
 
 ### With Sets
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a set of words
 words = {"apple", "banana", "cherry"}
 
@@ -204,7 +204,7 @@ print(word_lengths) # Output: {5, 6, 7}
 
 Another way to use the `map()` function is to use an anonymous function (also known as a *lambda* function) instead of defining a separate function. Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a list of strings
 words = ["apple", "banana", "cherry"]
 
@@ -222,7 +222,7 @@ One thing to keep in mind when using the `map()` function is that **the original
 
 ### With Strings
 
-```python {cmd}
+```python {cmd="python3"}
 # Define a string of words
 words = "apple banana cherry"
 
@@ -235,7 +235,7 @@ print(capitalized_words) # Output: Apple Banana Cherry
 
 ### With multiple iterables
 
-```python {cmd}
+```python {cmd="python3"}
 # Define two lists of numbers
 numbers1 = [1, 2, 3]
 numbers2 = [4, 5, 6]
@@ -253,13 +253,13 @@ In this example, we use lambda function to add corresponding numbers in two list
 
 The `filter()` function is another built-in function as part of the functional paradigm in Python. `filter()` is a built-in Python function that allows you to filter an iterable (such as a list or tuple) using a function that returns either `True` or `False` for each element of the iterable, thereby creating a new iterable with only the elements that satisfy the condition of the function. The syntax for `filter()` function is as follows:
 
-```python {cmd}
+```python {cmd="python3"}
 filter(function, iterable)
 ```
 
 Here's an example that demonstrates the usage of filter() function. Let's say we have a list of numbers, and we want to filter out only the even numbers from the list:
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
 def is_even(num):
@@ -274,7 +274,7 @@ Note that the `filter()` function returns an iterator by default, which can be c
 
 Filter is an extremely powerful and useful function in Python that simplifies the task of filtering elements from a collection. However, in Python 3.x, using List comprehensions or generator expressions can be other alternative to use.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 odd_numbers = [num for num in numbers if num % 2 == 1]
 print(odd_numbers)  # Output: [1, 3, 5, 7, 9]
@@ -284,7 +284,7 @@ print(odd_numbers)  # Output: [1, 3, 5, 7, 9]
 
 Let's say we have a list of strings, and we want to filter out only the strings that have length greater than 3:
 
-```python {cmd}
+```python {cmd="python3"}
 words = ['apple', 'banana', 'cat', 'dog', 'elephant', 'fox']
 filtered_words = list(filter(lambda word: len(word) > 3, words))
 print(filtered_words)  # Output: ['apple', 'banana', 'elephant']
@@ -292,7 +292,7 @@ print(filtered_words)  # Output: ['apple', 'banana', 'elephant']
 
 ### With tuples
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
 filtered_numbers = tuple(filter(lambda num: num % 2 == 1, numbers))
 print(filtered_numbers)  # Output: (1, 3, 5, 7, 9)
@@ -302,7 +302,7 @@ print(filtered_numbers)  # Output: (1, 3, 5, 7, 9)
 
 With dictionaries, we can filter out the key-value pairs based on some condition. Let's say we have a dictionary of grades, and we want to filter out only the students who have scored more than 80:
 
-```python {cmd}
+```python {cmd="python3"}
 grades = {
     'Alice': 75,
     'Bob': 85,
@@ -320,7 +320,7 @@ print(filtered_grades)  # Output: {'Bob': 85, 'Charlie': 90, 'Emily': 95}
 
 With sets, we can filter out the elements based on some condition. Let's say we have a set of numbers, and we want to filter out only the numbers that are greater than 5:
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 filtered_numbers = set(filter(lambda num: num > 5, numbers))
 print(filtered_numbers)  # Output: {6, 7, 8, 9, 10}
@@ -330,7 +330,7 @@ print(filtered_numbers)  # Output: {6, 7, 8, 9, 10}
 
 With strings, we can filter out the characters based on some condition. Let's say we have a string, and we want to filter out only the vowels:
 
-```python {cmd}
+```python {cmd="python3"}
 string = 'Hello World'
 vowels = 'aeiou'
 filtered_string = ''.join(list(
@@ -351,7 +351,7 @@ reduce(function, sequence[, initial])
 The `function` parameter is a function that takes two arguments and returns a single value, which will be used to reduce the sequence. The sequence parameter is an iterable sequence of elements that will be reduced by the function. The optional initial parameter is an initial value that can be used as the first argument to the function.
 Here's an example of using the reduce() function to find the sum of a list of numbers:
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import reduce
 
 nums = [1, 2, 3, 4, 5]
@@ -362,7 +362,7 @@ print(result)  # Output: 15
 
 if the `reduce()` function is used with an empty sequence and no initial value is provided, it will raise a `TypeError`. So, it's always a good practice to provide an initial value when using `reduce()` to avoid such errors.
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import reduce
 
 nums = []
@@ -375,7 +375,7 @@ Here are more examples:
 
 Find the maximum value from a list of numbers:
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import reduce
 
 nums = [23, 45, 12, 67, 89]
@@ -386,7 +386,7 @@ print(max_num)   # Output: 89
 
 Calculate the total cost of items in a shopping cart:
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import reduce
 
 cart_items = [
@@ -402,7 +402,7 @@ print(total_cost)   # Output: 141.48
 
 Finding the last longest word in a list of words:
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import reduce
 
 words = ['apple', 'banana', 'cherry', 'date']

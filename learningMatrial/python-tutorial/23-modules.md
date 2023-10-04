@@ -44,7 +44,7 @@ import math
 
 This statement imports the built-in `math` module in Python, and we can use the functions and constants defined in this module using the dot notation, like this:
 
-```python {cmd}
+```python {cmd="python3"}
 import math
 
 x = math.sqrt(25)

@@ -9,14 +9,14 @@ In Python, sets are defined using curly braces `{}` or by using the built-in `se
 !!!
     To define an empty set, use `set()` instead of `{}` because `{}` creates an empty dictionary.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     empty_dict = {} # creates an empty dictionary
     empty_set = set() # creates an empty set
     ```
 
 Here are some examples of how to create a set:
 
-```python {cmd}
+```python {cmd="python3"}
 # using curly braces
 fruits = {"apple", "banana", "cherry"}
 print(fruits) # {'cherry', 'banana', 'apple'}
@@ -32,7 +32,7 @@ print(fruits) # {'cherry', 'banana', 'apple'}
 !!! warning
     Set elements must be immutable. Hence, you cannot have a mutable object like lists as set elements.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     fruits = {"apple", "banana", "cherry", ["pineapple", "mango"]}
     # TypeError: unhashable type: 'list'
     ```
@@ -40,7 +40,7 @@ print(fruits) # {'cherry', 'banana', 'apple'}
 !!! warning
     Since sets are unordered, accessing elements using their index is not possible.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     fruits = {"apple", "banana", "cherry"}
     print(fruits[0]) # TypeError: 'set' object is not subscriptable
     ```
@@ -48,7 +48,7 @@ print(fruits) # {'cherry', 'banana', 'apple'}
 !!! warning Slicing a set
     You cannot slice a set because sets are unordered.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     fruits = {"apple", "banana", "cherry"}
     print(fruits[1:3]) # TypeError: 'set' object is not subscriptable
     ```
@@ -56,7 +56,7 @@ print(fruits) # {'cherry', 'banana', 'apple'}
 !!! warning Concatenating sets
     You cannot concatenate sets because sets are unordered with + operator. However, you can use the `union()` method to concatenate two sets.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     fruits = {"apple", "banana", "cherry"}
     vegetables = {"tomato", "potato", "cucumber"}
     new_set = fruits + vegetables
@@ -67,7 +67,7 @@ print(fruits) # {'cherry', 'banana', 'apple'}
 
 You can delete a set using the `del` keyword.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 del fruits
 print(fruits) # NameError: name 'fruits' is not defined
@@ -76,7 +76,7 @@ print(fruits) # NameError: name 'fruits' is not defined
 !!! warning Deleting individual elements
     You cannot delete individual elements of a set.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     fruits = {"apple", "banana", "cherry"}
     del fruits["apple"]
     print(fruits) # TypeError: 'set' object does not support item deletion
@@ -88,7 +88,7 @@ You can test if an item exists in a set or not, using the keyword `in` or `not i
 
 ### `in`
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 if "apple" in fruits:
     print("Yes, 'apple' is in the fruits set") # Yes, 'apple' is in the fruits set
@@ -96,7 +96,7 @@ if "apple" in fruits:
 
 ### `not in`
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 if "pineapple" not in fruits:
     print("No, 'pineapple' is not in the fruits set") # No, 'pineapple' is not in the fruits set
@@ -106,7 +106,7 @@ if "pineapple" not in fruits:
 
 You can iterate through the elements of a set using a `for` loop.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 for x in fruits:
     print(x) 
@@ -121,7 +121,7 @@ for x in fruits:
 
 You can unpack a set into variables using the `*` operator. However, as sets are unordered, you cannot know which item goes to which variable.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 a, b, c = fruits
 print(a) # cherry
@@ -143,7 +143,7 @@ Python has a set of built-in methods that you can use on sets.
 
 Adds an element to the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits.add("orange")
 print(fruits) # {'cherry', 'orange', 'banana', 'apple'}
@@ -153,7 +153,7 @@ print(fruits) # {'cherry', 'orange', 'banana', 'apple'}
 
 Adds multiple elements to the set.
 
-```python {cmd}
+```python {cmd="python3"}
 cars = {"Ford", "Volvo", "BMW"}
 cars.update(["Toyota", "Honda"])
 print(cars) # {'Volvo', 'Toyota', 'BMW', 'Honda', 'Ford'}
@@ -165,7 +165,7 @@ print(cars) # {'Volvo', 'Toyota', 'BMW', 'Honda', 'Ford'}
 
 Removes the specified element from the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits.remove("banana")
 print(fruits) # {'cherry', 'apple'}
@@ -175,7 +175,7 @@ print(fruits) # {'cherry', 'apple'}
 
 Removes the specified element from the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits.discard("banana")
 print(fruits) # {'cherry', 'apple'}
@@ -184,7 +184,7 @@ print(fruits) # {'cherry', 'apple'}
 !!! note - `remove()` vs `discard()`
 The `remove()` method raises an error if the specified element does not exist in the set. The `discard()` method does not raise an error if the specified element does not exist in the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits.discard("pineapple")
 # no error
@@ -198,7 +198,7 @@ fruits.remove("pineapple")
 
 Removes an element from the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 x = fruits.pop()
 print(x) # cherry
@@ -210,7 +210,7 @@ print(fruits) # {'banana', 'apple'}
 
 Removes all the elements from the set.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits.clear()
 print(fruits) # set()
@@ -235,7 +235,7 @@ setA.union(iterableA, iterableB, ...)
 !!! note
     We can also use the `|` operator instead of the `union()` method, like `SetA | iterable_A` is equivalent to `SetA.union(iterable_A)`.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     setA = {1, 2, 3, 4, 5}
     setB = {2, 3, 4, 5, 6}
 
@@ -244,7 +244,7 @@ setA.union(iterableA, iterableB, ...)
 
 here, iterable can be a list, tuple, set, dictionary, etc.
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {4, 5, 6, 7, 8}
 setC = {8, 9, 10, 11, 12}
@@ -262,7 +262,7 @@ print(setA.union(setB, setC, setD)) # {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13
 
 Examples with other iterables:
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 listA = [4, 5, 6, 7, 8]
 tupleA = (8, 9, 10, 11, 12)
@@ -291,7 +291,7 @@ setA.intersection(iterableA, iterableB, ...)
 !!! note
     We can also use the `&` operator instead of the `intersection()` method, like `SetA & iterable_A` is equivalent to `SetA.intersection(iterable_A)`.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     setA = {1, 2, 3, 4, 5}
     setB = {2, 3, 4, 5, 6}
 
@@ -300,7 +300,7 @@ setA.intersection(iterableA, iterableB, ...)
 
 here are some examples of using intersection():
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {4, 5, 6, 7, 8}
 setC = {4, 5, 8, 9, 10}
@@ -318,7 +318,7 @@ print(setA.intersection(setB, setC, setD)) # set()
 
 Examples with other iterables:
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 listA = [4, 5, 6, 7, 8]
 tupleA = (4, 5, 8, 9, 10)
@@ -347,7 +347,7 @@ setA.difference(iterableA, iterableB, ...)
 !!! note
     We can also use the `-` operator instead of the `difference()` method, like `SetA - iterable_A` is equivalent to `SetA.difference(iterable_A)`.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     setA = {1, 2, 3, 4, 5}
     setB = {2, 3, 4, 5, 6}
 
@@ -356,7 +356,7 @@ setA.difference(iterableA, iterableB, ...)
 
 Here are some examples of using difference():
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {4, 5, 6, 7, 8}
 setC = {4, 5, 8, 9, 10}
@@ -374,7 +374,7 @@ print(setA.difference(setB, setC, setD)) # {1, 2, 3}
 
 Examples with other iterables:
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 listA = [4, 5, 6, 7, 8]
 tupleA = (4, 5, 8, 9, 10)
@@ -403,7 +403,7 @@ setA.symmetric_difference(iterableA)
 !!! note
     We can also use the `^` (caret) operator instead of the `symmetric_difference()` method, like `SetA ^ iterable_A` is equivalent to `SetA.symmetric_difference(iterable_A)`.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     setA = {1, 2, 3, 4, 5}
     setB = {2, 3, 4, 5, 6}
 
@@ -412,7 +412,7 @@ setA.symmetric_difference(iterableA)
 
 Here are some examples of using symmetric_difference():
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {4, 5, 6, 7, 8}
 setC = {4, 5, 8, 9, 10}
@@ -424,7 +424,7 @@ print(setA.symmetric_difference(setB)) # {1, 2, 3, 6, 7, 8}
 
 Examples with other iterables:
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 listA = [4, 5, 6, 7, 8]
 tupleA = (4, 5, 8, 9, 10)
@@ -446,7 +446,7 @@ set.copy() is a method in Python that returns a shallow copy of the set. This me
 
 Here is an example of using copy():
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = setA.copy()
 
@@ -464,7 +464,7 @@ The `isdisjoint()` method in Python checks whether two sets have an intersection
 
 If the intersection is an empty set, the method returns True, else it returns False.
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {4, 5, 6, 7, 8}
 setC = {10, 11, 12, 13, 14}
@@ -477,7 +477,7 @@ print(setA.isdisjoint(setC)) # True
 
 `issubset()` is another Python set method that returns true if set A is a subset of set B. If all elements of set A are in set B, then set A is said to be a subset of Set B.
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 
@@ -488,7 +488,7 @@ print(setA.issubset(setB)) # True
 
 `issuperset()` is a built-in function in Python that is used to check if a set is a superset of another set. It returns True if the set contains all the elements of another set and False otherwise.
 
-```python {cmd}
+```python {cmd="python3"}
 setA = {1, 2, 3, 4, 5}
 setB = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 

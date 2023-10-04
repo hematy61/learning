@@ -18,7 +18,7 @@ LEGB is a acronym for the order in which Python looks for variables in its scope
 
 A variable defined within a function or block is only accessible within that function or block where it is defined. This is known as the local scope of the variable.
 
-```python {cmd}
+```python {cmd="python3"}
 def my_function():
     x = 10 # local variable 
     print(x)
@@ -31,7 +31,7 @@ print(x) # NameError: name 'x' is not defined
 
 A variable defined in an enclosing function is accessible within the local scope of any function within the enclosing function. This is known as the enclosing scope of the variable.
 
-```python {cmd}
+```python {cmd="python3"}
 def my_function():
     x = 10 # x is local variable to my_function() but it is also an enclosing variable to my_inner_function()
     def my_inner_function():
@@ -54,7 +54,7 @@ my_function() # 10
 
 A variable defined at the top level of a program or inside function with global keyword are global variables. These variables are accessible within the entire program. This is known as the global scope of the variable.
 
-```python {cmd}
+```python {cmd="python3"}
 x = 10 # global variable
 def my_function():
     print(x) # global variable
@@ -64,7 +64,7 @@ my_function() # 10
 
 To define a global variable within a function, we can use the 'global' keyword followed by the variable name. Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 def my_function():
     global x
     x = 10 # global variable
@@ -76,7 +76,7 @@ print(x) # 10
 !!! warning
     If you have a global variable with the same name as a local variable, the local variable will take precedence.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     x = 10 # global variable
 
     def my_function():
@@ -89,7 +89,7 @@ print(x) # 10
 
     In Python, the 'global' keyword is used to define a global variable within a function. Any changes made to that variable within the function will reflect the updated value globally. However, if there's already a global variable with the same name as the local variable made global, then the global value will be overwritten by the local value assigned within the function.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     x = 10 # global variable
 
     def my_function():
@@ -105,6 +105,6 @@ print(x) # 10
 
 Python has a set of built-in functions and variables that are always available to us. These are known as the built-in scope of the variable. For example, the print(), len(), input() functions are built-in functions.
 
-```python {cmd}
+```python {cmd="python3"}
 print(len("Hello World")) # 11
 ```

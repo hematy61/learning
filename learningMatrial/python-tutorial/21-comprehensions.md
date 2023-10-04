@@ -21,7 +21,7 @@ new_list = [expression for item in iterable if condition]
 
 Here, `expression` is the operation that you want to perform on each item of the iterable, `item` is the variable that represents the current element of the iterable, and `condition` is an optional parameter that filters out elements from the iterable.
 
-```python {cmd}
+```python {cmd="python3"}
 # create a list of squares of numbers from 1 to 10
 squares = [x ** 2 for x in range(1, 11)]
 print(squares)
@@ -30,7 +30,7 @@ print(squares)
 
 The above example is equivalent to the following for loop:
 
-```python {cmd}
+```python {cmd="python3"}
 squares = []
 for x in range(1, 11):
     squares.append(x ** 2)
@@ -40,7 +40,7 @@ print(squares)
 
 Here is another example of list comprehension with a condition:
 
-```python {cmd}
+```python {cmd="python3"}
 # create a list of odd numbers from 1 to 10
 odd_numbers = [x for x in range(1, 11) if x % 2 == 1]
 print(odd_numbers)
@@ -57,7 +57,7 @@ new_set = {expression for item in iterable if condition}
 
 Here is an example of set comprehension:
 
-```python {cmd}
+```python {cmd="python3"}
 # create a set of squares of numbers from 1 to 10
 squares_set = {x ** 2 for x in range(1, 11)}
 print(squares_set)
@@ -68,7 +68,7 @@ Note that the above example returns a set, which is unordered. So, the order of 
 
 Another thing to note is that the set comprehension does not allow duplicate elements. So, if the iterable contains duplicate elements, the set comprehension will return a set with unique elements.
 
-```python {cmd}
+```python {cmd="python3"}
 # a list of students with duplicate names
 students = ['John', 'Jane', 'Jack', 'Janice', 'John']
 # create a set of students that their names are less than 5 characters
@@ -88,7 +88,7 @@ new_dict = {key_expression:value_expression for item in iterable if condition}
 
 Here, `key_expression` is the operation that produces the keys of the dictionary, `value_expression` is the operation that produces the values of the dictionary, `item` represents the current element of the iterable, and `condition` is an optional parameter that filters out elements from the iterable.
 
-```python {cmd}
+```python {cmd="python3"}
 # create a dictionary of squares of numbers from 1 to 10
 squares_dict = {x:x ** 2 for x in range(1, 11)}
 print(squares_dict)
@@ -109,7 +109,7 @@ Here, `expression` is the operation that you want to perform on each item of the
 
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 # create a generator of squares of numbers from 1 to 10
 squares_gen = (x ** 2 for x in range(1, 11))
 print(squares_gen)
@@ -122,7 +122,7 @@ In this example, squares_gen is created using generator comprehension. It yields
 One of the main advantages of using generator comprehension is that it does not create the entire list in memory at once. Instead, it generates each element on-the-fly as it is needed, making it more memory-efficient for large datasets.
 You can iterate over a generator using a `for` loop or the `next()` function to retrieve each element one at a time. Once the generator is exhausted, it cannot be iterated over again.
 
-```python {cmd}
+```python {cmd="python3"}
 squares_gen = (x ** 2 for x in range(1, 11))
 # iterate over the generator using a for loop
 for num in squares_gen:

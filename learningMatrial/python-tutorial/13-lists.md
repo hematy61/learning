@@ -2,7 +2,7 @@
 
 In python lists are used to store multiple items in a single variable. Lists are one of 4 built-in data types in Python used to store collections of data. Lists are created using square brackets.
 
-```python {cmd}
+```python {cmd="python3"}
 # a list of strings
 fruits = ["apple", "banana", "cherry"]
 # a list of numbers
@@ -21,7 +21,7 @@ The star operator, denoted by an asterisk (*) in Python, has various uses in the
 
 The star operator can be used to repeat a list, a certain number of times.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana"]
 fruits = fruits * 2
 print(fruits) # ['apple', 'banana', 'apple', 'banana']
@@ -31,7 +31,7 @@ print(fruits) # ['apple', 'banana', 'apple', 'banana']
 
 The star operator can be used to unpack values from iterables like lists, tuples, and dictionaries.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 apple, *rest = fruits
 
@@ -46,7 +46,7 @@ The star operator can be used to convert other iterables to lists.
 
 ### Tuples to lists
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ("apple", "banana", "cherry")
 fruits = [*fruits]
 print(fruits) # ['apple', 'banana', 'cherry']
@@ -60,7 +60,7 @@ print(rest_of_cars) # ['Volvo', 'BMW']
 
 ### Strings to lists
 
-```python {cmd}
+```python {cmd="python3"}
 fruit = "apple"
 fruit_letters = [*fruit]
 print(fruit_letters) # ['a', 'p', 'p', 'l', 'e']
@@ -70,7 +70,7 @@ print(fruit_letters) # ['a', 'p', 'p', 'l', 'e']
 
 Dictionaries cannot be converted directly to lists using the * operator, but we can use methods like `keys()`, `values()`, or `items()` to extract the relevant information into a list.
 
-```python {cmd}
+```python {cmd="python3"}
 car = {
     "brand": "Ford",
     "model": "Mustang",
@@ -88,7 +88,7 @@ print(car_items) # [('brand', 'Ford'), ('model', 'Mustang'), ('year', 1964)]
 
 ### Sets to lists
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = {"apple", "banana", "cherry"}
 fruits = [*fruits]
 print(fruits) # ['apple', 'banana', 'cherry']
@@ -96,7 +96,7 @@ print(fruits) # ['apple', 'banana', 'cherry']
 
 ### Convert lists to strings
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 fruits = " ".join(fruits)
 print(fruits) # apple banana cherry
@@ -106,7 +106,7 @@ print(fruits) # apple banana cherry
 
 To iterate through a list, we can use a `for` loop.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 for fruit in fruits:
     print(fruit)
@@ -123,7 +123,7 @@ for fruit in fruits:
 
 The `append()` method adds an element to the end of the list.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ["apple", "banana", "cherry"]
 fruits.append("orange")
 print(fruits) # ['apple', 'banana', 'cherry', 'orange']
@@ -134,14 +134,14 @@ print(fruits) # ['apple', 'banana', 'cherry', 'orange']
 The `insert()` method inserts an element at the specified position.
 The syntax for the `insert()` method is:
 
-```python {cmd}
+```python {cmd="python3"}
 list.insert(index, element)
 ```
 
 index - the index at which the element has to be inserted
 element - the element to be inserted
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3]
 numbers.insert(1, 100)
 print(numbers) # [1, 100, 2, 3]
@@ -159,7 +159,7 @@ print(numbers) # [200, 1, 100, 2, 3, 300]
 
 The `extend()` method adds all the elements of an iterable (list, tuple, string etc.) to the end of the list.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3]
 numbers.extend([4, 5, 6])
 print(numbers) # [1, 2, 3, 4, 5, 6]
@@ -198,13 +198,13 @@ print(random_numbers) # [100, 200, 300, 1, 2, 3]
 The `pop()` method removes the element at the specified position.
 The syntax for the `pop()` method is:
 
-```python {cmd}
+```python {cmd="python3"}
 list.pop(index)
 ```
 
 index - the index of the element to be removed. If no index is specified, the last element is removed.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3]
 numbers.pop(1)
 print(numbers) # [1, 3]
@@ -220,13 +220,13 @@ print(colors) # ['red', 'green']
 The `remove()` method removes the first occurrence of the element with the specified value.
 The syntax for the `remove()` method is:
 
-```python {cmd}
+```python {cmd="python3"}
 list.remove(element)
 ```
 
 element - the element to be removed
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers.remove(3)
 print(numbers) # [1, 2, 4, 5]
@@ -241,7 +241,7 @@ print(numbers) # [1, 2, 4, 5, 3, 3]
 
 The `clear()` method removes all the elements from the list.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers.clear()
 print(numbers) # []
@@ -254,13 +254,13 @@ print(numbers) # []
 The `index()` method returns the index of the first element with the specified value.
 The syntax for the `index()` method is:
 
-```python {cmd}
+```python {cmd="python3"}
 list.index(element)
 ```
 
 element - the element to search for
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 print(numbers.index(3)) # 2
 
@@ -280,7 +280,7 @@ list.count(element)
 
 element - the element to be counted
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5, 3, 3]
 print(numbers.count(3)) # 3
 ```
@@ -297,7 +297,7 @@ list.sort(reverse=False, key=myFunc)
 reverse - If True, the list is sorted in descending order
 key - A function to specify the sorting criteria. The elements are sorted based on the return value of the function.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [4, 2, 1, 3, 5]
 numbers.sort()
 print(numbers) # [1, 2, 3, 4, 5]
@@ -343,7 +343,7 @@ print(cars)
 
 The `reverse()` method reverses the elements of the list.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 20, 3, 4, 501]
 numbers.reverse()
 print(numbers) # [501, 4, 3, 20, 1]
@@ -358,7 +358,7 @@ print(numbers) # [501, 4, 3, 20, 1]
 
 The `copy()` method returns a shallow copy of the list. If you just assign the list to another variable, the new variable will be a reference to the original list, and changes made in one list will be reflected in the other. To avoid this, use the `copy()` method.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers_copy = numbers.copy()
 numbers_copy[0] = 10
@@ -370,7 +370,7 @@ print(numbers_copy) # [10, 2, 3, 4, 5]
     If the list contains dictionaries, a copy of the dictionary will not be created. It will still be a reference to the original dictionary. Therefore, if you change the value of a property of a dictionary in the copied list, it will also change the original dictionary inside that list.
     For example:
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     cars = [
         {"model": "Audi", "year": 2018},
         {"model": "BMW", "year": 2016},
@@ -386,7 +386,7 @@ print(numbers_copy) # [10, 2, 3, 4, 5]
 
 Using the slice `:` operator, you can create a shallow copy of the list by not specifying the start and end index.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers_copy = numbers[:]
 numbers_copy[0] = 10 # The original list remains unmodified
@@ -409,7 +409,7 @@ print(cars_copy) # [{'model': 'Audi', 'year': 2020}, {'model': 'BMW', 'year': 20
 
 The `list()` constructor creates a shallow copy of the list.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers_copy = list(numbers)
 numbers_copy[0] = 10
@@ -421,7 +421,7 @@ print(numbers_copy) # [10, 2, 3, 4, 5]
 
 You can also create a shallow copy of the list using list comprehension.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 numbers_copy = [x for x in numbers]
 numbers_copy[0] = 10
@@ -433,7 +433,7 @@ print(numbers_copy) # [10, 2, 3, 4, 5]
 
 The `copy` module provides the `copy()` method to create a shallow copy of the list. The `copy()` module is a built-in module, so you don't need to install it.
 
-```python {cmd}
+```python {cmd="python3"}
 import copy
 
 numbers = [1, 2, 3, 4, 5]
@@ -447,7 +447,7 @@ print(numbers_copy) # [10, 2, 3, 4, 5]
 
 If you want to create a deep copy of the list, you can use the `copy.deepcopy()` method. This will create a copy of the list and all the elements inside it. copy module
 
-```python {cmd}
+```python {cmd="python3"}
 import copy
 
 numbers = [1, 2, 3, 4, 5]
@@ -475,7 +475,7 @@ Membership testing is a technique used to check whether an item exists or not in
 
 The `in` operator returns `True` if the item exists in the sequence, otherwise it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 print(1 in numbers) # True
 print(10 in numbers) # False
@@ -485,7 +485,7 @@ print(10 in numbers) # False
 
 The `not in` operator returns `True` if the item does not exist in the sequence, otherwise it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 print(1 not in numbers) # False
 print(10 not in numbers) # True
@@ -495,7 +495,7 @@ print(10 not in numbers) # True
 
 The `del` keyword is used to delete an item or a range of items from a list. You can also delete the entire list using the `del` keyword.
 
-```python {cmd}
+```python {cmd="python3"}
 numbers = [1, 2, 3, 4, 5]
 del numbers[0]
 print(numbers) # [2, 3, 4, 5]

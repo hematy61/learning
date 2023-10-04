@@ -15,7 +15,7 @@ Python includes default exception errors to help identify potential issues.
 
 ZeroDivisionError is an example of a built-in exception error in Python. This error is raised when the second argument of a division or modulo operation is zero.
 
-```python {cmd}
+```python {cmd="python3"}
 count = 10 / 0 # ZeroDivisionError: division by zero
 ```
 
@@ -69,7 +69,7 @@ Python provides a wide range of built-in exceptions that can be raised and handl
 
 Example 1: Printing a custom message when an exception is raised.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except:
@@ -78,7 +78,7 @@ except:
 
 Example 2: If you need the exception information, you can use the as keyword to create an alias for the exception object.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except Exception as e:
@@ -88,7 +88,7 @@ except Exception as e:
 
 Example 3: You can also narrow down the type of exception you want to handle by specifying the exception type.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except ZeroDivisionError as e:
@@ -98,7 +98,7 @@ except ZeroDivisionError as e:
 
 In this case, if the exception raised is not a ZeroDivisionError, the except block will not be executed. For example, in below example, `total` is not defined and a NameError is raised. However, the except block will not be executed because the exception raised is not a ZeroDivisionError.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = total / 2
 except ZeroDivisionError as e:
@@ -107,7 +107,7 @@ except ZeroDivisionError as e:
 
 Example 4: You can also use the else clause to execute code if no exception was raised.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 2
 except Exception as e:
@@ -118,7 +118,7 @@ else:
 
 Example 5: The finally clause is used to execute code regardless of whether an exception was raised or not.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except Exception as e:
@@ -129,7 +129,7 @@ finally:
 
 Example 6: You can have multiple except blocks to handle different exceptions. However, it is important to note that the except blocks are checked in the order they are written. If you write the except block for the base Exception class first, it will catch all exceptions.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except ZeroDivisionError as e:
@@ -140,7 +140,7 @@ except Exception as e:
 
 Example 7: You can use a single except block to handle multiple exceptions.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except (ZeroDivisionError, NameError) as e:
@@ -149,7 +149,7 @@ except (ZeroDivisionError, NameError) as e:
 
 Example 8: You can provide the base `Exception` class to handle all exceptions and then using `type()` or `__class__` to get the exception type.
 
-```python {cmd}
+```python {cmd="python3"}
 try:
     count = 10 / 0
 except Exception as e:
@@ -175,7 +175,7 @@ In Python, exceptions can be raised at any point in the code using the `raise` s
 
 Here's an example of how to raise a custom exception:
 
-```python {cmd}
+```python {cmd="python3"}
 def divide_by_zero(num1, num2):
     if num2 == 0:
         raise ZeroDivisionError('Division by zero is undefined.')
@@ -194,7 +194,7 @@ Note that here we are raising a ZeroDivisionError exception. However, you can ra
 
 You can also raise a custom exception by creating a new class that inherits from the Exception class.
 
-```python {cmd}
+```python {cmd="python3"}
 class CustomError(Exception):
     def __init__(self, message):
         super().__init__(message)

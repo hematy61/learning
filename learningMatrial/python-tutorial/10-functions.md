@@ -12,7 +12,7 @@ def function_name(arg1, arg2, ...):
 
 Here is an example of a function that adds two numbers:
 
-```python {cmd}
+```python {cmd="python3"}
 def add(x,y):
     """This function adds two numbers"""
     return x + y
@@ -24,7 +24,7 @@ print(add(5, 6)) # 11
 
 A function can have any number of arguments. Arguments are specified after the function name, inside the parentheses. You can also define default values for arguments. If an argument with a default value is not provided when the function is called, its default value is used.
 
-```python {cmd}
+```python {cmd="python3"}
 def get_api_url(base_url, endpoint, version="v1"):
     return f"{base_url}/{endpoint}/{version}"
 
@@ -37,7 +37,7 @@ print(get_api_url("https://api.example.com", "users", "v2"))
 
 if you want to pass a list of arguments to a function, you can use the `*` operator to unpack the list into individual arguments.
 
-```python {cmd}
+```python {cmd="python3"}
 def add(x, y):
     return x + y
 
@@ -47,7 +47,7 @@ print(add(*numbers)) # 11
 
 if you want your function to accept an arbitrary number of arguments, you can use the `*` operator to unpack the arguments into a tuple.
 
-```python {cmd}
+```python {cmd="python3"}
 def add(*numbers):
     total = 0
     for number in numbers:
@@ -73,7 +73,7 @@ function_name(**kwargs)
 
 **kwargs is a dictionary that maps the keyword names to the values that we pass alongside the function call. The order of the arguments does not matter. kwargs is a common name for this type of parameter, but you can call it whatever you like.
 
-```python {cmd}
+```python {cmd="python3"}
 def print_person_info(name, age, profession):
     print(f"Name: {name}")
     print(f"Age: {age}")
@@ -93,7 +93,7 @@ print_person_info(age=21, profession="Developer", name="John")
 
 Here is an example of a function that accepts an arbitrary number of keyword arguments:
 
-```python {cmd}
+```python {cmd="python3"}
 def print_person_info(**person):
     print(f"Name: {person['name']}")
     print(f"Age: {person['age']}")
@@ -115,7 +115,7 @@ print_person_info(age=25, name="John")
 
 You can combine positional and keyword arguments in a function call. The positional arguments must come first, followed by the keyword arguments.
 
-```python {cmd}
+```python {cmd="python3"}
 def print_person_info(name, age, profession):
     print(f"Name: {name}")
     print(f"Age: {age}")
@@ -129,7 +129,7 @@ print_person_info("John", 21, profession="Developer")
 
 Another example to use `*` and `**` operators to unpack a list and a dictionary into positional and keyword arguments:
 
-```python {cmd}
+```python {cmd="python3"}
 def multiply_numbers(a, b):
     return a * b
 
@@ -150,7 +150,7 @@ In this example, the calculate_total() function receives some positional argumen
 
 A function can return a value using the return keyword. If no return value is specified, the function returns None.
 
-```python {cmd}
+```python {cmd="python3"}
 def add(x, y):
     return x + y
 

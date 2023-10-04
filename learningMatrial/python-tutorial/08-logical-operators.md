@@ -12,7 +12,7 @@ Operator | Name | Example
 
 The `and` operator returns `True` if both statements are `True`. Otherwise, it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 # Return True if both statements are true
 print(1 == 1 and 2 == 2) # True
 
@@ -24,7 +24,7 @@ print(1 == 1 and 2 == 3) # False
 
 The `or` operator returns `True` if one of the statements is `True`. Otherwise, it returns `False`.
 
-```python {cmd}
+```python {cmd="python3"}
 # Return True if one of the statements is true
 print(1 == 1 or 2 == 3) # True
 
@@ -36,7 +36,7 @@ print(1 == 2 or 2 == 3) # False
 
 The `not` operator returns `True` if the operand is false, and it returns `False` if the operand is true.
 
-```python {cmd}
+```python {cmd="python3"}
 # Return True if the statement is false
 print(not 1 == 2) # True
 

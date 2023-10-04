@@ -57,7 +57,7 @@ in python, there are some variable naming conventions that you should follow:
    for example: `_my_variable`
 4. Protected variables should start with two underscores `__`. For example:
 
-```python
+```python {cmd="python3"}
 class Car:
     def __init__(self, model, price):
         self.model = model   #public variable

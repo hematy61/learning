@@ -36,7 +36,7 @@ Modular code also promotes team development, as different team members can work 
 A class is a blueprint or template for creating objects that contain properties (attributes) and methods (functions). It is a code structure that defines the state and behavior of objects. Once defined, a class can be used to create any number of objects.
 In Python, classes are defined using the `class` keyword, followed by the name of the class. Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -64,7 +64,7 @@ Attributes are characteristics that define the state or quality of an object. An
 
 For example, let's consider a simple `class Person`:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, age, height):
         self.name = name
@@ -86,7 +86,7 @@ print(person1.height) # Output: 170
 
 Attributes can also be modified or updated directly:
 
-```python {cmd}
+```python {cmd="python3"}
 person1.age = 26
 print(person1.age)    # Output: 26
 ```
@@ -104,7 +104,7 @@ In OOP, behaviors are the actions that an object can perform. Behaviors are defi
 
 For example, let's consider a simple `class Person`:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -122,7 +122,7 @@ An object is an instance of a class that encapsulates data and behavior. An obje
 
 Let's take an example of a class Car to understand objects in detail:
 
-```python {cmd}
+```python {cmd="python3"}
 class Car:
     def __init__(self, make, model, year):
         self.make = make
@@ -157,7 +157,7 @@ we created two objects `toyota_camry` and `honda_accord`, which are instances of
 
 We can then use this object to call its methods and modify its properties. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 my_car.accelerate()   # increase speed by 10
 my_car.accelerate()   # increase speed by another 10
 my_car.brake()        # reduce speed by 10
@@ -196,7 +196,7 @@ Message passing is commonly used in object-oriented programming (OOP) to communi
 
 For example, let's say we have a 'Person' class that represents a person, and a 'BankAccount' class that represents a bank account. A person can have multiple bank accounts, so we can create a method in the 'Person' class called 'add_bank_account' that takes a 'BankAccount' object as a parameter:
 
-```python {cmd}
+```python {cmd="python3"}
 class BankAccount:
     def __init__(self, account_number, balance):
         self.account_number = account_number
@@ -214,7 +214,7 @@ class Person:
 
 Now, we can create instances of these classes and use message passing to add a bank account to a person:
 
-```python {cmd}
+```python {cmd="python3"}
 person1 = Person('John', 30)
 bank_account1 = BankAccount(123456, 1000)
 person1.add_bank_account(bank_account1)
@@ -237,7 +237,7 @@ In this way, composition allows us to model complex relationships between object
 
 Let's take an example of a car and an engine. The car class will have an object of the engine class as an attribute. Here's how it would look in Python code:
 
-```python {cmd}
+```python {cmd="python3"}
 class Engine:
     def __init__(self, fuel_type):
         self.fuel_type = fuel_type
@@ -251,7 +251,7 @@ In the above code, the Engine class has an attribute fuel_type. The Car class ha
 
 Now let's say we want to add a new attribute to the Car class, such as the number of wheels. We can do this without affecting the Engine class or any other class that uses it. Here's how:
 
-```python {cmd}
+```python {cmd="python3"}
 class Car:
     def __init__(self, engine_type, num_wheels):
         self.engine = Engine(engine_type)
@@ -268,7 +268,7 @@ In aggregation, the contained objects can exist independently of the container o
 
 Let's take an example of a Library class that contains multiple Book objects:
 
-```python {cmd}
+```python {cmd="python3"}
 class Book:
     def __init__(self, title, author):
         self.title = title
@@ -283,7 +283,7 @@ In this example, the Library class contains a list of Book objects. The Book obj
 
 Let’s take an example of a car object that contains multiple wheel objects:
 
-```python {cmd}
+```python {cmd="python3"}
 class Wheel:
     def __init__(self, size):
         self.size = size
@@ -322,7 +322,7 @@ Example 1: One-to-One Association
 
 Let's consider the example of a `Person` and a `Passport` object. Every person has only one passport, and every passport belongs to only one person. Therefore, there is a one-to-one association between the `Person` and `Passport` objects.
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, passport):
         self.name = name
@@ -342,7 +342,7 @@ Example 2: One-to-Many Association
 
 Consider the relationship between a university and its departments. A university can have many departments, but each department is associated with only one university. Therefore, there is a one-to-many association between the University and Department objects.
 
-```python {cmd}
+```python {cmd="python3"}
 class University:
     def __init__(self, name):
         self.name = name
@@ -388,7 +388,7 @@ To make an attribute or method protected, we prefix it with a single underscore 
 
 To make an attribute or method private, we prefix it with two underscores (`__`). For example, `self__balance` is a private attribute, and `self__deposit()` is a private method.
 
-```python {cmd}
+```python {cmd="python3"}
 class Employee:
     def __init__(self, name, salary):
         self.name = name  # public attribute
@@ -401,7 +401,7 @@ class Employee:
 
  Let's take an example of a class called `BankAccount` to illustrate how encapsulation can be implemented in Python.
 
-```python {cmd}
+```python {cmd="python3"}
 class BankAccount:
     def __init__(self):
         self.balance = 0  # public attribute
@@ -427,7 +427,7 @@ In the above code, we have defined a class called `BankAccount` that has three m
 
 However, if we want to make the `balance` attribute private, we can prefix it with two underscores (`__balance`). This makes the attribute inaccessible from outside the class.
 
-```python {cmd}
+```python {cmd="python3"}
 class BankAccount:
     def __init__(self):
         self.__balance = 0  # private attribute
@@ -457,7 +457,7 @@ In Python, name mangling is a mechanism used to modify the names of attributes o
 
 For example, suppose we have a class named `Person` with an attribute named `__age`. Here's what the class definition might look like:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, age):
         self.name = name
@@ -466,7 +466,7 @@ class Person:
 
 In this case, the `__age` attribute has been "mangled" to `_Person__age` by the Python interpreter. This means that we cannot access the `__age` attribute directly from outside the class using its original name. Instead, we have to use its mangled name:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
         def __init__(self, name, email, age):
             self.name = name
@@ -486,7 +486,7 @@ It's also worth noting that name mangling only applies to names with double unde
 !!!
     `dir()` function can be used to get the list of all the attributes of an object, including the mangled attributes.
 
-    ```python {cmd}
+    ```python {cmd="python3"}
     class Person:
         def __init__(self, name, email, age):
             self.name = name
@@ -513,7 +513,7 @@ To override a method in Python, you simply define a method in your derived class
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def make_sound(self):
         print("Generic animal sound")
@@ -534,7 +534,7 @@ In this example, we have a base class `Animal` with a method `make_sound`. The `
 
 It's important to note that when overriding a method, you can still call the original implementation from the base class using the `super()` function. For example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def make_sound(self):
         print("Generic animal sound")
@@ -558,7 +558,7 @@ In Python, method overloading is not possible because Python does not support me
 
 For example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Calculator:
     def add(self, a, b):
         return a + b
@@ -582,7 +582,7 @@ However, there are some workarounds to achieve method overloading in Python. The
 
 By giving default values to the function parameters, we can simulate method overloading in Python. We can define a single function with a generic name, and have different default parameters for different function definitions. The appropriate function will be invoked based on the number and types of arguments passed in the function call. Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 def add(a, b=0, c=0):
     return a + b + c
 
@@ -595,7 +595,7 @@ print(add(5, 10, 15))  # returns 30
 
 Python provides the `*args` and `**kwargs` syntax to handle variable arguments in function definitions. We can use these to simulate method overloading by defining a single function with a generic name, and process the arguments differently based on their types. Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 def add(*args):
     for arg in args:
         if isinstance(arg, int):
@@ -619,7 +619,7 @@ A Generic Function is a function that behaves differently based on the type of i
 
 Here's an example:
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import singledispatch
 
 @singledispatch
@@ -658,7 +658,7 @@ The decorator turns a method into a `singledispatch` method, which then provides
 
 Here is an example of how to use @singledispatchmethod decorator in a more realistic scenario. Consider a scenario where a company wants to calculate the payroll of its employees. Each employee has a different position and receives a different compensation, so the payroll calculation varies based on the employee's position. We can use` @singledispatchmethod` to calculate the payroll based on the position.
 
-```python {cmd}
+```python {cmd="python3"}
 from functools import singledispatchmethod
 
 class Employee:
@@ -745,7 +745,7 @@ class Child(Parent):
 
 Here is an example in Python:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def __init__(self, name, sound):
         self.name = name
@@ -789,7 +789,7 @@ Where `Child` is the class that inherits from multiple parent classes, `Parent1`
 
 Here is an example in Python:
 
-```python {cmd}
+```python {cmd="python3"}
 class Bird:
     def move(self):
         print("Flying...")
@@ -819,7 +819,7 @@ Multi-level inheritance is a type of inheritance where a child class inherits pr
 
 Here's an example of multi-level inheritance in Python:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def __init__(self, name, species):
         self.name = name
@@ -863,7 +863,7 @@ Python uses the C3 linearization algorithm to calculate the MRO of a class. The 
 
 Here is an example to illustrate how MRO works in Python:
 
-```python {cmd}
+```python {cmd="python3"}
 class A:
     def foo(self):
         print("A")
@@ -889,7 +889,7 @@ When we call d.foo(), Python looks for the foo method starting with `D`, then `B
 
 We can also see the MRO of a class using the built-in `mro()` method:
 
-```python {cmd}
+```python {cmd="python3"}
 print(D.mro()) # Output: [<class '__main__.D'>, <class '__main__.B'>, <class '__main__.C'>, <class '__main__.A'>, <class 'object'>]
 ```
 
@@ -919,7 +919,7 @@ Where `class` is the class to be checked, and `class_info` is the class or tuple
 
 Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     pass
 
@@ -943,7 +943,7 @@ Where `object` is the object to be checked, and `classinfo` is the class or tupl
 
 Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -961,7 +961,7 @@ This function returns a temporary object of the superclass, which allows you to 
 
 Here is an example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Animal:
     def __init__(self, name):
         self.name = name
@@ -982,7 +982,7 @@ This function returns the value of the named attribute of the specified object. 
 
 Example:
 
-```python {cmd}
+```python {cmd="python3"}
 class Person:
     def __init__(self, name, age):
         self.name = name

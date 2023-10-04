@@ -6,7 +6,7 @@ JSON stands for **JavaScript Object Notation** and it is a lightweight data inte
 
 Here is an example of encoding a Python object as JSON:
 
-```python {cmd}
+```python {cmd="python3"}
 import json
 
 data = {"name": "John", "age": 30, "city": "New York", "is_admin": True}
@@ -23,7 +23,7 @@ In this example, the `json.dumps()` method is used to convert a Python dictionar
 
 Here is an example of decoding JSON data into a Python object:
 
-```python {cmd}
+```python {cmd="python3"}
 import json
 
 json_data = '{"name": "John", "age": 30, "city": "New York", "is_admin": true}'
@@ -150,7 +150,7 @@ XML, on the other hand, can be hard to read and understand because it uses a mor
 
 JSON is natively supported by JavaScript and can be parsed easily using built-in methods. Other programming languages also have libraries to parse JSON data. Here is an example in JavaScript:
 
-```node {cmd}
+```node {cmd="python3"}
 const data = '{"name":"John","age":30,"city":"New York"}';
 const obj = JSON.parse(data);
 console.log(obj.name); // Output: John
@@ -158,7 +158,7 @@ console.log(obj.name); // Output: John
 
 Here is an example in Python:
 
-```python {cmd}
+```python {cmd="python3"}
 import json
 
 data = '{"name":"John","age":30,"city":"New York"}'

@@ -27,7 +27,7 @@ tourist = "John", "USA", 21, "New York", True
 
 You can access tuple elements by referring to the index number, inside square brackets.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 print(tourist[0]) # John
 print(tourist[1]) # USA
@@ -36,7 +36,7 @@ print(tourist[2]) # 21
 
 You can also use negative indexing to access elements from the end of the tuple.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 print(tourist[-1]) # True
 print(tourist[-2]) # New York
@@ -49,7 +49,7 @@ You can return a range of items by using the slice syntax.
 
 Specify the start index and the end index, separated by a colon, to return a part of the tuple.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 print(tourist[1:3]) # ('USA', 21)
 ```
@@ -58,7 +58,7 @@ print(tourist[1:3]) # ('USA', 21)
 
 You can concatenate two or more tuples to create a new one.
 
-```python {cmd}
+```python {cmd="python3"}
 letters = ("a", "b", "c")
 numbers = (1, 2, 3)
 new_tuple = letters + numbers
@@ -69,7 +69,7 @@ print(new_tuple) # ('a', 'b', 'c', 1, 2, 3)
 
 You can delete a tuple completely by using the `del` keyword.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 del tourist
 print(tourist) # NameError: name 'tourist' is not defined
@@ -83,7 +83,7 @@ You can test if an item exists in a tuple or not, using the keyword `in` or `not
 
 ### `in`
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 if "John" in tourist:
     print("John is a tourist") # John is a tourist
@@ -91,7 +91,7 @@ if "John" in tourist:
 
 ### `not in`
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 if "John" not in tourist:
     print("John is not a tourist")
@@ -105,7 +105,7 @@ The `*` operator can be used to repeat the elements in a tuple for a given numbe
 
 ### Repeating
 
-```python {cmd}
+```python {cmd="python3"}
 permissions = ("read", "write")
 print(permissions * 2) # ('read', 'write', 'read', 'write')
 ```
@@ -114,7 +114,7 @@ print(permissions * 2) # ('read', 'write', 'read', 'write')
 
 The `*` operator can also be used for unpacking tuples. By adding an asterisk `*` before the variable name, the values in the tuple are unpacked into the variable as a new list.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 name, country, *rest = tourist
 print(name) # John
@@ -126,7 +126,7 @@ print(rest) # [21, 'New York', True] the * operator unpacks the rest of the tupl
 
 To iterate through the elements of a tuple, you can use a `for` loop.
 
-```python {cmd}
+```python {cmd="python3"}
 tourist = ("John", "USA", 21, "New York", True)
 for item in tourist:
     print(item)
@@ -143,7 +143,7 @@ for item in tourist:
 
 The `count()` method returns the number of times a specified value occurs in a tuple.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ("apple", "banana", "cherry", "apple", "cherry")
 x = fruits.count("apple")
 print(x) # 2
@@ -153,7 +153,7 @@ print(x) # 2
 
 The `index()` method finds the first occurrence of the specified value.
 
-```python {cmd}
+```python {cmd="python3"}
 fruits = ("apple", "banana", "cherry")
 x = fruits.index("cherry")
 print(x) # 2
@@ -167,7 +167,7 @@ You can compare tuples using the comparison operators. The comparison is done ba
 
 When comparing two tuples using the `==` operator, the comparison starts with the first element of each tuple. If the first elements are equal, the second elements are compared, and so on. If all the elements are equal, the tuples are considered equal.
 
-```python {cmd}
+```python {cmd="python3"}
 tuple1 = (1, 2, 3)
 tuple2 = (1, 2, 3)
 print(tuple1 == tuple2) # True
@@ -190,7 +190,7 @@ print(tuple1 != tuple2) # True
 
 When comparing two tuples using the `>` operator, the comparison starts with the first element of each tuple. If the first element of the first tuple is greater than the first element of the second tuple, the first tuple is considered greater, no matter what the other elements are. If the first elements are equal, the second elements are compared, and so on.
 
-```python {cmd}
+```python {cmd="python3"}
 tuple1 = (1, 2, 3)
 tuple2 = (1, 2, 4)
 print(tuple1 > tuple2) # False
