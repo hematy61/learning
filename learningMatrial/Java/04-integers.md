@@ -248,7 +248,7 @@ class Main {
 }
 ```
 
-### Implicit or Explicit Type Conversion
+### Implicit or Explicit Type Conversion (Casting)
 
 When performing operations between different data types, Java might implicitly convert one type to another, which can lead to unexpected results. For instance, when multiplying an `int` with a `float`, the `int` is implicitly converted to a `float` before the operation.
 
