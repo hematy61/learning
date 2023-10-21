@@ -75,3 +75,36 @@ Here's a comparison of Docker and Virtual Machines (VMs) in a tabular format:
 | Management and Orchestration  | Easier with tools like Kubernetes                            | More complex, managed via hypervisors like VMware or Hyper-V |
 | Use Cases                     | Microservices, stateless applications, fast scaling         | Monolithic applications, legacy systems, full isolation      |
 | Security                      | Lower (Shared OS kernel might be a risk)                     | Higher (Better isolation and separation)                      |
+
+### Docker Image
+
+A Docker image is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software: the code, runtime, libraries, environment variables, and config files.
+
+**Characteristics:**
+
+- **Immutable:** Once created, images are unchangeable, and any changes lead to the creation of a new image.
+- **Portability:** They are portable and can be shared across different environments.
+- **Version Control:** Images can be versioned and stored in image registries like Docker Hub or private registries.
+
+**Creation:** Images are created through a process defined in a Dockerfile, which is a text document containing all the commands to assemble the image.
+
+### Docker Container
+
+A Docker container is a runnable instance of a Docker image. When you run an image, Docker creates a container from that image.
+
+**Characteristics:**
+
+- **Encapsulation:** Containers encapsulate the application and its dependencies, providing an isolated environment for running the application.
+- **Transience:** Containers can be started, stopped, and destroyed dynamically, with changes inside a container being preserved only if explicitly committed back to an image.
+- **Performance:** They are lightweight and fast, as they share the host system's kernel, rather than emulating the entire operating system.
+
+**Lifecycle:** The lifecycle of a container is managed by Docker commands or container orchestration platforms like Kubernetes.
+
+### Comparison of Docker Image and Container
+
+- **Immutability vs Transience:** Images are immutable, while containers are transient.
+- **Template vs Instance:** An image serves as a template for creating containers, while a container is a running instance of an image.
+- **Build vs Run:** Images are built once and can be used to create multiple containers, while containers are run, stopped, and destroyed dynamically.
+- **Storage:** Images are stored in registries, while containers exist on the host machine where they are run.
+
+In summary, a Docker Image is akin to a blueprint, which defines the environment for running an application, while a Docker Container is the actual running instance of that blueprint. This separation allows for consistency, portability, and scalability when deploying and managing applications across various environments.
