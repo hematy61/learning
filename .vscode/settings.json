@@ -15,6 +15,7 @@
     "jlink",
     "jshell",
     "jstat",
+    "Kubelet",
     "println",
     "sbyte",
     "singledispatchmethod",
