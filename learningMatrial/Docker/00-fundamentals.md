@@ -1,29 +1,19 @@
 # Docker Fundamentals
 
-Containers and Docker are closely related but distinct concepts in the realm of software deployment and virtualization. Here's an explanation of both:
+## What is Docker?
 
-## 1. **Containers:**
+Docker is a platform that utilizes OS-level virtualization to deliver software in packages called containers.
 
-- **Definition:** Containers are lightweight, standalone, and executable packages of software that include everything needed to run a specific application: the code, runtime, libraries, environment variables, and config files. They aim to resolve the "it works on my machine" problem by creating consistent environments for applications.
+## Containers
 
-- **Characteristics:**
-  - **Portability:** Containers are portable across different systems and cloud environments.
-  - **Consistency:** They ensure that applications run the same regardless of where they are deployed.
-  - **Isolation:** Containers provide an isolated environment for applications, separating them from other containers and the host system.
-  - **Efficiency:** They are more resource-efficient compared to traditional virtual machines as they share the host system's OS kernel, rather than emulating an entire operating system.
+Containers are lightweight, standalone, and executable packages of software that include everything needed to run a specific application: the code, runtime, libraries, environment variables, and config files. They aim to resolve the "it works on my machine" problem by creating consistent environments for applications.
 
-## 2. **Docker:**
+**Characteristics:**
 
-- **Definition:** Docker is a platform that enables developers to create, deploy, and run applications in containers. It's one of the most popular containerization platforms.
-- **Components:**
-  - **Docker Engine:** The core component that builds and runs containers.
-  - **Docker Hub:** A cloud-based registry to share and manage container images.
-  - **Docker Compose:** A tool for defining and running multi-container applications.
-- **Characteristics:**
-  - **Ease of Use:** Docker provides easy-to-use tooling and a user-friendly interface to manage containers.
-  - **Community:** It has a large community that contributes to its robust ecosystem of tools and plugins.
-  - **Cross-platform:** Docker can run on various operating systems including Linux, Windows, and macOS.
-  - **Integration:** It integrates well with popular orchestration tools like Kubernetes.
+- **Portability:** Containers are portable across different systems and cloud environments.
+- **Consistency:** They ensure that applications run the same regardless of where they are deployed.
+- **Isolation:** Containers provide an isolated environment for applications, separating them from other containers and the host system.
+- **Efficiency:** They are more resource-efficient compared to traditional virtual machines as they share the host system's OS kernel, rather than emulating an entire operating system.
 
 ## Docker vs. Virtual Machines
 
@@ -76,7 +66,7 @@ Here's a comparison of Docker and Virtual Machines (VMs) in a tabular format:
 | Use Cases                     | Microservices, stateless applications, fast scaling         | Monolithic applications, legacy systems, full isolation      |
 | Security                      | Lower (Shared OS kernel might be a risk)                     | Higher (Better isolation and separation)                      |
 
-### Docker Image
+## Docker Images
 
 A Docker image is a lightweight, standalone, and executable software package that includes everything needed to run a piece of software: the code, runtime, libraries, environment variables, and config files.
 
@@ -86,9 +76,7 @@ A Docker image is a lightweight, standalone, and executable software package tha
 - **Portability:** They are portable and can be shared across different environments.
 - **Version Control:** Images can be versioned and stored in image registries like Docker Hub or private registries.
 
-**Creation:** Images are created through a process defined in a Dockerfile, which is a text document containing all the commands to assemble the image.
-
-### Docker Container
+## Docker Container
 
 A Docker container is a runnable instance of a Docker image. When you run an image, Docker creates a container from that image.
 
@@ -100,11 +88,33 @@ A Docker container is a runnable instance of a Docker image. When you run an ima
 
 **Lifecycle:** The lifecycle of a container is managed by Docker commands or container orchestration platforms like Kubernetes.
 
-### Comparison of Docker Image and Container
+## Comparison of Docker Image and Container
 
-- **Immutability vs Transience:** Images are immutable, while containers are transient.
-- **Template vs Instance:** An image serves as a template for creating containers, while a container is a running instance of an image.
-- **Build vs Run:** Images are built once and can be used to create multiple containers, while containers are run, stopped, and destroyed dynamically.
-- **Storage:** Images are stored in registries, while containers exist on the host machine where they are run.
+| Feature          | Docker Image                                                   | Docker Container                                      |
+|------------------|---------------------------------------------------------------|-------------------------------------------------------|
+| Immutability     | Images are immutable.                                         | Containers are transient.                             |
+| Template/Instance| An image serves as a template for creating containers.        | A container is a running instance of an image.        |
+| Build/Run        | Images are built once and can be used to create multiple containers. | Containers are run, stopped, and destroyed dynamically. |
+| Storage          | Images are stored in registries.                               | Containers exist on the host machine where they are run. |
 
-In summary, a Docker Image is akin to a blueprint, which defines the environment for running an application, while a Docker Container is the actual running instance of that blueprint. This separation allows for consistency, portability, and scalability when deploying and managing applications across various environments.
+## Docker Compose
+
+Docker Compose is a tool designed to help users define and manage multi-container Docker applications. It simplifies the process of configuring and running multiple containers together in a coordinated fashion.
+
+## Docker Hub
+
+Docker Hub is a cloud-based registry service which allows you to link to code repositories, build your images and test them, store manually pushed images, and link to Docker Cloud so you can deploy images to your hosts.
+
+## Architecture
+
+Docker uses a client-server architecture. The Docker client talks to the Docker daemon, which does the heavy lifting of building, running, and distributing your Docker containers. The Docker client and daemon can run on the same system, or you can connect a Docker client to a remote Docker daemon. The Docker client and daemon communicate using a REST API, over UNIX sockets or a network interface. Another Docker client is Docker Compose, that lets you work with applications consisting of a set of containers.
+
+![Docker Architecture](./assets/docker-architecture.png)
+
+### Docker Client
+
+Docker Client is the primary user interface to Docker. It accepts commands from the user and communicates back and forth with a Docker daemon to carry out these commands.
+
+### Docker Daemon
+
+The Docker daemon (dockerd) is a persistent background process that manages Docker containers on a host system. It's crucial for executing Docker commands issued by the user or by automated scripts. It communicates with the Docker client through a REST API, a UNIX socket, or a network interface. The Docker client issues commands to the daemon, which then executes these commands.
