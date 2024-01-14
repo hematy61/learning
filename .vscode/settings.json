@@ -18,6 +18,7 @@
     "Kubelet",
     "println",
     "sbyte",
+    "SDKMAN",
     "singledispatchmethod",
     "staticmethod",
     "struct",
