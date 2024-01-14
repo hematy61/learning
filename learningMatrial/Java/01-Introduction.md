@@ -175,7 +175,7 @@ Java 11 introduced several other changes, including new ChaCha20 and ChaCha20-Po
 
 ### Java 17
 
-Java 17 follows a six-month feature-release model, allowing for faster releases and feedback cycles. Java 17 is also an LTS (Long-Term Support) version, meaning it will receive extended support, making it more stable and secure over time. The LTS versions are designed to be more stable, with extended support periods. Java SE 11 and Java SE 17 are the recent LTS versions, with Java 21 expected to be the next LTS in September 2023.
+Java 17 follows a six-month feature-release model, allowing for faster releases and feedback cycles. Java 17 is also an LTS (Long-Term Support) version, meaning it will receive extended support, making it more stable and secure over time. The LTS versions are designed to be more stable, with extended support periods.
 
 ### Long Term Support (LTS) Version
 
