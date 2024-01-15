@@ -18,24 +18,35 @@ In Java, wrapper classes are part of the Java Standard Library and provide a mec
 ```java {cmd}
 public class Main {
     public static void main(String[] args) {
-        // Autoboxing: Converting int to Integer
         int num = 100;
-        Integer obj = Integer.valueOf(num); // or simply Integer obj = num;
+        // Autoboxing: Converting int to Integer
+        Integer num2 = num;
+
+        // explicit boxing 
+        Integer num3 = Integer.valueOf(num);
 
         // Printing object
-        System.out.println(obj.getClass().getName());
-        System.out.println(obj.doubleValue());
+        System.out.println(num3.getClass().getName());
+        // Outputs: java.lang.Integer
+        System.out.println(num3.doubleValue());
+        // Outputs: 100.0
 
         // Unboxing: Converting Integer to int
-        int num2 = obj.intValue(); // or simply int num2 = obj;
+        int num2 = num3.intValue(); // or simply int num2 = num3;
 
         // Printing primitive data types
         System.out.println(num2);
     }
 }
-
-
 ```
+
+1. **Explicit Boxing: `Integer.valueOf(num)`**
+   - This is an explicit call to the `valueOf` method of the `Integer` class. It's a clear indication in the code that boxing is taking place.
+   - `Integer.valueOf(num)` checks if the value of `num` is within the range of -128 to 127(Integer Cache range). If so, it returns a reference to a pre-existing object from the Integer cache, which is a memory-saving feature.
+
+2. **Autoboxing: `Integer num2 = num;`**
+   - This is an example of autoboxing, where the Java compiler automatically converts the primitive `int` to an `Integer` object.
+   - Internally, autoboxing does the same thing as `Integer.valueOf(num)`. It uses the `valueOf` method, so it also benefits from the Integer cache.
 
 **Example 2:** Parsing Strings to Numbers
 
@@ -49,8 +60,8 @@ public class Main {
         System.out.println(number + 10);  // Outputs: 12355
         System.out.println(typeOf(number));  // Outputs: int
 
-        Integer obj = Integer.valueOf(number);
-        System.out.println(typeOf(obj));  // Outputs: Integer
+        Integer num3 = Integer.valueOf(number);
+        System.out.println(typeOf(num3));  // Outputs: Integer
 
     }
 
