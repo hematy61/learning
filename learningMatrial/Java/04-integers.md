@@ -47,6 +47,8 @@ class Main {
 
 ```
 
+In Java, when specifying a long literal, you can use either `L` or `l` (lowercase or uppercase 'L') after the number to indicate that it is a long value. Using `L` is generally preferred because the lowercase `l` can be easily confused with the digit `1`, especially in certain fonts or with quick reading.
+
 The `L` suffix is not always required when assigning a value to a `long` variable. However, it's necessary in situations where the value exceeds the range of an `int` or when you want to explicitly indicate that the literal is of type `long`.
 
 By default, any whole number without a decimal point is treated as an `int` in Java. If the number is within the range of `int` (-2,147,483,648 to 2,147,483,647), you can assign it to a `long` variable without the `L` suffix:
@@ -84,7 +86,7 @@ In Java, you can represent integer literals in different bases:
 - **Octal**: `int octVal = 032;` (prefix `0`)
 - **Hexadecimal**: `int hexVal = 0x1A;` (prefix `0x` or `0X`)
 
-For `byte`, `short`, and `long`, the representation is the same, but you need to ensure the value fits within the range of the type. For long literals, you can also append an `L` or `l` at the end, regardless of the base.
+For `byte`, `short`, and `long`, the representation is the same, but you need to ensure the value fits within the range of the type. For long literals, you can also append an `L` at the end, regardless of the base.
 
 ```java {cmd run_on_save}
 class Main {
@@ -145,7 +147,7 @@ Operations on integers in Java can be broadly categorized into arithmetic, bitwi
 | `-`      | Subtraction    | `a - b`             |
 | `*`      | Multiplication | `a * b`             |
 | `/`      | Division       | `a / b`             |
-| `%`      | Modulus        | `a % b`             |
+| `%`      | Modulo        | `a % b`             |
 | `++`     | Increment      | `a++` or `++a`      |
 | `--`     | Decrement      | `a--` or `--a`      |
 
@@ -182,11 +184,12 @@ public class Main {
 ```
 
 ### Bitwise Operations
-
+<!-- an exception that the formatter doesn't format this table -->
+<!-- markdownlint-disable MD013 -->
 | Operator | Name                 | Example               |
 | -------- | -------------------- | --------------------- |
 | `&`      | Bitwise AND          | `int result = a & b;` |
-| `|`      | Bitwise OR           | `result = a | b;`     |
+| `\|`     | Bitwise OR           | `result = a \| b;`    |
 | `^`      | Bitwise XOR          | `result = a ^ b;`     |
 | `~`      | Bitwise complement   | `result = ~a;`        |
 | `<<`     | Left shift           | `result = a << 1;`    |
@@ -205,7 +208,7 @@ public class Main {
 | `<=`     | Less than or equal to          | `boolean isLE = (a <= b);`       |
 
 ### Assignment Operations
-
+<!-- markdownlint-disable MD013 -->
 | Operator | Name                           | Example      |
 | -------- | ------------------------------ | ------------ |
 | `=`      | Assignment                     | `int c = a;` |
@@ -218,7 +221,7 @@ public class Main {
 | `>>=`    | Right shift assignment         | `c >>= 2;`   |
 | `>>>=`   | Unsigned right shift assignment| `c >>>= 2;`  |
 | `&=`     | Bitwise AND assignment         | `c &= a;`    |
-| `|=`     | Bitwise OR assignment          | `c |= a;`    |
+| `\|=`    | Bitwise OR assignment          | `c \|= a;`   |
 | `^=`     | Bitwise XOR assignment         | `c ^= a;`    |
 
 ## Pitfalls
@@ -252,7 +255,11 @@ class Main {
 
 When performing operations between different data types, Java might implicitly convert one type to another, which can lead to unexpected results. For instance, when multiplying an `int` with a `float`, the `int` is implicitly converted to a `float` before the operation.
 
-Implicit type conversion, also known as **type coercion** or **type promotion**, can lead to several issues if not handled with care:
+Implicit type conversion, also known as **type coercion** or **type promotion**, can lead to several issues if not handled with care. Whenever an arithmetic operation is performed between different types, Java promotes the operands to the larger type. For example, when adding an `int` to a `double`, the `int` is promoted to a `double` before the addition. In Java, type promotion follows a specific order when dealing with mixed data types in expressions. The order from smallest to largest type is represented as follows:
+
+`byte` → `short` / `char` → `int` → `long` → `float` → `double`
+
+This means, for example, if you have an expression involving a `byte` and a `short`, the `byte` is promoted to `short` before the operation is performed. Similarly, if an `int` and a `float` are involved in an expression, the `int` is promoted to `float`. This hierarchy ensures that data loss is minimized during arithmetic operations.
 
 **Loss of Precision:**
 When a smaller data type is implicitly converted to a larger data type, especially from an integer to a floating-point, there might be a loss of precision. For example:
