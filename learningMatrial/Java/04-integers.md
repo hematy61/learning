@@ -259,7 +259,7 @@ Implicit type conversion, also known as **type coercion** or **type promotion**,
 
 `byte` → `short` / `char` → `int` → `long` → `float` → `double`
 
-This means, for example, if you have an expression involving a `byte` and a `short`, the `byte` is promoted to `short` before the operation is performed. Similarly, if an `int` and a `float` are involved in an expression, the `int` is promoted to `float`. This hierarchy ensures that data loss is minimized during arithmetic operations.
+This means, for example, when you add a char and a short together, such as `a + b` where a is a char and b is a short, both operands are promoted to int before the addition. Similarly, if an `int` and a `float` are involved in an expression, the `int` is promoted to `float`. This hierarchy ensures that data loss is minimized during arithmetic operations.
 
 **Loss of Precision:**
 When a smaller data type is implicitly converted to a larger data type, especially from an integer to a floating-point, there might be a loss of precision. For example:
@@ -281,11 +281,11 @@ And here is another example:
 class Main {
     public static void main(String[] args) {
         int largeInt = 1234567890;
-        System.out.println("LargeInt: " + largeInt);
+        System.out.println("LargeInt: " + largeInt); // LargeInt: 1234567890
         float floatVal = largeInt;  // Some precision might be lost due to the conversion
-        System.out.println("FloatVal: " + floatVal);
+        System.out.println("FloatVal: " + floatVal); // FloatVal: 1.23456794E9
         int intVal = (int) floatVal;  // Explicitly cast back to int
-        System.out.println("IntVal: " + intVal);
+        System.out.println("IntVal: " + intVal); // IntVal: 1234567936
     }
 }
 ```
