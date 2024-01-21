@@ -56,25 +56,13 @@ Wrapper classes provide utility methods to convert strings into numbers.
 public class Main {
     public static void main(String[] args) {
         String numberStr = "12345";
-        int number = Integer.parseInt(numberStr);  // Convert String to int
-        System.out.println(number + 10);  // Outputs: 12355
-        System.out.println(typeOf(number));  // Outputs: int
+        int number = Integer.parseInt(numberStr);  // Convert String to int - parseInt returns a primitive int
+        System.out.println(number + 10);  // Outputs: 12355 which is an primitive integer
 
-        Integer num3 = Integer.valueOf(number);
-        System.out.println(typeOf(num3));  // Outputs: Integer
-
+        Integer num3 = Integer.valueOf(number); // the valueOf method returns an Integer object
+        int num4 = Integer.valueOf(number); // the valueOf method returns an Integer object but it is automatically unboxed to an int
+        System.out.println(num3 + 10); // Outputs: 12355 which is an object of Integer class
     }
-
-    // Using method overloading to determine the type of a variable
-    public static String typeOf(int number) {
-        return "int";
-    }
-
-    public static String typeOf(Integer number) {
-        return "Integer";
-    }
-
-    // ... add more overloaded methods for other types if needed
 }
 ```
 
@@ -82,7 +70,7 @@ public class Main {
 public class Main {
     public static void main(String[] args) {
         int primitiveInt = 42;
-        Integer wrappedInt = Integer.valueOf(42);
+        Integer wrappedInt = Integer.valueOf(primitiveInt);
 
         printType(primitiveInt);  // Outputs: The type of the variable is: int
         printType(wrappedInt);    // Outputs: The type of the variable is: Integer
@@ -137,3 +125,84 @@ public class Main {
 3. **Null Handling**: Primitive types cannot be `null`, but their wrapper objects can be. This can be useful in scenarios where you might want to represent the absence of a value.
 
 4. **Additional Methods**: Wrapper classes come with a variety of utility methods. For instance, the `Integer` class provides methods like `parseInt`, `valueOf`, and others that can be very useful for operations related to integers.
+
+## A Naive Example of Finding the type of a variable
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        int primitiveInt = 42;
+        Integer wrappedInt = Integer.valueOf(42);
+
+        System.out.println(typeOf(primitiveInt)); // Outputs: The type of the variable is: int
+        System.out.println(typeOf(wrappedInt));  // Outputs: The type of the variable is: Integer
+    }
+
+    // using method overloading to find the type of a variable
+    public static String typeOf(int value) {
+        return "int";
+    }
+
+    public static String typeOf(Integer value) {
+        return "Integer";
+    }
+
+    public static String typeOf(double value) {
+        return "double";
+    }
+
+    public static String typeOf(Double value) {
+        return "Double";
+    }
+
+    public static String typeOf(float value) {
+        return "float";
+    }
+
+    public static String typeOf(Float value) {
+        return "Float";
+    }
+
+    public static String typeOf(long value) {
+        return "long";
+    }
+
+    public static String typeOf(Long value) {
+        return "Long";
+    }
+
+    public static String typeOf(short value) {
+        return "short";
+    }
+
+    public static String typeOf(Short value) {
+        return "Short";
+    }
+
+    public static String typeOf(byte value) {
+        return "byte";
+    }
+
+    public static String typeOf(Byte value) {
+        return "Byte";
+    }
+
+    public static String typeOf(char value) {
+        return "char";
+    }
+
+    public static String typeOf(Character value) {
+        return "Character";
+    }
+
+    public static String typeOf(boolean value) {
+        return "boolean";
+    }
+
+    public static String typeOf(Boolean value) {
+        return "Boolean";
+    }
+
+    // ... add more overloaded methods for other types if needed
+}
+```
