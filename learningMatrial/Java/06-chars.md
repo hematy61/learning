@@ -44,7 +44,30 @@ Java supports special escape sequences for certain characters:
 | `\f`            | Form feed             |
 | `\uXXXX`        | Unicode character     |
 
-Example:
+carriage return means to return the cursor to the beginning of the line. This is useful when you want to overwrite the current line of text. For example:
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        String lineWithCarriageReturn = "First Line\rSecond Line";
+        System.out.println(lineWithCarriageReturn); // Outputs: Second Line
+    }
+}
+```
+
+The `\b` escape sequence is used to move the cursor one character back. Note that the `\b` escape sequence only moves the cursor back and does not delete the character. If you want to delete the character, you can use the `\b` escape sequence along with the space character. For example:
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        String lineWithBackspace = "Hello World!!!\b\b\b   ";
+        System.out.println(lineWithBackspace); // Outputs: Hello World
+        System.out.println("Good Evening\bg Coders! "); // Outputs: Good Evening Coders!
+    }
+}
+```
+
+Example of `\n` and `\t` escape sequences:
 
 ```java {cmd}
 public class Main {
@@ -183,51 +206,76 @@ public class Main {
 ### `getNumericValue(char ch)`
 
 Returns the `int` value that the specified character represents.
+Here's how it works:
+
+- If the character is a decimal digit, it returns the corresponding integer (`0-9` for `0`-`9`).
+- If the character is a letter, it returns the appropriate numeric value (`10-35` for `A`-`Z` or `a`-`z`, with 10 for `A` and `a`, and so on).
+- If the character does not have a numeric value, it returns `-1`.
+
+!!! note
+    The `getNumericValue()` method returns the numeric value of the character, not the character itself. For example, the numeric value of the character `9` is `9`, not `57` (the Unicode value of `9`).
+    Also, it return the same value for multiple characters. For example, the numeric value of `A`, `a`, and 10 are all `10`.
 
 ```java {cmd}
 public class Main {
     public static void main(String[] args){
         int result = Character.getNumericValue('9');  // 9
         System.out.println(result);
+
+        System.out.println(Character.getNumericValue('A'));  // 10
+        System.out.println(Character.getNumericValue('a'));  // 10
+        System.out.println(Character.getNumericValue(10));   // 10
     }
 }
   ```
 
 ### `isAlphabetic(int codePoint)`
 
-Determines if the specified character (Unicode code point) is alphabetic.
+Determines if the specified character (Unicode code point) is alphabetic. `isAlphabetic` not only recognizes letters from the English alphabet but also letters from other languages due to the Unicode support. For example, it returns `true` for the character `ñ`, which is a letter in the Spanish alphabet or the character `Ω`, which is a letter in the Greek alphabet.
 
 ```java {cmd}
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isAlphabetic('A');  // true
         System.out.println(result);
+
+        System.out.println(Character.isAlphabetic('ñ'));  // true
+        System.out.println(Character.isAlphabetic('Ω'));  // true
     }
 }
   ```
 
 ### `isLetterOrDigit(char ch)`
 
-Determines if the specified character is a letter or digit.
+Determines if the specified character is a letter or digit. It will return true for characters that are either alphabetic letters (including those beyond A-Z, like accented characters) or numeric digits. Therefore, it return `true` for non-English letters like `ñ` or `Ω`.
 
 ```java {cmd}
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isLetterOrDigit('A');  // true
         System.out.println(result);
+
+        System.out.println(Character.isLetterOrDigit('ñ'));  // true
+        System.out.println(Character.isLetterOrDigit('Ω'));  // true
+        System.out.println(Character.isLetterOrDigit('9'));  // true
     }
 }
   ```
 
 ### `digit(char ch, int radix)`
 
-Returns the numeric value of the character `ch` in the specified radix.
+Returns the numeric value of the character `ch` in the specified radix. The numeric value is the value that the character represents. For example, the numeric value of the character `9` is `9`, not `57` (the Unicode value of `9`).
+
+!!! note
+    Radix is the base of the number system. For example, the decimal number system has a radix of 10, while the hexadecimal number system has a radix of 16.
 
 ```java {cmd}
 public class Main {
     public static void main(String[] args){
         int result = Character.digit('A', 16);  // 10 (for hexadecimal)
         System.out.println(result);
+
+        System.out.println(Character.digit('A', 10));  // -1 (for decimal)
     }
 }
   ```
@@ -331,7 +379,7 @@ Returns the character (Unicode code point) at the specified index of the `CharSe
 public class Main {
     public static void main(String[] args){
         int result = Character.codePointAt("Hello", 1); 
-        System.out.println(result);
+        System.out.println(result); // 101 (Unicode code point for 'e')
     }
 }
 ```
@@ -351,3 +399,10 @@ public class Main {
 ```
 
 In summary, the `char` data type in Java is versatile and supports a wide range of characters, including Unicode characters. The associated `Character` class provides many utility methods for working with characters.
+
+## 7. Operand effect on `char` type
+
+### `+` operator
+
+
+
