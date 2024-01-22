@@ -241,7 +241,7 @@ Certainly! Floating-point operations are the arithmetic and mathematical operati
 | Subtraction    | `-`    | Subtracts one number from another.   | `5.2 - 3.1 = 2.1` |
 | Multiplication | `*`    | Multiplies two numbers.              | `5.2 * 3 = 15.6`  |
 | Division       | `/`    | Divides one number by another.       | `5.2 / 2 = 2.6`   |
-| Modulus        | `%`    | Returns the remainder of a division. | `5.2 % 2 = 1.2`   |
+| Modulo         | `%`    | Returns the remainder of a division. | `5.2 % 2 = 1.2`   |
 
 ### Comparison Operations
 
