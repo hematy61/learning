@@ -93,6 +93,9 @@ public class Main {
         // This will cause a compile-time error
         int value = 2147483648;  // 2147483647 is the maximum for int
         // error: integer number too large
+
+        // This will NOT cause an error; it will result in overflow
+        int result = Integer.MAX_VALUE + 1;
     }
 }
 ```
