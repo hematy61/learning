@@ -400,9 +400,68 @@ public class Main {
 
 In summary, the `char` data type in Java is versatile and supports a wide range of characters, including Unicode characters. The associated `Character` class provides many utility methods for working with characters.
 
-## 7. Operand effect on `char` type
+## 7. + Operand effect on `char` type
 
-### `+` operator
+When the `+` operator is used with a `char` type in Java, it can have different effects based on the context.
 
+### Addition with Another Character or a Number
 
+If a `char` is added to another `char`, or to a numeric type (`byte`, `short`, `int`, `long`, `float`, `double`), the `+` operator performs an arithmetic addition. Both characters are converted to their corresponding `int` values (based on the ASCII or Unicode table), and the addition is performed. For example, `'a' + 'b'` results in `195` because the ASCII value of `'a'` is `97` and `'b'` is `98`.
+Note that the `+` operator result is an `int` value, not a `char` value and can not be assigned to a `char` variable. 
 
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        char ch1 = 'a';
+        char ch2 = 'b';
+        char error = ch1 + ch2 // Error: Type mismatch: cannot convert from int to char
+        int result = ch1 + ch2;  // 195 which is the character code for 'Ã'
+        System.out.println(result); // 195
+
+        // convert the result back to char
+        char charResult = (char) result; // 'Ã'
+
+    }
+}
+```
+
+### Concatenation with a String
+
+If a `char` is used with the `+` operator and one of the operands is a `String`, then the operation is string concatenation. The `char` is converted to a `String`, and the two strings are concatenated. For example, `'a' + "bc"` results in the string `"abc"`.
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        char ch = 'a';
+        String str = "bc";
+        String result = ch + str;  // "abc"
+        System.out.println(result); // abc
+    }
+}
+```
+
+However, be careful with operations like this one:
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        char a = 'a';
+        String b = "new world";
+        String result = a + ' ' + b;
+        System.out.println(result); // 195new world
+
+        String result2 = a + " " + b;
+        System.out.println(result2); // a new world
+    }
+}
+```
+
+The expression `a + ' ' + b` is evaluated as follows:
+
+The `char` `a` (with ASCII value 97) is added to the space character ' ' (with ASCII value 32). This is an arithmetic addition because both operands are `char` types. The result is `129`.
+
+The integer result `129` is then concatenated with the string `"new world"`. In Java, when a string is involved in the `+` operation, the entire operation is treated as string concatenation.
+
+Therefore, the final `result` is the string `"129new world"`.
+
+However, if you use the expression `a + " " + b`, the result is the string `"a new world"` because the first operand is a string, and the entire operation is treated as string concatenation.
