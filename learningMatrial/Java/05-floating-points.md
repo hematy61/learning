@@ -136,6 +136,36 @@ class Main {
 !!! note
     By default, any floating-point number without a suffix is treated as a `double`.
 
+## Scientific Notation
+
+One of the ways to create floating-point numbers in programming is to use scientific notation. Scientific notation is a compact and convenient way to represent very large or very small numbers using a combination of a base number and an exponent. In Java, for instance, you can use the letter `e` to denote scientific notation. When you use `e`, it's typically treated as a `double` unless you explicitly specify it as a `float` by appending an 'f' or 'F'. For example, if we have the number `5e1`, it is equivalent to `50.0` in decimal form and is treated as a `double` by default. If we want to declare it as a `float`, we can write it as `5e1f` or `5e1F`. Scientific notation is useful when you want to represent very large or very small numbers compactly.
+
+```java {cmd="java" run_on_save}
+class Main {
+    public static void main(String[] args) {
+        // 5e1 is equivalent to 50.0
+        System.out.println(5e1);  // Outputs: 50.0
+
+        // 5e1f is equivalent to 50.0f
+        System.out.println(5e1f);  // Outputs: 50.0
+
+        // 5e1F is equivalent to 50.0F
+        System.out.println(5e1F);  // Outputs: 50.0
+
+        // 5e-1 is equivalent to 0.5
+        System.out.println(5e-1);  // Outputs: 0.5
+
+        // 5e-1f is equivalent to 0.5f
+        System.out.println(5e-1f);  // Outputs: 0.5
+
+        // 5e-1F is equivalent to 0.5F
+        System.out.println(5e-1F);  // Outputs: 0.5
+
+        System.out.println(5e18);  // Outputs: 5.0E18 - This is easier to read than 5000000000000000000 or 5_000_000_000_000_000_000.0
+    }
+}
+```
+
 ## Special Values
 
 **Negative Infinity (`-Infinity`)**:
