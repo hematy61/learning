@@ -28,6 +28,33 @@ public class Main {
 }
 ```
 
+In general there are three to create a `char` variable:
+
+- Using a Unicode character.
+- Using a literal character.
+- Using an integer value.
+
+```java {cmd}
+public class Main {
+    public static void main(String[] args) {
+        // Using a literal character
+        char letterD = 'D';
+
+        // Using a Unicode character - the unicode value for 'D' is U+0044
+        // and in java we use '\u' to indicate that it's a unicode character
+        char letterDUnicode = '\u0044';
+
+        // Using an integer value - the integer value for 'D' is 68 which is the
+        // the Decimal value of the Unicode character 'D'
+        char letterDInt = 68;
+
+        System.out.println(letterD); // Outputs: D
+        System.out.println(letterDUnicode); // Outputs: D
+        System.out.println(letterDInt); // Outputs: D
+    }
+}
+```
+
 ## 4. Escape Sequences
 
 Java supports special escape sequences for certain characters:
