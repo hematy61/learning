@@ -153,3 +153,56 @@ for (Boolean bool : booleanList) {
 
 - Use meaningful names for boolean variables (e.g., `isEmpty`, `hasCompleted`).
 - Avoid unnecessary comparisons, e.g., use `if (isValid)` instead of `if (isValid == true)`.
+
+## Common Pitfalls
+
+Working with booleans in Java is generally straightforward, but there are a few "gotchas" or common pitfalls that you might encounter:
+
+1. **Confusing `==` with `.equals()`:**
+   - When comparing `Boolean` objects, using `==` checks if they reference the same object, not if they represent the same value. This can lead to unexpected results. It's safer to use `.equals()` for comparing `Boolean` objects.
+
+   ```java
+   Boolean a = new Boolean(true);
+   Boolean b = new Boolean(true);
+   System.out.println(a == b); // false, because they are different objects
+   System.out.println(a.equals(b)); // true, because they represent the same value
+   ```
+
+2. **Autoboxing and Null Pointer Exceptions:**
+   - Autoboxing can lead to `NullPointerExceptions`. If you try to unbox a `null` `Boolean` object, Java throws a `NullPointerException`.
+
+   ```java
+   Boolean myBool = null;
+   boolean primitiveBool = myBool; // NullPointerException
+   ```
+
+3. **Boolean Parsing from Strings:**
+   - `Boolean.parseBoolean(String)` only returns `true` if the string is exactly (ignoring case) "true". Every other string, including "yes", "1", or "0" will result in `false`.
+
+   ```java
+   boolean isTrue = Boolean.parseBoolean("TRUE"); // true
+   boolean isAlsoTrue = Boolean.parseBoolean("yes"); // false, not "true" exactly
+   ```
+
+4. **Implicit Boolean Conversion in Expressions:**
+   - Unlike some other languages, Java does not treat non-zero integers, non-null objects, or non-empty strings as `true` in boolean expressions.
+
+   ```java
+   String text = "Hello";
+   // if (text) {} // This is invalid in Java
+   ```
+
+    Java has a strict type system, and boolean expressions must evaluate to a boolean value (true or false). Non-boolean values cannot be used directly in conditions like if statements. Here is an example of how to check a string for null or empty values:
+
+    ```java
+    String text = "Hello";
+    if (text != null && !text.isEmpty()) {
+        System.out.println("The string is not null or empty.");
+    }
+    ```
+
+5. **Default Values:**
+   - The default value of a `boolean` (primitive) is `false`. However, for a `Boolean` (object), the default value is `null`. This distinction is important for class member variables and array initializations.
+
+6. **Performance Considerations:**
+   - Frequent boxing and unboxing can lead to performance issues, particularly in high-performance or resource-constrained environments. It's generally more efficient to use `boolean` primitives where possible.
