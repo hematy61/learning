@@ -33,6 +33,7 @@ In general there are three to create a `char` variable:
 - Using a Unicode character.
 - Using a literal character.
 - Using an integer value.
+- Using an Hexadecimal value.
 
 ```java {cmd}
 public class Main {
@@ -48,9 +49,15 @@ public class Main {
         // the Decimal value of the Unicode character 'D'
         char letterDInt = 68;
 
+        // Using an Hexadecimal value - the Hexadecimal value for 'D' is 44 which is the
+        // the Hexadecimal value of the Unicode character 'D'
+        char letterDHex = 0x44;
+        
+
         System.out.println(letterD); // Outputs: D
         System.out.println(letterDUnicode); // Outputs: D
         System.out.println(letterDInt); // Outputs: D
+        System.out.println(letterDHex); // Outputs: D
     }
 }
 ```
@@ -434,7 +441,7 @@ When the `+` operator is used with a `char` type in Java, it can have different 
 ### Addition with Another Character or a Number
 
 If a `char` is added to another `char`, or to a numeric type (`byte`, `short`, `int`, `long`, `float`, `double`), the `+` operator performs an arithmetic addition. Both characters are converted to their corresponding `int` values (based on the ASCII or Unicode table), and the addition is performed. For example, `'a' + 'b'` results in `195` because the ASCII value of `'a'` is `97` and `'b'` is `98`.
-Note that the `+` operator result is an `int` value, not a `char` value and can not be assigned to a `char` variable. 
+Note that the `+` operator result is an `int` value, not a `char` value and can not be assigned to a `char` variable.
 
 ```java {cmd}
 public class Main {
