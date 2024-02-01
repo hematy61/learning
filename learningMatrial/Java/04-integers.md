@@ -224,6 +224,9 @@ public class Main {
 | `\|=`    | Bitwise OR assignment           | `c \|= a;`   |
 | `^=`     | Bitwise XOR assignment          | `c ^= a;`    |
 
+!!! Note Implicit Type Casting in Assignment Operators
+    The `+=`, `-=`, `*=`, `/=`, and `%=` operators do implicit type casting when the right-hand side operand is of a different type than the left-hand side operand. For example, if `a` is an `int` and `b` is a `double`, then `a += b;` is equivalent to `a = (type of a) (a + b);` or `a = (int) (a + b);`.
+
 ## Pitfalls
 
 When working with arithmetic operations in Java (or most programming languages), there are several "gotchas" or pitfalls that developers should be aware of:
@@ -328,6 +331,7 @@ class Main {
 ```
 
 In this example, the `double` value `doubleVal` is implicitly converted to an `int` before being added to `intVal`. This results in the fractional part being truncated, and `intVal` becomes `8` instead of `8.5`. However, if the operation was performed using the `+` operator, the compiler would have thrown an error because adding a `double` to an `int` is not allowed without an explicit cast. In fact, `intVal += doubleVal;` is equivalent to `intVal = (int) (intVal + doubleVal);` not `intVal = intVal + doubleVal;`.
+In fact `a += b` is equivalent to `a = (type of a) (a + b)`. This is why the assignment operators can lead to unexpected results if not used carefully.
 
 ```java {cmd}
 class Main {
