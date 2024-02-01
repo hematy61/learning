@@ -327,7 +327,7 @@ class Main {
 }
 ```
 
-In this example, the `double` value `doubleVal` is implicitly converted to an `int` before being added to `intVal`. This results in the fractional part being truncated, and `intVal` becomes `8` instead of `8.5`. However, if the operation was performed using the `+` operator, the compiler would have thrown an error because adding a `double` to an `int` is not allowed without an explicit cast.
+In this example, the `double` value `doubleVal` is implicitly converted to an `int` before being added to `intVal`. This results in the fractional part being truncated, and `intVal` becomes `8` instead of `8.5`. However, if the operation was performed using the `+` operator, the compiler would have thrown an error because adding a `double` to an `int` is not allowed without an explicit cast. In fact, `intVal += doubleVal;` is equivalent to `intVal = (int) (intVal + doubleVal);` not `intVal = intVal + doubleVal;`.
 
 ```java {cmd}
 class Main {
