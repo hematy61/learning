@@ -103,11 +103,11 @@ class Main {
 
 From Java 7 onwards, you can use underscores in numeric literals to make them more readable:
 
-| Data Type | Example with Underscores | Value              |
-| --------- | ------------------------ | ------------------ |
-| `short`   | `32_767`                 | 32,767             |
-| `int`     | `1_000_000`              | 1,000,000          |
-| `long`    | `1234_5678_9012_3456L`   | 1234567890123456   |
+| Data Type | Example with Underscores | Value            |
+| --------- | ------------------------ | ---------------- |
+| `short`   | `32_767`                 | 32,767           |
+| `int`     | `1_000_000`              | 1,000,000        |
+| `long`    | `1234_5678_9012_3456L`   | 1234567890123456 |
 
 The use of underscores in numeric literals in Java is purely for improving readability, and there's no strict rule on where they should be placed. You can use them wherever you think they make the number more readable, however, there are a few rules that you should be aware of.
 
@@ -141,15 +141,15 @@ Operations on integers in Java can be broadly categorized into arithmetic, bitwi
 
 ### Arithmetic Operations
 
-| Operator | Name           | Example             |
-|----------|----------------|---------------------|
-| `+`      | Addition       | `a + b`             |
-| `-`      | Subtraction    | `a - b`             |
-| `*`      | Multiplication | `a * b`             |
-| `/`      | Division       | `a / b`             |
-| `%`      | Modulo        | `a % b`             |
-| `++`     | Increment      | `a++` or `++a`      |
-| `--`     | Decrement      | `a--` or `--a`      |
+| Operator | Name           | Example        |
+| -------- | -------------- | -------------- |
+| `+`      | Addition       | `a + b`        |
+| `-`      | Subtraction    | `a - b`        |
+| `*`      | Multiplication | `a * b`        |
+| `/`      | Division       | `a / b`        |
+| `%`      | Modulo         | `a % b`        |
+| `++`     | Increment      | `a++` or `++a` |
+| `--`     | Decrement      | `a--` or `--a` |
 
 The `++` and `--` operators can be used in both postfix (e.g., `a++`) and prefix (e.g., `++a`) forms, and their behavior can differ based on their usage in expressions. The difference between these two forms lies in the order of operations when they are used within larger expressions.
 
@@ -198,31 +198,31 @@ public class Main {
 
 ### Relational Operations
 
-| Operator | Name                           | Example                          |
-| -------- | ------------------------------ | -------------------------------- |
-| `==`     | Equal to                       | `boolean isEqual = (a == b);`    |
-| `!=`     | Not equal to                   | `boolean isNotEqual = (a != b);` |
-| `>`      | Greater than                   | `boolean isGreater = (a > b);`   |
-| `<`      | Less than                      | `boolean isLess = (a < b);`      |
-| `>=`     | Greater than or equal to       | `boolean isGE = (a >= b);`       |
-| `<=`     | Less than or equal to          | `boolean isLE = (a <= b);`       |
+| Operator | Name                     | Example                          |
+| -------- | ------------------------ | -------------------------------- |
+| `==`     | Equal to                 | `boolean isEqual = (a == b);`    |
+| `!=`     | Not equal to             | `boolean isNotEqual = (a != b);` |
+| `>`      | Greater than             | `boolean isGreater = (a > b);`   |
+| `<`      | Less than                | `boolean isLess = (a < b);`      |
+| `>=`     | Greater than or equal to | `boolean isGE = (a >= b);`       |
+| `<=`     | Less than or equal to    | `boolean isLE = (a <= b);`       |
 
 ### Assignment Operations
 <!-- markdownlint-disable MD013 -->
-| Operator | Name                           | Example      |
-| -------- | ------------------------------ | ------------ |
-| `=`      | Assignment                     | `int c = a;` |
-| `+=`     | Addition assignment            | `c += a;`    |
-| `-=`     | Subtraction assignment         | `c -= a;`    |
-| `*=`     | Multiplication assignment      | `c *= a;`    |
-| `/=`     | Division assignment            | `c /= a;`    |
-| `%=`     | Modulus assignment             | `c %= a;`    |
-| `<<=`    | Left shift assignment          | `c <<= 2;`   |
-| `>>=`    | Right shift assignment         | `c >>= 2;`   |
-| `>>>=`   | Unsigned right shift assignment| `c >>>= 2;`  |
-| `&=`     | Bitwise AND assignment         | `c &= a;`    |
-| `\|=`    | Bitwise OR assignment          | `c \|= a;`   |
-| `^=`     | Bitwise XOR assignment         | `c ^= a;`    |
+| Operator | Name                            | Example      |
+| -------- | ------------------------------- | ------------ |
+| `=`      | Assignment                      | `int c = a;` |
+| `+=`     | Addition assignment             | `c += a;`    |
+| `-=`     | Subtraction assignment          | `c -= a;`    |
+| `*=`     | Multiplication assignment       | `c *= a;`    |
+| `/=`     | Division assignment             | `c /= a;`    |
+| `%=`     | Modulus assignment              | `c %= a;`    |
+| `<<=`    | Left shift assignment           | `c <<= 2;`   |
+| `>>=`    | Right shift assignment          | `c >>= 2;`   |
+| `>>>=`   | Unsigned right shift assignment | `c >>>= 2;`  |
+| `&=`     | Bitwise AND assignment          | `c &= a;`    |
+| `\|=`    | Bitwise OR assignment           | `c \|= a;`   |
+| `^=`     | Bitwise XOR assignment          | `c ^= a;`    |
 
 ## Pitfalls
 
@@ -316,13 +316,26 @@ In this example, we have a `long` value `largeLong` that is set to `2147483648L`
 
 Operators like `+=`, `-=`, `*=`, etc., modify the variable in place. It's essential to be aware that the variable's value is being changed. When using assignment operators with operands of different data types, implicit type conversion can occur, potentially leading to precision loss or unexpected results. For example:
 
-```java {cmd run_on_save}
+```java {cmd}
 class Main {
     public static void main(String[] args) {
         int intVal = 7;
         double doubleVal = 1.5;
         intVal += doubleVal;  // intVal is now 8 instead of 8.5
         System.out.println(intVal);
+    }
+}
+```
+
+In this example, the `double` value `doubleVal` is implicitly converted to an `int` before being added to `intVal`. This results in the fractional part being truncated, and `intVal` becomes `8` instead of `8.5`. However, if the operation was performed using the `+` operator, the compiler would have thrown an error because adding a `double` to an `int` is not allowed without an explicit cast.
+
+```java {cmd}
+class Main {
+    public static void main(String[] args) {
+        int intVal = 7;
+        double doubleVal = 1.5;
+        intVal = intVal + doubleVal;  // This will cause a compilation error
+        // Type mismatch: cannot convert from double to int
     }
 }
 ```
