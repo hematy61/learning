@@ -46,16 +46,14 @@ sdk list java
 
 you will see a list of all available versions of Java, provided by different vendors, such as Oracle, AdoptOpenJDK, Amazon, etc.
 
-vendor | version | dist | status | identifier
---- | --- | --- | --- | ---
-| vendor   | version       | dist | status | identifier       |
-|----------|---------------|------|--------|------------------|
-| Corretto | 21.0.1        | amzn |        | 21.0.1-amzn      |
-| Corretto | 17.0.9        | amzn |        | 17.0.9-amzn      |
-| Corretto | 11.0.21       | amzn |        | 11.0.21-amzn     |
-| Corretto | 8.0.392       | amzn |        | 8.0.392-amzn     |
-| Gluon    | 22.1.0.1.r17  | gln  |        | 22.1.0.1.r17-gln |
-| Gluon    | 22.1.0.1.r11  | gln  |        | 22.1.0.1.r11-gln |
+| vendor     | version         | dist   | status   | identifier         |
+| ---------- | --------------- | ------ | -------- | ------------------ |
+| Corretto   | 21.0.1          | amzn   |          | 21.0.1-amzn        |
+| Corretto   | 17.0.9          | amzn   |          | 17.0.9-amzn        |
+| Corretto   | 11.0.21         | amzn   |          | 11.0.21-amzn       |
+| Corretto   | 8.0.392         | amzn   |          | 8.0.392-amzn       |
+| Gluon      | 22.1.0.1.r17    | gln    |          | 22.1.0.1.r17-gln   |
+| Gluon      | 22.1.0.1.r11    | gln    |          | 22.1.0.1.r11-gln   |
 
 #### Installing a Candidate
 
