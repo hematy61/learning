@@ -1,6 +1,6 @@
 # Comments
 
-In Java, comments are non-executable statements that provide explanations or annotations in the source code. They are crucial for making the code more understandable and maintainable. Java supports three main types of comments: 
+In Java, comments are non-executable statements that provide explanations or annotations in the source code. They are crucial for making the code more understandable and maintainable. Java supports three main types of comments:
 
 - single-line comments
 - multi-line comments
