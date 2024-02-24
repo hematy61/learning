@@ -41,6 +41,11 @@ switch (expression) {
 for (initialization; condition; iteration) {
     // code block to be executed
 }
+
+// Example
+for (int i = 0; i < 5; i++) {
+    System.out.println(i);
+}
 ```
 
 - **`while` loop**: Executes a block of code as long as its condition remains true. The condition is evaluated before entering the loop.
@@ -48,6 +53,13 @@ for (initialization; condition; iteration) {
 ```java
 while (condition) {
     // code block to be executed
+}
+
+// Example
+int i = 0;
+while (i < 5) {
+    System.out.println(i);
+    i++;
 }
 ```
 
@@ -57,15 +69,50 @@ while (condition) {
 do {
     // code block to be executed
 } while (condition);
+
+// Example
+int i = 0;
+do {
+    System.out.println(i);
+    i++;
+} while (i < 5);
 ```
 
 ## 3. Branch Statements
 
 - **`break`**: Terminates the loop or `switch` statement and transfers execution to the statement immediately following the loop or switch.
 
+```java
+for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        break;
+    }
+    System.out.println(i);
+}
+```
+
 - **`continue`**: Causes the loop to immediately jump to the next iteration, skipping any code between it and the end of the loop's body for the current iteration.
 
+```java
+for (int i = 0; i < 10; i++) {
+    if (i == 5) {
+        continue;
+    }
+    System.out.println(i);
+}
+```
+
 - **`return`**: Exits from the current method and optionally returns a value to the method caller.
+
+```java
+int findMax(int a, int b) {
+    if (a > b) {
+        return a;
+    } else {
+        return b;
+    }
+}
+```
 
 ## Best Practices and Considerations
 
@@ -148,7 +195,7 @@ if (userInput == null) {
 }
 ```
 
-Or by using early returns or consolidating conditions, we can make the code more readable:
+Or by using **Early Return** pattern or consolidating conditions, we can make the code more readable:
 
 ```java
 public static void validateInput(String userInput) {
