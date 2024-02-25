@@ -68,6 +68,15 @@ public class Main {
 | `>=`     | Greater than or equal to | `boolean isGE = (a >= b);`       |
 | `<=`     | Less than or equal to    | `boolean isLE = (a <= b);`       |
 
+Using `==` to compare objects checks for reference equality, not content equality. To compare the content of objects, such as strings, use the `.equals()` method.
+
+```java
+String a = new String("example");
+String b = new String("example");
+boolean isSameContent = a.equals(b); // true, compares content
+boolean isSameObject = (a == b); // false, because they are different objects in memory
+```
+
 ## Assignment Operations
 <!-- markdownlint-disable MD013 -->
 | Operator | Name                            | Example      |
