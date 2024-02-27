@@ -12,4 +12,6 @@
 
 - Gossip
   Nodes communicate with one another through a protocol called **gossip**, which is a process of computer peer-to-peer communication.
-  
+
+- Distributed Architecture
+    A distributed architecture means that Apache Cassandra can and does typically run on multiple servers while appearing to users as a unified whole. This is in contrast to a centralized architecture, where all the components of a system are located on a single server, for example, a single database server.
