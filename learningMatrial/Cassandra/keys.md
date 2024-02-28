@@ -70,11 +70,8 @@ graph TB
     class A1,B1,C1 partition;
 ```
 
-### Explanation
-
-- Each user (`User ID 1`, `User ID 2`, etc.) is assigned to a node based on the hash of their `user_id` (the partition key). This ensures data is evenly distributed across the cluster.
-- For example, `User ID 1` and `User ID 4` hash to partitions that reside on `Node A`, while `User ID 2` and `User ID 3` hash to partitions on `Node B` and `Node C`, respectively.
-- This setup demonstrates how Cassandra utilizes the partition key to distribute data across a cluster, ensuring scalability and fault tolerance.
+**Explanation**
+Each user (`User ID 1`, `User ID 2`, etc.) is assigned to a node based on the hash of their `user_id` (the partition key). This ensures data is evenly distributed across the cluster. For example, `User ID 1` and `User ID 4` hash to partitions that reside on `Node A`, while `User ID 2` and `User ID 3` hash to partitions on `Node B` and `Node C`, respectively. This setup demonstrates how Cassandra utilizes the partition key to distribute data across a cluster, ensuring scalability and fault tolerance.
 
 ## Composite Partition Key
 
