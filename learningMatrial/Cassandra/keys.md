@@ -77,20 +77,36 @@ Each user (`User ID 1`, `User ID 2`, etc.) is assigned to a node based on the ha
 
 When a primary key consists of more than one column as the partition key, it's called a composite partition key. This approach is used to distribute data more granularly across the cluster.
 
-- **Syntax**: Composite partition keys are defined by grouping columns within parentheses. For example: `PRIMARY KEY ((partition_column_1, partition_column_2), clustering_column_1)`.
+**Syntax**: Composite partition keys are defined by grouping columns within parentheses. For example:
+
+```sql
+PRIMARY KEY ((partition_column_1, partition_column_2), clustering_column_1)
+```
 
 ## Secondary Index
 
 A secondary index allows querying data on non-primary key columns. It provides a way to access data without knowing the partition key.
 
-- **Usage**: Useful for querying based on columns that are not part of the primary key. However, secondary indexes can have performance implications and should be used judiciously.
+It is useful for querying based on columns that are not part of the primary key. However, secondary indexes can have performance implications and should be used judiciously. Suitable use case is to employ secondary indexes for columns that are frequently queried but do not qualify as primary key components. They are most effective for columns with high cardinality (i.e., columns with a large number of unique values).
 
-## Materialized Views
+**Why cardinality is important in secondary indexes?**
+Imagine a database storing information about books in a `Books` table. Each book has a unique `book_id` (primary key), `title`, `author`, and `genre`.
 
-Materialized views are not keys but are related to how data can be accessed. They automatically maintain a data view based on a primary key different from the base table, offering an alternative access path to the data.
+- **Primary Key**: `book_id`
+- **High Cardinality Column**: `author` (assuming many books, each potentially by a different author)
 
-- **Automatic Update**: Materialized views stay in sync with the base table, updating as data changes.
-- **Use Case**: Ideal for scenarios where you need to query the same data in different ways, based on different keys.
+In this scenario, you might want to query books by an author, a column not part of the primary key. Since `author` has high cardinality (many unique authors), creating a secondary index on this column can be effective.
+
+High cardinality means that the indexed column has a wide range of unique values, making the index more effective in narrowing down search results quickly. If the column had low cardinality (e.g., `genre` with a few possible values like "Fiction", "Non-Fiction"), an index might not be as efficient because queries would still return a large portion of the table.
+
+### Performance Implications
+
+While secondary indexes on high cardinality columns can improve query flexibility, they have implications such as:
+
+**Write Overhead:** Every time a new book is added or an existing book's author is updated, the secondary index must also be updated. This can slow down write operations.
+**Read Performance:** For a distributed database like Cassandra, querying a secondary index requires a coordinated scan across multiple nodes since the index does not dictate data distribution. This can lead to higher latency compared to queries based on the primary key.
+
+
 
 ## Conclusion
 
