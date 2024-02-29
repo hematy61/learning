@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Floating Point Numbers
 
 Floating-point numbers in Java are numbers that have a decimal point or are expressed using exponential notation. Java provides two primary data types for representing floating-point numbers: `float` and `double`.
@@ -53,7 +60,7 @@ print(0.1 + 0.2)  # Outputs: 0.30000000000000004
 
 In Java:
 
-```java {cmd="java" run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         System.out.println(0.1 + 0.2);  // Outputs: 0.30000000000000004
@@ -75,7 +82,7 @@ The `BigDecimal` class in Java is designed to address the precision issues inher
 
 Using `BigDecimal`, you can perform arithmetic with decimal numbers and get exact results. Here's how you can use `BigDecimal` to solve the `0.1 + 0.2` issue:
 
-```java {cmd="java" run_on_save}
+```java
 import java.math.BigDecimal;
 
 public class Main {
@@ -114,7 +121,7 @@ The `float` data type is a single-precision 32-bit IEEE 754 floating-point. When
 
 The `double` data type is a double-precision 64-bit IEEE 754 floating-point. When defining a `double` literal, you can use the `D` or `d` suffix to specify that the number is a double.
 
-```java {cmd="java" run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         // Java by default treats any floating-point number as a double
@@ -140,7 +147,7 @@ class Main {
 
 One of the ways to create floating-point numbers in programming is to use scientific notation. Scientific notation is a compact and convenient way to represent very large or very small numbers using a combination of a base number and an exponent. In Java, for instance, you can use the letter `e` to denote scientific notation. When you use `e`, it's typically treated as a `double` unless you explicitly specify it as a `float` by appending an 'f' or 'F'. For example, if we have the number `5e1`, it is equivalent to `50.0` in decimal form and is treated as a `double` by default. If we want to declare it as a `float`, we can write it as `5e1f` or `5e1F`. Scientific notation is useful when you want to represent very large or very small numbers compactly.
 
-```java {cmd="java" run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         // 5e1 is equivalent to 50.0
@@ -199,7 +206,7 @@ class Main {
 
 **Examples**:
 
-```java {cmd="java" run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         System.out.println(1.0 / 0.0);  // Outputs: Infinity
@@ -234,7 +241,7 @@ For floating-point literals, underscores can be placed anywhere between digits, 
 
 Here are some valid examples of using underscores in floating-point literals:
 
-```java {cmd run_on_save}
+```java
 class Main{
     public static void main(String[] args) {
         float piApproximation = 3.141_592_653_589_793F;
@@ -297,11 +304,11 @@ The `Math` class in Java is primarily designed to work with `double` values. Mos
 | Logarithm   | Returns the natural logarithm (base `e`) of a number. | `Math.log(5.2)`                    |
 | Minimum     | Returns the minimum of two numbers.                   | `Math.min(5.2, 3.1)` returns `3.1` |
 | Maximum     | Returns the maximum of two numbers.                   | `Math.max(5.2, 3.1)` returns `5.2` |
-| Round     | Rounds a number to the nearest integer.      | `Math.round(5.2)` returns `5` |
-| Floor     | Rounds a number down to the nearest integer. | `Math.floor(5.8)` returns `5` |
-| Ceiling   | Rounds a number up to the nearest integer.   | `Math.ceil(5.2)` returns `6`  |
+| Round       | Rounds a number to the nearest integer.               | `Math.round(5.2)` returns `5`      |
+| Floor       | Rounds a number down to the nearest integer.          | `Math.floor(5.8)` returns `5`      |
+| Ceiling     | Rounds a number up to the nearest integer.            | `Math.ceil(5.2)` returns `6`       |
 
-```java {cmd="java" run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         System.out.println("Math.round(5.2) = " + Math.round(5.2));  // Outputs: 5
@@ -329,7 +336,7 @@ When working with floating-point numbers, there are a few pitfalls to be aware o
 
 When working with very large numbers, rounding errors can accumulate, leading to inaccurate results. Here's an example that demonstrates rounding errors when working with large numbers:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         double largeNumber = 1e18;  // 1 followed by 18 zeros
