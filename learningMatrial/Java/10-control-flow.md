@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Control Flow Statements in Java
 
 Control flow statements in Java govern the order in which operations are executed within a program. They are fundamental to adding logic to your Java applications, allowing the code to make decisions, repeat operations, and branch execution paths based on certain conditions. There are three main categories of control flow statements in Java:
