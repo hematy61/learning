@@ -1,3 +1,9 @@
+---
+export_on_save:
+    puppeteer: true # export PDF on save
+---
+
+
 # Introduction
 
 Apache Cassandra is a highly scalable, high-performance distributed database designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure. It is a type of NoSQL database.
@@ -18,7 +24,7 @@ Key features of Cassandra include:
 
 Cassandra is used by a number of organizations including Apple, Facebook, Twitter, Cisco, Rackspace, ebay, Twitter, Netflix, and more.
 
-![alt text](./assets/image.png)
+![alt text](./assets/image.png){width=50%}
 [Image Source](http://bi-insider.com/posts/apache-cassandra-nosql-database/)
 
 ## Cassandra Instance
@@ -100,3 +106,6 @@ Consider this example that a column family named `UserProfile` where each row re
 
 - **Use Cases**: They are well-suited for handling large volumes of data, time-series data, and data that doesn't fit neatly into a traditional relational model. This includes applications like real-time analytics, sensor data management, and any scenario where data access patterns are well-defined and read/write performance is critical.
 
+## CQL (Cassandra Query Language)
+
+CQL is a query language for the Apache Cassandra database that mimics SQL (Structured Query Language) in syntax. CQL provides an intuitive way to interact with Cassandra by using statements to perform database operations such as creating keyspaces, defining tables, inserting data, querying data, and modifying data. Despite its SQL-like syntax, it's important to remember that Cassandra's architecture and data model are fundamentally different from traditional relational databases.
