@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Character Type
 
 In Java, the `char` data type is used to represent a single character. Here's a detailed explanation of the `char` type:
@@ -15,7 +22,7 @@ Java uses the Unicode character set, and the `char` data type is based on the UT
 
 You can declare a `char` variable and initialize it using single quotes:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char letterA = 'A';
@@ -35,7 +42,7 @@ In general there are three to create a `char` variable:
 - Using an integer value.
 - Using an Hexadecimal value.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         // Using a literal character
@@ -66,21 +73,21 @@ public class Main {
 
 Java supports special escape sequences for certain characters:
 
-| Escape Sequence | Description           |
-|-----------------|-----------------------|
-| `\'`            | Single quote          |
-| `\"`            | Double quote          |
-| `\\`            | Backslash             |
-| `\n`            | Newline               |
-| `\t`            | Tab                   |
-| `\r`            | Carriage return       |
-| `\b`            | Backspace             |
-| `\f`            | Form feed             |
-| `\uXXXX`        | Unicode character     |
+| Escape Sequence | Description       |
+| --------------- | ----------------- |
+| `\'`            | Single quote      |
+| `\"`            | Double quote      |
+| `\\`            | Backslash         |
+| `\n`            | Newline           |
+| `\t`            | Tab               |
+| `\r`            | Carriage return   |
+| `\b`            | Backspace         |
+| `\f`            | Form feed         |
+| `\uXXXX`        | Unicode character |
 
 carriage return means to return the cursor to the beginning of the line. This is useful when you want to overwrite the current line of text. For example:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         String lineWithCarriageReturn = "First Line\rSecond Line";
@@ -91,7 +98,7 @@ public class Main {
 
 The `\b` escape sequence is used to move the cursor one character back. Note that the `\b` escape sequence only moves the cursor back and does not delete the character. If you want to delete the character, you can use the `\b` escape sequence along with the space character. For example:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         String lineWithBackspace = "Hello World!!!\b\b\b   ";
@@ -103,7 +110,7 @@ public class Main {
 
 Example of `\n` and `\t` escape sequences:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char newline = '\n';
@@ -117,7 +124,7 @@ public class Main {
 
 Java provides a wrapper class `Character` for the primitive data type `char`. This class offers a number of useful class (i.e., static) methods to work with characters:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char ch = 'a';
@@ -135,7 +142,7 @@ The `Character` class in Java provides a wide range of methods to work with char
 
 Determines if the specified character is a letter.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isLetter('A');  // true
@@ -148,7 +155,7 @@ public class Main {
 
 Determines if the specified character is a digit. If you pass an integer to this method, it will be converted to a character first. For example, passing integer 9 to this method will return `false` because the integer 9 is converted to the character `\u0009` (tab character).
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isDigit('9');  // true
@@ -163,7 +170,7 @@ public class Main {
 
 Determines if the specified character is white space.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isWhitespace(' ');  // true
@@ -176,7 +183,7 @@ public class Main {
 
 Determines if the specified character is an uppercase character.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isUpperCase('A');  // true
@@ -189,7 +196,7 @@ public class Main {
 
 Determines if the specified character is a lowercase character.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isLowerCase('a');  // true
@@ -202,7 +209,7 @@ public class Main {
 
 Converts the character argument to uppercase.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         char result = Character.toUpperCase('a');  // 'A'
@@ -215,7 +222,7 @@ public class Main {
 
 Converts the character argument to lowercase.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         char result = Character.toLowerCase('A');  // 'a'
@@ -228,7 +235,7 @@ public class Main {
 
 Returns a `String` object representing the specified character value.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         String result = Character.toString('A');  // "A"
@@ -250,7 +257,7 @@ Here's how it works:
     The `getNumericValue()` method returns the numeric value of the character, not the character itself. For example, the numeric value of the character `9` is `9`, not `57` (the Unicode value of `9`).
     Also, it return the same value for multiple characters. For example, the numeric value of `A`, `a`, and 10 are all `10`.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         int result = Character.getNumericValue('9');  // 9
@@ -267,7 +274,7 @@ public class Main {
 
 Determines if the specified character (Unicode code point) is alphabetic. `isAlphabetic` not only recognizes letters from the English alphabet but also letters from other languages due to the Unicode support. For example, it returns `true` for the character `ñ`, which is a letter in the Spanish alphabet or the character `Ω`, which is a letter in the Greek alphabet.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isAlphabetic('A');  // true
@@ -283,7 +290,7 @@ public class Main {
 
 Determines if the specified character is a letter or digit. It will return true for characters that are either alphabetic letters (including those beyond A-Z, like accented characters) or numeric digits. Therefore, it return `true` for non-English letters like `ñ` or `Ω`.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isLetterOrDigit('A');  // true
@@ -303,7 +310,7 @@ Returns the numeric value of the character `ch` in the specified radix. The nume
 !!! note
     Radix is the base of the number system. For example, the decimal number system has a radix of 10, while the hexadecimal number system has a radix of 16.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         int result = Character.digit('A', 16);  // 10 (for hexadecimal)
@@ -318,7 +325,7 @@ public class Main {
 
 Determines the character representation for a specific digit in the specified radix.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         char result = Character.forDigit(10, 16);  // 'A' (for hexadecimal)
@@ -331,7 +338,7 @@ public class Main {
 
 Determines if the character is an ignorable character in a Java identifier or a Unicode identifier.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isIdentifierIgnorable(' ');  // false
@@ -344,7 +351,7 @@ public class Main {
 
 Determines if the character may be part of a Java identifier as other than the first character.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isJavaIdentifierPart('A');  // true
@@ -357,7 +364,7 @@ public class Main {
 
 Determines if the character is a valid initial character for a Java identifier.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isJavaIdentifierStart('A');  // true
@@ -370,7 +377,7 @@ public class Main {
 
 Determines if the character may be part of a Unicode identifier as other than the first character.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isUnicodeIdentifierPart('A');  // true
@@ -383,7 +390,7 @@ public class Main {
 
 Determines if the character is a valid initial character for a Unicode identifier.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         boolean result = Character.isUnicodeIdentifierStart('A');  // true
@@ -396,7 +403,7 @@ public class Main {
 
 Determines the number of `char` values needed to represent the specified character (Unicode code point).
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         int result = Character.charCount(0x10400);  // 2
@@ -409,7 +416,7 @@ public class Main {
 
 Returns the character (Unicode code point) at the specified index of the `CharSequence`.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args){
         int result = Character.codePointAt("Hello", 1); 
@@ -443,7 +450,7 @@ When the `+` operator is used with a `char` type in Java, it can have different 
 If a `char` is added to another `char`, or to a numeric type (`byte`, `short`, `int`, `long`, `float`, `double`), the `+` operator performs an arithmetic addition. Both characters are converted to their corresponding `int` values (based on the ASCII or Unicode table), and the addition is performed. For example, `'a' + 'b'` results in `195` because the ASCII value of `'a'` is `97` and `'b'` is `98`.
 Note that the `+` operator result is an `int` value, not a `char` value and can not be assigned to a `char` variable.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char ch1 = 'a';
@@ -463,7 +470,7 @@ public class Main {
 
 If a `char` is used with the `+` operator and one of the operands is a `String`, then the operation is string concatenation. The `char` is converted to a `String`, and the two strings are concatenated. For example, `'a' + "bc"` results in the string `"abc"`.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char ch = 'a';
@@ -476,7 +483,7 @@ public class Main {
 
 However, be careful with operations like this one:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char a = 'a';
