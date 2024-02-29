@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Overflow and Underflow
 
 In Java, as in many programming languages, overflow and underflow refer to a situation where a value exceeds the range of its data type. This can lead to unexpected results or errors. Let's delve into each concept:
@@ -8,7 +15,7 @@ Overflow occurs when a value exceeds the maximum limit of its data type. For ins
 
 **Example:**
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int maxValue = Integer.MAX_VALUE;
@@ -28,7 +35,7 @@ Underflow typically refers to a situation in floating-point calculations where a
 
 **Example:**
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int minValue = Integer.MIN_VALUE;
@@ -44,7 +51,7 @@ In the above example, subtracting 1 from the minimum `int` value results in the 
 
 **Floating-Point Underflow**:
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         double verySmallValue = 1.0e-320;
@@ -70,7 +77,7 @@ To handle these situations, developers should be aware of the limits of data typ
 
 When performing arithmetic operations, Java's default behavior for integer types (`byte`, `short`, `int`, `long`) is to allow silent overflow and underflow. The result simply wraps around within the range of the data type. For floating-point types (`float`, `double`), values can move towards positive or negative infinity or zero.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         // This will cause a compile-time error
@@ -87,7 +94,7 @@ public class Main {
 
 If you try to directly assign a value to a variable that's outside the allowable range for its data type, the Java compiler will throw a compile-time error.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         // This will cause a compile-time error
@@ -117,7 +124,7 @@ Java provides methods in the `Math` class to perform exact arithmetic operations
 - `Math.decrementExact()`
 - `Math.negateExact()`
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         try {
@@ -135,7 +142,7 @@ For operations not covered by the `Math` class or for more customized checks, yo
 
 For example, when adding two positive integers if the result is negative, there's an overflow.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int a = Integer.MAX_VALUE;  // Maximum possible int value
@@ -154,7 +161,7 @@ public class Main {
   
 For subtracting, if you subtract a negative number from a positive number and get a negative result, there's an overflow.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int a = Integer.MAX_VALUE;  // Maximum possible int value
@@ -175,7 +182,7 @@ public class Main {
 
 For critical calculations where you want to avoid overflow and underflow altogether, consider using `BigInteger` for integer operations and `BigDecimal` for floating-point operations. These classes can represent arbitrarily large (or small) numbers.
 
-```java {cmd}
+```java
 import java.math.BigInteger;
 
 public class Main {
@@ -195,7 +202,7 @@ For floating-point numbers, you can check for special values that indicate overf
 
 - `Double.POSITIVE_INFINITY` or `Float.POSITIVE_INFINITY`: Indicates overflow.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         double largeValue = Double.MAX_VALUE;
@@ -214,7 +221,7 @@ public class Main {
 
 - `Double.NEGATIVE_INFINITY` or `Float.NEGATIVE_INFINITY`: Can also indicate overflow in the negative direction.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         double largeValue = Double.MAX_VALUE;
@@ -233,7 +240,7 @@ public class Main {
 
 - `Double.isInfinite(value)`: Checks if a value is either positive or negative infinity.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         double value = Double.MAX_VALUE * 2;
