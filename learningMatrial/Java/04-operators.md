@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Java Operators
 
 ## Arithmetic Operations
@@ -18,7 +25,7 @@ The `++` and `--` operators can be used in both postfix (e.g., `a++`) and prefix
 
 In the prefix form, the variable is incremented or decremented **before** its value is used in the expression.
 
-```java {cmd run_on_save}
+```java
 public class Main {
     public static void main(String[] args) {
         int a = 5;
@@ -33,7 +40,7 @@ public class Main {
 
 In the postfix form, the variable's current value is used in the expression **before** it is incremented or decremented.
 
-```java {cmd run_on_save}
+```java
 public class Main {
     public static void main(String[] args) {
         int a = 5;
