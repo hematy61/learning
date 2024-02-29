@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Keys
 
 In Apache Cassandra and similar wide column stores, keys play a crucial role in data modeling, data distribution, and access patterns. Understanding the different types of keys is essential for designing efficient and scalable Cassandra schemas. Here's an overview of the key types.
@@ -105,8 +112,6 @@ While secondary indexes on high cardinality columns can improve query flexibilit
 
 **Write Overhead:** Every time a new book is added or an existing book's author is updated, the secondary index must also be updated. This can slow down write operations.
 **Read Performance:** For a distributed database like Cassandra, querying a secondary index requires a coordinated scan across multiple nodes since the index does not dictate data distribution. This can lead to higher latency compared to queries based on the primary key.
-
-
 
 ## Conclusion
 
