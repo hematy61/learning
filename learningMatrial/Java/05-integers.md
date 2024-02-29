@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Integers
 
 Integers are represented using several primitive data types and a few classes that provide more functionality. Let's delve into the details:
@@ -24,7 +31,7 @@ Java provides four integer primitive data types:
   - Range: -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
   - When assigning a value to a `long` variable, you can use the `L` suffix, for example:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         // byte 
@@ -53,7 +60,7 @@ The `L` suffix is not always required when assigning a value to a `long` variabl
 
 By default, any whole number without a decimal point is treated as an `int` in Java. If the number is within the range of `int` (-2,147,483,648 to 2,147,483,647), you can assign it to a `long` variable without the `L` suffix:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         long smallValue = 100;  // This is fine because 100 is within the range of int
@@ -64,7 +71,7 @@ class Main {
 
 However, if the number exceeds the range of `int`, you must use the `L` suffix:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         long largeValue = 2147483648L;  // Using L because the value exceeds int range
@@ -88,7 +95,7 @@ In Java, you can represent integer literals in different bases:
 
 For `byte`, `short`, and `long`, the representation is the same, but you need to ensure the value fits within the range of the type. For long literals, you can also append an `L` at the end, regardless of the base.
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
 
@@ -151,7 +158,7 @@ Dividing an integer by zero will throw an `ArithmeticException`. Remember that i
 
 When dividing two integers, the result is also an integer. This means that any fractional part is discarded, leading to a loss of precision. For example, `5 / 2` will result in `2`, not `2.5`.
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         int a = 5;
@@ -175,7 +182,7 @@ This means, for example, when you add a char and a short together, such as `a + 
 **Loss of Precision:**
 When a smaller data type is implicitly converted to a larger data type, especially from an integer to a floating-point, there might be a loss of precision. For example:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         int intVal = 7;
@@ -188,7 +195,7 @@ class Main {
 
 And here is another example:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         int largeInt = 1234567890;
@@ -209,7 +216,7 @@ In the next assignment, the `floatVal` is explicitly cast back to an integer and
 
 If a larger value is converted to a smaller data type, it can cause overflow. For example:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         long largeLong = 2147483648L;  // This value is 1 more than Integer.MAX_VALUE
@@ -227,7 +234,7 @@ In this example, we have a `long` value `largeLong` that is set to `2147483648L`
 
 Operators like `+=`, `-=`, `*=`, etc., modify the variable in place. It's essential to be aware that the variable's value is being changed. When using assignment operators with operands of different data types, implicit type conversion can occur, potentially leading to precision loss or unexpected results. For example:
 
-```java {cmd}
+```java
 class Main {
     public static void main(String[] args) {
         int intVal = 7;
@@ -241,7 +248,7 @@ class Main {
 In this example, the `double` value `doubleVal` is implicitly converted to an `int` before being added to `intVal`. This results in the fractional part being truncated, and `intVal` becomes `8` instead of `8.5`. However, if the operation was performed using the `+` operator, the compiler would have thrown an error because adding a `double` to an `int` is not allowed without an explicit cast. In fact, `intVal += doubleVal;` is equivalent to `intVal = (int) (intVal + doubleVal);` not `intVal = intVal + doubleVal;`.
 In fact `a += b` is equivalent to `a = (type of a) (a + b)`. This is why the assignment operators can lead to unexpected results if not used carefully.
 
-```java {cmd}
+```java
 class Main {
     public static void main(String[] args) {
         int intVal = 7;
@@ -256,7 +263,7 @@ class Main {
 
 The prefix (`++a`) and postfix (`a++`) forms of the increment and decrement operators can lead to confusion, especially when used in expressions. The prefix form modifies the variable before its current value is used in the expression, while the postfix form modifies it after. Here's an example that demonstrates the difference between prefix and postfix forms of the increment and decrement operators:
 
-```java {cmd run_on_save}
+```java
 class Main {
     public static void main(String[] args) {
         int a = 5;
