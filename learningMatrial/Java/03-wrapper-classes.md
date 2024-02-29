@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Wrapper Classes
 
 In Java, wrapper classes are part of the Java Standard Library and provide a mechanism to "wrap" primitive data types in an object so that they can be used in situations where only objects are usable. Wrapper classes convert primitive data types (like `int`, `char`, `double`) into their corresponding object representations.
@@ -15,7 +22,7 @@ In Java, wrapper classes are part of the Java Standard Library and provide a mec
 
 **Example 1:**
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int num = 100;
@@ -52,7 +59,7 @@ public class Main {
 
 Wrapper classes provide utility methods to convert strings into numbers.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         String numberStr = "12345";
@@ -66,7 +73,7 @@ public class Main {
 }
 ```
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int primitiveInt = 42;
@@ -93,7 +100,7 @@ public class Main {
 
 The `Character` wrapper class provides methods to check properties of characters.
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         char ch = '7';
@@ -128,7 +135,7 @@ public class Main {
 
 ## A Naive Example of Finding the type of a variable
 
-```java {cmd}
+```java
 public class Main {
     public static void main(String[] args) {
         int primitiveInt = 42;
