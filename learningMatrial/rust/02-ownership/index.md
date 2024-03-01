@@ -1,3 +1,9 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
 
 [Main Table of Content](./../index.md)
 
