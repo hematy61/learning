@@ -111,3 +111,7 @@ Consider this example that a column family named `UserProfile` where each row re
 ## CQL (Cassandra Query Language)
 
 CQL is a query language for the Apache Cassandra database that mimics SQL (Structured Query Language) in syntax. CQL provides an intuitive way to interact with Cassandra by using statements to perform database operations such as creating keyspaces, defining tables, inserting data, querying data, and modifying data. Despite its SQL-like syntax, it's important to remember that Cassandra's architecture and data model are fundamentally different from traditional relational databases.
+
+## Replicas and Replication in Cassandra
+
+In the context of Apache Cassandra and other distributed databases, replicas refer to copies of data stored on different nodes within the cluster to ensure high availability, fault tolerance, and data durability. Replication is a fundamental aspect of distributed databases, enabling them to provide continuous access to data even in the event of node failures or network partitions. Here's a detailed look at how replicas work in Cassandra:
