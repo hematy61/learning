@@ -1,3 +1,10 @@
+---
+puppeteer:
+  printBackground: true
+export_on_save:
+    puppeteer: true
+---
+
 # Materialized Views
 
 Materialized Views in Apache Cassandra are a powerful feature that automatically maintains a view of data from a base table, but with a different primary key, potentially also filtering and transforming the data. This allows for more flexible query patterns without the need to manually manage data duplication and consistency. Materialized Views handle the synchronization between the view and the base table automatically, ensuring that changes in the base table (inserts, updates, deletes) are reflected in the Materialized View.
