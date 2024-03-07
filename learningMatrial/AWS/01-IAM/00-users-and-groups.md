@@ -50,3 +50,43 @@ In AWS, you apply the principle of least privilege by granting only the permissi
 
 !!! note
     The **principle of least privilege** is a security concept that refers to giving a user account or process only those privileges which are essential to perform its intended function. In other words, a user or application should have the minimum levels of access—or permissions—needed to perform their tasks. This helps reduce the attack surface by limiting access rights for users, accounts, and computing processes to only those resources absolutely required to carry out legitimate activities. If a system is compromised, the principle of least privilege can help contain the potential damage by limiting the capabilities that an attacker would have at their disposal.
+
+### Policy Structure
+
+A policy consists of the following elements:
+
+- **Version**: The version of the policy language that the policy uses. The current version is 2012-10-17.
+- **Statement**: The statement is the main part of the policy. It consists of an array of individual statements, each of which includes the following elements:
+  - **Effect**: Whether the statement allows or denies access. The value must be `Allow` or `Deny` and is case sensitive.
+  - **Action**: The specific action or actions that the policy allows or denies. For example, `s3:ListBucket` or `s3:*`. Statements must include either an Action or NotAction element.
+  - **Resource**: The resource to which the statement applies. For example, an Amazon S3 bucket or an IAM user. Statements must include either a Resource or a NotResource element.
+  - **Condition**: The conditions under which the policy grants permission. For example, to grant permission only if a request is made over SSL.
+  - **Principal**: The entity that the policy is applied to. For example, an IAM user, an AWS account, or all principals in an account.
+  - **Sid**: A statement ID that you can use to refer to the statement in other parts of the policy.
+
+Example Policy:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "Stmt1234567890",
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::123456789012:user/ExampleUser"
+      },
+      "Action": "s3:GetObject",
+      "Resource": "arn:aws:s3:::example-bucket/*",
+      "Condition": {
+        "StringEquals": {
+          "s3:prefix": "home/"
+        },
+        "IpAddress": {
+          "aws:SourceIp": "192.0.2.0/24"
+        }
+      }
+    }
+  ]
+}
+```
