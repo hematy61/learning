@@ -22,7 +22,7 @@ Some examples of regions are:
 
 An Availability Zone (AZ) is a separate location within an AWS Region that is designed to be insulated from failures in other AZs. It provides redundant power, networking, and connectivity to help ensure that services remain highly available. Each Region consists of multiple Availability Zones, which are essentially separate data centers that provide you with the ability to operate production applications and databases that are more highly available, fault tolerant, and scalable than would be possible from a single data center.
 
-![region and availability zones](./assets/region%20and%20availability%20zones.png)
+![region and availability zones](./000-assets/region%20and%20availability%20zones.png)
 
 ## How to choose a region?
 
